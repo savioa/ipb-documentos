@@ -123,7 +123,7 @@ Art. 22. Enquanto não se tornar efetiva a transferência, continuará o crente 
 
 § 1º. Se a autoridade eclesiástica tiver motivo para recusar-se a admitir qualquer pessoa, deverá devolver a carta da transferência a quem a expediu, acompanhada das razões por que assim procede.
 
-§ 2º. O crente que não for normalmente transferido para a igreja da localidade em que reside há mais de um ano, deve ser, via de regra, arrolado nesta por jurisdição ex officio; todavia, a jurisdição será assumida em qualquer tempo, desde que o referido crente deva ser disciplinado.
+§ 2º. O crente que não for normalmente transferido para a igreja da localidade em que reside há mais de um ano, deve ser, via de regra, arrolado nesta por jurisdição *ex officio*; todavia, a jurisdição será assumida em qualquer tempo, desde que o referido crente deva ser disciplinado.
 
 § 3º. Efetuada a transferência, será o fato comunicado à igreja ou congregação de origem.
 
@@ -344,7 +344,7 @@ Art. 65. Se qualquer membro de um concílio discordar de resolução deste, sem 
 
 Art. 66. Os membros dos concílios são: 
 1. efetivos - os ministros e presbíteros que constituem o concílio, bem como o Presidente da legislatura anterior;
-2. ex officio - os ministros e presbíteros em comissões ou encargos determinados por seu concílio e os presidentes dos concílios superiores, os quais gozarão de todos os direitos, menos o de votar;
+2. *ex officio* - os ministros e presbíteros em comissões ou encargos determinados por seu concílio e os presidentes dos concílios superiores, os quais gozarão de todos os direitos, menos o de votar;
 3. correspondentes - ministros da Igreja Presbiteriana do Brasil, que, embora não efetivos, estejam presentes, podendo fazer uso da palavra;
 4. visitantes - ministros de quaisquer comunidades evangélicas, que serão convidados a tomar assento, sem direito a deliberar.
 
