@@ -151,3 +151,162 @@ Art. 24. A demissão de membros não comungantes dar-se-á por:
 4. profissão de fé;
 5. solicitação dos pais ou responsáveis que tiverem aderido à outra comunidade religiosa, a juízo do Conselho;
 6. falecimento.
+
+## CAPÍTULO IV - Oficiais
+
+### Seção 1ª - Classificação
+
+Art. 25. A igreja exerce as suas funções na esfera da doutrina, governo e beneficência, mediante oficiais que se classificam em:
+1. ministros do Evangelho ou presbíteros docentes;
+2. presbíteros regentes;
+3. diáconos.
+
+§ 1º. Estes ofícios são perpétuos, mas o seu exercício é temporário.
+
+§ 2º. Para o oficialato só poderão ser votados homens maiores de dezoito anos e civilmente capazes.
+
+Art. 26. Os ministros e os presbíteros são oficiais de concílios da Igreja Presbiteriana do Brasil; os diáconos, da igreja a que pertencem.
+
+Art. 27. O ministro é membro *ex officio* do Presbitério, e do Conselho, quando pastor da igreja; do Sínodo e do Supremo Concílio, quando eleito representante; o presbítero é membro *ex officio* do Conselho e dos concílios superiores, quando eleito para tal fim.
+
+§ 1º. Ministros e presbíteros, embora não sendo membros de um concílio, poderão ser incluídos nas comissões de que trata o art. 99, itens 2 e 3, desde que jurisdicionados por aquele concílio.
+
+§ 2º. Para atender às leis civis, o ministro será considerado membro da igreja de que for pastor, continuando, porém, sob a jurisdição do Presbitério.
+
+Art. 28. A admissão a qualquer ofício depende:
+1. da vocação do Espírito Santo, reconhecida pela aprovação do povo de Deus;
+2. da ordenação e investidura solenes, conforme a liturgia.
+
+Art. 29. Nenhum oficial pode exercer simultaneamente dois ofícios, nem pode ser constrangido a aceitar cargo ou ofício contra a sua vontade.
+
+### Seção 2ª - Ministros do Evangelho
+
+Art. 30. O Ministro do Evangelho é o oficial consagrado pela igreja, representada no Presbitério, para dedicar-se especialmente à pregação da Palavra de Deus, administrar os sacramentos, edificar os crentes e participar, com os presbíteros regentes, do governo e disciplina da comunidade.Parágrafo único. Os títulos que a Sagrada Escritura dá ao ministro, de Bispo, Pastor, Ministro, Presbítero ou Ancião, Anjo da Igreja, Embaixador, Evangelista, Pregador, Doutor e Despenseiro dos Mistérios de Deus, indicam funções diversas e não graus diferentes de dignidade no ofício.
+
+Art. 31. São funções privativas do ministro:
+1. administrar os sacramentos;
+2. invocar a bênção apostólica sobre o povo de Deus;
+3. celebrar o casamento religioso com efeito civil;
+4. orientar e supervisionar a liturgia na igreja de que é pastor.
+
+Art. 32. O ministro, cujo cargo e exercício são os primeiros na igreja, deve conhecer a Bíblia e sua teologia; ter cultura geral; ser apto para ensinar e são na fé; irrepreensível na vida; eficiente e zeloso no cumprimento dos seus deveres; ter vida piedosa e gozar de bom conceito, dentro e fora da igreja.
+
+Art. 33. O ministro poderá ser designado Pastor Efetivo, Pastor Auxiliar, Pastor Evangelista e Missionário.
+
+§ 1º. É Pastor Efetivo o ministro eleito e instalado numa ou mais igrejas, por tempo determinado e também o ministro designado pelo Presbitério, por prazo definido, para uma ou mais igrejas, quando estas, sem designação de pessoa, o pedirem ao concílio.
+
+§ 2º. É Pastor Auxiliar o ministro que trabalha sob a direção do pastor, sem jurisdição sobre a igreja, com voto, porém no Conselho, onde tem assento *ex officio*, podendo, eventualmente, assumir o pastorado da igreja, quando convidado pelo pastor ou, na sua ausência, pelo Conselho.
+
+§ 3º. É Pastor Evangelista o designado pelo Presbitério para assumir a direção de uma ou mais igrejas ou de trabalho incipiente.
+
+§ 4º. É Missionário o ministro chamado para evangelizar no estrangeiro ou em lugares longínquos na Pátria.
+
+Art. 34. A designação de pastores obedecerá ao que abaixo se preceitua:
+1. o Pastor Efetivo será eleito por uma ou mais igrejas, pelo prazo máximo de cinco anos, podendo ser reeleito, competindo ao Presbitério julgar das eleições e dar posse ao eleito;
+2. o Pastor Efetivo, designado pelo Presbitério nas condições do artigo anterior, § 1º *in fine*, tomará posse perante o Presbitério e assumirá o exercício na primeira reunião do Conselho;
+3. o Pastor Auxiliar será designado pelo Conselho por um ano, mediante prévia indicação do pastor e aprovação do Presbitério, sendo empossado pelo pastor, perante o Conselho;
+4. o Pastor Evangelista será designado pelo Presbitério diante do qual tomará posse e assumirá o exercício perante o Conselho, quando se tratar de igreja;
+5. o Missionário, cedido pelo Presbitério à organização que superintende a obra missionária, receberá atribuição para organizar igrejas ou congregações na forma desta Constituição, dando de tudo relatório ao concílio.
+
+Art. 35. O sustento do Pastor Efetivo e do Pastor Auxiliar cabe às igrejas que fixarão os vencimentos, com aprovação do Presbitério; os pastores evangelistas serão mantidos pelos presbitérios; os missionários, pelas organizações responsáveis.
+
+Art. 36. São atribuições do ministro que pastoreia igreja:
+1. orar com o rebanho e por este;
+2. apascentá-lo na doutrina cristã;
+3. exercer as suas funções com zelo;
+4. orientar e superintender as atividades da igreja, a fim de tornar eficiente a vida espiritual do povo de Deus;
+5. prestar assistência pastoral;
+6. instruir os neófitos, dedicar atenção à infância e à mocidade, bem como aos necessitados, aflitos, enfermos e desviados;
+7. exercer, juntamente com os outros presbíteros, o poder coletivo de governo.
+
+Parágrafo único. Dos atos pastorais realizados, o ministro apresentará, periodicamente, relatórios ao Conselho, para registro.
+
+Art. 37. Os ministros poderão ser designados para exercer funções na imprensa, na beneficência, no ensino ou em qualquer outra obra de interesse eclesiástico. Em qualquer destes cargos terão a superintendência espiritual dos que lhes forem confiados.
+
+Art. 38. A atividade do ministro deve ser superintendida pelo Presbitério, ao qual, anualmente, prestará relatório dos seus atos.
+
+Art. 39. Para ausentar-se do seu campo de trabalho por prazo superior a dez dias, o pastor necessitará de licença do Conselho; por prazo inferior basta comunicar ao Vice-Presidente. O Pastor Evangelista pedirá licença à Comissão Executiva do Presbitério.
+
+Art. 40. É assegurado, anualmente, aos ministros em atividade o gozo de um mês de férias, seguida ou parceladamente, com os vencimentos.
+
+Art. 41. Conceder-se-á licença ao ministro, com vencimentos integrais, até um ano, para tratamento de saúde; além desse prazo, com possíveis reduções de vencimentos, a juízo do Presbitério, quando Pastor Evangelista; e do Conselho, quando Pastor Efetivo.
+
+Art. 42. Ao ministro poderá ser concedida licença, sem vencimentos, por um ano, para tratar de interesses particulares; essa licença poderá ser renovada por mais um ano, findo o qual, se o ministro não voltar à atividade será despojado sem censura.
+
+Art. 43. Fica a juízo dos presbitérios conceder ou não licença aos seus ministros para se ocuparem em trabalhos de assistência social ou de natureza religiosa, fora dos limites da Igreja Presbiteriana, devendo prestar relatório anual informativo aos presbitérios.
+
+Art. 44. Ao ministro que tenha servido, por longo tempo e satisfatoriamente, a uma igreja, poderá esta, pelo voto da assembleia e aprovação do Presbitério, oferecer-lhe, com ou sem vencimentos, o título de Pastor Emérito.Parágrafo único. O Pastor Emérito não tem parte na administração da igreja, embora continue a ter voto nos concílios superiores ao Conselho.
+
+Art. 45. A passagem de um ministro para outro Presbitério ou para outra comunidade evangélica, far-se-á por meio de carta de transferência com destino determinado. Enquanto não for aceito continua o ministro sob jurisdição do concílio que expediu a carta.
+
+§ 1º. A carta de transferência é válida por um ano a contar da expedição.
+
+§ 2º. Nenhum Presbitério poderá dar carta de transferência a ministro em licença para tratar de interesses particulares, sem que primeiro o ministro regularize sua situação.
+
+Art. 46. A admissão de um ministro que venha de outro Presbitério dependerá da conveniência do concílio que o admitir, podendo, ainda, este último, procurar conhecer suas opiniões teológicas.
+
+Art. 47. A admissão de um ministro de outra comunidade evangélica ao Ministério da Igreja Presbiteriana do Brasil far-se-á por meio de carta de transferência; recebida esta, o Presbitério examinará o ministro quanto aos motivos que o levaram a tal passo, quanto à vocação ministerial, opiniões teológicas, governo e disciplina da igreja, e far-lhe-á, no momento oportuno, as perguntas dirigidas aos ordenandos.
+
+Art. 48. Os ministros serão despojados do ofício por:
+1. deposição;
+2. exoneração a pedido;
+3. exoneração administrativa nos termos do art. 42, *in fine*.
+
+§ 1º. Despojado o ministro por exoneração, designará o Presbitério a igreja a que deva pertencer.
+
+§ 2º. O despojamento por exoneração a pedido só se dará pelo voto de dois terços dos membros do Presbitério.
+
+Art. 49. O ministro poderá ser jubilado por motivo de saúde, idade, tempo de trabalho ou invalidez.
+
+§ 1º. Ao atingir trinta e cinco anos de atividades efetivas, inclusive a licenciatura, o ministro terá direito à jubilação.
+
+§ 2º. Ao completar setenta anos de idade a jubilação será compulsória.
+
+§ 3º. A lei ordinária regulamentará a jubilação por motivo de saúde ou invalidez.
+
+§ 4º. A jubilação limita o exercício pastoral; não importando, porém, na perda de privilégios de ministro, a saber: pregar o Evangelho, ministrar os sacramentos, presidir Conselho quando convidado, ser eleito Secretário Executivo ou Tesoureiro de concílio, podendo, em havendo vigor, excepcionalmente, a convite de um Conselho ou a juízo de seu concílio, ser designado Pastor Efetivo não eleito, Pastor Auxiliar, Pastor Evangelista e Missionário.
+
+§ 5º. O ministro jubilado, embora membro do concílio, não tem direito a voto; tê-lo-á se eleito Secretário Executivo ou Tesoureiro.
+
+§ 6º. Cabe ao Presbitério propor a jubilação e ao Supremo Concílio efetivá-la de acordo com a lei de jubilação que estiver em vigor.
+
+### Seção 3ª - Presbíteros e Diáconos
+
+Art. 50. O Presbítero Regente é o representante imediato do povo, por este eleito e ordenado pelo Conselho, para, juntamente com o pastor, exercer o governo e a disciplina e zelar pelos interesses da igreja a que pertencer, bem como pelos de toda a comunidade, quando para isso eleito ou designado.
+
+Art. 51. Compete ao presbítero:
+1. levar ao conhecimento do Conselho as faltas que não puder corrigir por meio de admoestações particulares;
+2. auxiliar o pastor no trabalho de visitas;
+3. instruir os neófitos, consolar os aflitos e cuidar da infância e da juventude;
+4. orar com os crentes e por eles;
+5. informar o pastor dos casos de doenças e aflições;
+6. distribuir os elementos da Santa Ceia;
+7. tomar parte na ordenação de ministros e oficiais;
+8. representar o Conselho no Presbitério, este no Sínodo e no Supremo Concílio.
+
+Art. 52. O presbítero tem nos concílios da igreja autoridade igual à dos ministros.
+
+Art. 53. O diácono é o oficial eleito pela igreja e ordenado pelo Conselho, para, sob a supervisão deste, dedicar-se especialmente:
+1. à arrecadação de ofertas para fins piedosos;
+2. ao cuidado dos pobres, doentes e inválidos;
+3. à manutenção da ordem e reverência nos lugares reservados ao serviço divino;
+4. exercer a fiscalização para que haja boa ordem na Casa de Deus e suas dependências.
+
+Art. 54. O exercício do presbiterato e do diaconato limitar-se-á ao período de cinco anos, que poderá ser renovado.
+
+§ 1º. Três meses antes de terminar o mandato, o Conselho fará proceder a nova eleição.
+
+§ 2º. Findo o mandato do presbítero e não sendo reeleito, ou tendo sido exonerado a pedido, ou, ainda, por haver mudado de residência que não lhe permita exercer o cargo, ficará em disponibilidade, podendo, entretanto, quando convidado: a) distribuir os elementos da Santa Ceia;b) tomar parte na ordenação de novos oficiais.
+
+Art. 55. O presbítero e o diácono devem ser assíduos e pontuais no cumprimento de seus deveres, irrepreensíveis na moral, sãos na fé, prudentes no agir, discretos no falar e exemplos de santidade na vida.
+
+Art. 56. As funções de presbítero ou de diácono cessam quando:
+1. terminar o mandato, não sendo reeleito;
+2. mudar-se para lugar que o impossibilite de exercer o cargo;
+3. for deposto;
+4. ausentar-se sem justo motivo, durante seis meses, das reuniões do Conselho, se for presbítero e da Junta Diaconal, se for diácono;
+5. for exonerado administrativamente ou a pedido, ouvida a igreja.
+
+Art. 57. Aos presbíteros e aos diáconos que tenham servido satisfatoriamente a uma igreja por mais de vinte e cinco anos, poderá esta, pelo voto da assembleia, oferecer o título de Presbítero ou Diácono Emérito, respectivamente, sem prejuízo do exercício do seu cargo, se para ele forem reeleitos.Parágrafo único. Os presbíteros eméritos, no caso de não serem reeleitos, poderão assistir às reuniões do Conselho, sem direito a voto.
+
+Art. 58. A Junta Diaconal dirigir-se-á por um regimento aprovado pelo Conselho.
