@@ -160,13 +160,13 @@
                 <caput>
                     <texto>A admissão aos privilégios e direitos de membro comungante da igreja dar-se-á por:</texto>
                     <alineas>
-                        <alinea id="">profissão de fé dos que tiverem sido batizados na infância;</alinea>
-                        <alinea id="">profissão de fé e batismo;</alinea>
-                        <alinea id="">carta de transferência de igreja evangélica;</alinea>
-                        <alinea id="">jurisdição a pedido sobre os que vierem de outra comunidade evangélica;</alinea>
-                        <alinea id="">jurisdição ex officio sobre membros de comunidade presbiteriana, após um ano de residência nos limites da igreja;</alinea>
-                        <alinea id="">restauração dos que tiverem sido afastados ou excluídos dos privilégios e direitos da igreja;</alinea>
-                        <alinea id="">designação do Presbitério nos casos do § 1º do art. 48.</alinea>
+                        <alinea id="a">profissão de fé dos que tiverem sido batizados na infância;</alinea>
+                        <alinea id="b">profissão de fé e batismo;</alinea>
+                        <alinea id="c">carta de transferência de igreja evangélica;</alinea>
+                        <alinea id="d">jurisdição a pedido sobre os que vierem de outra comunidade evangélica;</alinea>
+                        <alinea id="e">jurisdição ex officio sobre membros de comunidade presbiteriana, após um ano de residência nos limites da igreja;</alinea>
+                        <alinea id="f">restauração dos que tiverem sido afastados ou excluídos dos privilégios e direitos da igreja;</alinea>
+                        <alinea id="g">designação do Presbitério nos casos do § 1º do art. 48.</alinea>
                     </alineas>
                 </caput>
             </artigo>
