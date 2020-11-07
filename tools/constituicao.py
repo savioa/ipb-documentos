@@ -138,7 +138,7 @@ class Paragrafo:
 
         with tag('p', id=self.gerar_id(), klass=f'{tipo} content'):
             line('strong', rotulo)
-            doc.asis(f' {Utilitario.marcar_termos_latinos(self.texto)}')
+            doc.asis(f' {Utilitario.processar_texto(self.texto)}')
 
             for alinea in self.alineas:
                 alinea.gerar_html(doc, tag)
@@ -167,7 +167,7 @@ class Alinea:
     def gerar_html(self, doc, tag):
         doc.stag('br')
         with tag('span', id=self.gerar_id()):
-            doc.asis(f'{self.id}) {Utilitario.marcar_termos_latinos(self.texto)}')
+            doc.asis(f'{self.id}) {Utilitario.processar_texto(self.texto)}')
 
     def gerar_id(self): return f'{self.pai.gerar_id()}_{self.id}'
 
@@ -180,6 +180,14 @@ class Utilitario:
 
         print(f'{CoresTerminal.ALERTA}Alerta{CoresTerminal.ENDC}')
         print(f'* Texto sem terminal: {texto}')
+
+    @staticmethod
+    def processar_texto(texto):
+        return Utilitario.marcar_referencias(Utilitario.marcar_termos_latinos(texto))
+
+    @staticmethod
+    def marcar_referencias(texto):
+        return re.sub(r'art\. (\d{1,3})(º)?', r'<a href="#a\1">art. \1\2</a>', texto)
 
     @staticmethod
     def marcar_termos_latinos(texto):
