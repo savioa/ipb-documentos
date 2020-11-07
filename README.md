@@ -2,10 +2,4 @@
 
 ## Tarefas
 
-* Identificar termos em itálico:
-  * ex officio
-  * in fine
-  * quorum
-  * ad referendum
-* Identificar referências interas
 * Realizar verificação ortográfica
