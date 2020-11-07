@@ -1,3 +1,4 @@
+from yattag.indentation import indent
 from constituicao import Constituicao
 
 import os
@@ -13,7 +14,10 @@ caminho_xml = os.path.join(os.getcwd(), 'constituicao.xml')
 
 constituicao = Constituicao(parse(caminho_xml).getroot())
 
-constituicao.imprimir()
-pass
+# constituicao.imprimir()
+html = constituicao.gerar_html()
+
+with open('constituicao.html', mode='w') as f:
+    f.write(indent(html.getvalue(), indentation='    '))
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)
