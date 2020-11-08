@@ -1,7 +1,8 @@
-from cores_terminal import CoresTerminal
-
-import roman
 import re
+import roman
+import sys
+from collections import namedtuple
+from operator import attrgetter
 from yattag import Doc
 
 
@@ -29,7 +30,9 @@ class Constituicao:
                          content='width=device-width, initial-scale=1')
                 doc.stag('link', rel='stylesheet',
                          href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css')
-                line('style', 'span.latim { font-style: italic; }')
+                with tag('style'):
+                    text('span.latim { font-style: italic; }')
+                    text('del { text-decoration: line-through }')
 
             with tag('body'):
                 with tag('section', klass='section'):
@@ -37,7 +40,7 @@ class Constituicao:
                         line('h1', titulo, klass='title is-1 has-text-centered')
 
                         for capitulo in self.capitulos:
-                            capitulo.gerar_html(doc, tag, text, line)
+                            capitulo.gerar_html(doc, tag, line)
 
         return doc
 
@@ -51,7 +54,7 @@ class Capitulo:
         for secao in xml.findall('secao'):
             self.secoes.append(Secao(self, secao))
 
-    def gerar_html(self, doc, tag, text, line):
+    def gerar_html(self, doc, tag, line):
         with tag('section', id=self.gerar_id(), klass='capitulo block'):
             if self.id != 'dg' and self.id != 'dt':
                 line('h2', f'Capítulo {roman.toRoman(int(self.id))}',
@@ -60,7 +63,7 @@ class Capitulo:
             line('h2', self.titulo, klass='title is-3 has-text-centered')
 
             for secao in self.secoes:
-                secao.gerar_html(doc, tag, text, line)
+                secao.gerar_html(doc, tag, line)
 
     def gerar_id(self): return f'c{self.id}'
 
@@ -75,7 +78,7 @@ class Secao:
         for artigo in xml.findall('artigo'):
             self.artigos.append(Artigo(artigo))
 
-    def gerar_html(self, doc, tag, text, line):
+    def gerar_html(self, doc, tag, line):
         with tag('section', id=self.gerar_id(), klass='secao block'):
             if self.titulo is None:
                 line('h2', 'Seção Única',
@@ -85,7 +88,7 @@ class Secao:
                      klass='title is-5 has-text-centered')
 
             for artigo in self.artigos:
-                artigo.gerar_html(doc, tag, text, line)
+                artigo.gerar_html(doc, tag, line)
 
     def gerar_id(self): return f'{self.pai.gerar_id()}_s{self.id}'
 
@@ -100,25 +103,40 @@ class Artigo:
         for paragrafo in xml.findall('paragrafo'):
             self.paragrafos.append(Paragrafo(self, paragrafo))
 
-    def gerar_html(self, doc, tag, text, line):
+    def gerar_html(self, doc, tag, line):
         with tag('div', id=self.gerar_id(), klass='artigo block'):
             for paragrafo in self.paragrafos:
-                paragrafo.gerar_html(doc, tag, text, line)
+                paragrafo.gerar_html(doc, tag, line)
 
     def gerar_id(self): return f'a{self.id}'
 
 
 class Paragrafo:
-    def __init__(self, pai, xml):
+    def __init__(self, pai, xml, caput=False):
         self.pai = pai
         self.alineas = []
+        self.versoes_texto = []
 
-        if not hasattr(self, 'id'):
-            self.id = int(xml.attrib['id'])
+        self.vigente = True
 
-        self.texto = xml.find('texto').text
+        self.id = 0 if caput else int(xml.attrib['id'])
 
-        Utilitario.verificar_pontuacao(self.texto)
+        for versao in xml.findall('texto'):
+            texto = versao.text
+            instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
+            ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
+
+            if any(v.ordem == ordem for v in self.versoes_texto):
+                print(f'{Utilitario.ERRO}Erro{Utilitario.ENDC}')
+                print(f'* Texto com ordem repetida: {texto}')
+                sys.exit(1)
+
+            Utilitario.verificar_pontuacao(texto)
+
+            self.vigente = self.vigente and texto != 'Revogado.'
+            self.versoes_texto.append(Utilitario.VersaoTexto(texto, instrumento, ordem))
+
+        self.versoes_texto = sorted(self.versoes_texto, key=attrgetter('ordem'))
 
         alineas = xml.find('alineas')
 
@@ -126,7 +144,7 @@ class Paragrafo:
             for alinea in alineas.findall('alinea'):
                 self.alineas.append(Alinea(self, alinea))
 
-    def gerar_html(self, doc, tag, text, line):
+    def gerar_html(self, doc, tag, line):
         if self.id == 0:
             tipo = 'caput'
             terminal = 'º' if self.pai.id < 10 else '.'
@@ -139,23 +157,35 @@ class Paragrafo:
                 rotulo = 'Parágrafo único.'
 
         with tag('p', id=self.gerar_id(), klass=f'{tipo} content'):
-            line('strong', rotulo)
-            doc.asis(f' {Utilitario.processar_texto(self.texto)}')
+            tamanho_historico = len(self.versoes_texto)
+
+            for indice, versao in enumerate(self.versoes_texto, start=1):
+                if indice != tamanho_historico:
+                    with tag('del'):
+                        self.__gerar_html(doc, tag, line, rotulo, versao)
+                    doc.stag('br')
+                else:
+                    self.__gerar_html(doc, tag, line, rotulo, versao)
 
             for alinea in self.alineas:
                 alinea.gerar_html(doc, tag)
 
     def gerar_id(self): return f'{self.pai.gerar_id()}_p{self.id}'
 
+    def __gerar_html(self, doc, tag, line, rotulo, versao):
+        line('strong', rotulo)
+        doc.asis(f' {Utilitario.processar_texto(versao.texto)}')
+
+        if versao.instrumento is not None:
+            line('span', versao.instrumento, klass='tag is-info ml-2')
+
 
 class Caput(Paragrafo):
     def __init__(self, pai, xml):
-        self.id = 0
+        super().__init__(pai, xml, caput=True)
 
-        super().__init__(pai, xml)
-
-    def gerar_html(self, doc, tag, text, line):
-        super().gerar_html(doc, tag, text, line)
+    def gerar_html(self, doc, tag, line):
+        super().gerar_html(doc, tag, line)
 
 
 class Alinea:
@@ -175,12 +205,18 @@ class Alinea:
 
 
 class Utilitario:
+    VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
+
+    ALERTA = '\033[33m'
+    ERRO = '\033[31m'
+    ENDC = '\033[0m'
+
     @staticmethod
     def verificar_pontuacao(texto):
         if texto.endswith(tuple([';', '.', ':'])):
             return
 
-        print(f'{CoresTerminal.ALERTA}Alerta{CoresTerminal.ENDC}')
+        print(f'{Utilitario.ALERTA}Alerta{Utilitario.ENDC}')
         print(f'* Texto sem terminal: {texto}')
 
     @staticmethod
