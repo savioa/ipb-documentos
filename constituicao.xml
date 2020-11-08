@@ -265,4 +265,37 @@
             </artigo>
         </secao>
     </capitulo>
+    <capitulo id="4" titulo="Oficiais">
+        <secao id="1" titulo="Classificação"></secao>
+        <secao id="2" titulo="Ministros do Evangelho"></secao>
+        <secao id="3" titulo="Presbíteros e Diáconos"></secao>
+    </capitulo>
+    <capitulo id="5" titulo="Concílios">
+        <secao id="1" titulo="Concílios em Geral"></secao>
+        <secao id="2" titulo="Conselho da Igreja"></secao>
+        <secao id="3" titulo="Presbitério"></secao>
+        <secao id="4" titulo="Sínodo"></secao>
+        <secao id="5" titulo="Supremo Concílio"></secao>
+    </capitulo>
+    <capitulo id="6" titulo="Comissões e Outras Organizações">
+        <secao id="1" titulo="Comissões Eclesiásticas"></secao>
+        <secao id="2" titulo="Comissões Executivas"></secao>
+        <secao id="3" titulo="Autarquias"></secao>
+        <secao id="4" titulo="Secretarias Gerais"></secao>
+        <secao id="5" titulo="Entidades Paraeclesiásticas"></secao>
+    </capitulo>
+    <capitulo id="7" titulo="Ordens da Igreja">
+        <secao id="1" titulo="Doutrina da Vocação"></secao>
+        <secao id="2" titulo="Eleição de Oficiais"></secao>
+        <secao id="3" titulo="Ordenação e Instalação de Presbíteros e Diáconos"></secao>
+        <secao id="4" titulo="Candidatura e Licenciatura para o Sagrado Ministério"></secao>
+        <secao id="5" titulo="Ordenação de Licenciados"></secao>
+        <secao id="6" titulo="Relação Pastoral"></secao>
+    </capitulo>
+    <capitulo id="dg" titulo="Disposições Gerais">
+        <secao id="1"></secao>
+    </capitulo>
+    <capitulo id="dt" titulo="Disposições Transitórias">
+        <secao id="1"></secao>
+    </capitulo>
 </constituicao>

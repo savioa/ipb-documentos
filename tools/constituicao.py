@@ -45,7 +45,7 @@ class Constituicao:
 class Capitulo:
     def __init__(self, xml):
         self.secoes = []
-        self.id = int(xml.attrib['id'])
+        self.id = xml.attrib['id']
         self.titulo = xml.attrib['titulo']
 
         for secao in xml.findall('secao'):
@@ -53,8 +53,10 @@ class Capitulo:
 
     def gerar_html(self, doc, tag, text, line):
         with tag('section', id=self.gerar_id(), klass='capitulo block'):
-            line('h2', f'Capítulo {roman.toRoman(self.id)}',
-                 klass='title is-3 has-text-centered')
+            if self.id != 'dg' and self.id != 'dt':
+                line('h2', f'Capítulo {roman.toRoman(int(self.id))}',
+                     klass='title is-3 has-text-centered')
+
             line('h2', self.titulo, klass='title is-3 has-text-centered')
 
             for secao in self.secoes:
