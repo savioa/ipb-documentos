@@ -266,8 +266,235 @@
         </secao>
     </capitulo>
     <capitulo id="4" titulo="Oficiais">
-        <secao id="1" titulo="Classificação"></secao>
-        <secao id="2" titulo="Ministros do Evangelho"></secao>
+        <secao id="1" titulo="Classificação">
+            <artigo id="25">
+                <caput>
+                    <texto>A igreja exerce as suas funções na esfera da doutrina, governo e beneficência, mediante oficiais que se classificam em:</texto>
+                    <alineas>
+                        <alinea id="a">ministros do Evangelho ou presbíteros docentes;</alinea>
+                        <alinea id="b">presbíteros regentes;</alinea>
+                        <alinea id="c">diáconos.</alinea>
+                    </alineas>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Estes ofícios são perpétuos, mas o seu exercício é temporário.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>Para o oficialato só poderão ser votados homens maiores de dezoito anos e civilmente capazes.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="26">
+                <caput>
+                    <texto>Os ministros e os presbíteros são oficiais de concílios da Igreja Presbiteriana do Brasil; os diáconos, da igreja a que pertencem.</texto>
+                </caput>
+            </artigo>
+            <artigo id="27">
+                <caput>
+                    <texto>O ministro é membro ex officio do Presbitério, e do Conselho, quando pastor da igreja; do Sínodo e do Supremo Concílio, quando eleito representante; o presbítero é membro ex officio do Conselho e dos concílios superiores, quando eleito para tal fim.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Ministros e presbíteros, embora não sendo membros de um concílio, poderão ser incluídos nas comissões de que trata o art. 99, itens 2 e 3, desde que jurisdicionados por aquele concílio.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>Para atender às leis civis, o ministro será considerado membro da igreja de que for pastor, continuando, porém, sob a jurisdição do Presbitério.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="28">
+                <caput>
+                    <texto>A admissão a qualquer ofício depende:</texto>
+                    <alineas>
+                        <alinea id="a">da vocação do Espírito Santo, reconhecida pela aprovação do povo de Deus;</alinea>
+                        <alinea id="b">da ordenação e investidura solenes, conforme a liturgia.</alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="29">
+                <caput>
+                    <texto>Nenhum oficial pode exercer simultaneamente dois ofícios, nem pode ser constrangido a aceitar cargo ou ofício contra a sua vontade.</texto>
+                </caput>
+            </artigo>
+        </secao>
+        <secao id="2" titulo="Ministros do Evangelho">
+            <artigo id="30">
+                <caput>
+                    <texto>O Ministro do Evangelho é o oficial consagrado pela igreja, representada no Presbitério, para dedicar-se especialmente à pregação da Palavra de Deus, administrar os sacramentos, edificar os crentes e participar, com os presbíteros regentes, do governo e disciplina da comunidade.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Os títulos que a Sagrada Escritura dá ao ministro, de Bispo, Pastor, Ministro, Presbítero ou Ancião, Anjo da Igreja, Embaixador, Evangelista, Pregador, Doutor e Despenseiro dos Mistérios de Deus, indicam funções diversas e não graus diferentes de dignidade no ofício.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="31">
+                <caput>
+                    <texto>São funções privativas do ministro:</texto>
+                    <alineas>
+                        <alinea id="a">administrar os sacramentos;</alinea>
+                        <alinea id="b">invocar a bênção apostólica sobre o povo de Deus;</alinea>
+                        <alinea id="c">celebrar o casamento religioso com efeito civil;</alinea>
+                        <alinea id="d">orientar e supervisionar a liturgia na igreja de que é pastor.</alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="32">
+                <caput>
+                    <texto>O ministro, cujo cargo e exercício são os primeiros na igreja, deve conhecer a Bíblia e sua teologia; ter cultura geral; ser apto para ensinar e são na fé; irrepreensível na vida; eficiente e zeloso no cumprimento dos seus deveres; ter vida piedosa e gozar de bom conceito, dentro e fora da igreja.</texto>
+                </caput>
+            </artigo>
+            <artigo id="33">
+                <caput>
+                    <texto>O ministro poderá ser designado Pastor Efetivo, Pastor Auxiliar, Pastor Evangelista e Missionário.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>É Pastor Efetivo o ministro eleito e instalado numa ou mais igrejas, por tempo determinado e também o ministro designado pelo Presbitério, por prazo definido, para uma ou mais igrejas, quando estas, sem designação de pessoa, o pedirem ao concílio.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>É Pastor Auxiliar o ministro que trabalha sob a direção do pastor, sem jurisdição sobre a igreja, com voto, porém no Conselho, onde tem assento ex officio, podendo, eventualmente, assumir o pastorado da igreja, quando convidado pelo pastor ou, na sua ausência, pelo Conselho.</texto>
+                </paragrafo>
+                <paragrafo id="3">
+                    <texto>É Pastor Evangelista o designado pelo Presbitério para assumir a direção de uma ou mais igrejas ou de trabalho incipiente.</texto>
+                </paragrafo>
+                <paragrafo id="4">
+                    <texto>É Missionário o ministro chamado para evangelizar no estrangeiro ou em lugares longínquos na Pátria.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="34">
+                <caput>
+                    <texto>A designação de pastores obedecerá ao que abaixo se preceitua:</texto>
+                    <alineas>
+                        <alinea id="a">o Pastor Efetivo será eleito por uma ou mais igrejas, pelo prazo máximo de cinco anos, podendo ser reeleito, competindo ao Presbitério julgar das eleições e dar posse ao eleito;</alinea>
+                        <alinea id="b">o Pastor Efetivo, designado pelo Presbitério nas condições do artigo anterior, § 1º in fine,tomará posse perante o Presbitério e assumirá o exercício na primeira reunião do Conselho;</alinea>
+                        <alinea id="c">o Pastor Auxiliar será designado pelo Conselho por um ano, mediante prévia indicação do pastor e aprovação do Presbitério, sendo empossado pelo pastor, perante o Conselho;</alinea>
+                        <alinea id="d">o Pastor Evangelista será designado pelo Presbitério diante do qual tomará posse e assumirá o exercício perante o Conselho, quando se tratar de igreja;</alinea>
+                        <alinea id="e">o Missionário, cedido pelo Presbitério à organização que superintende a obra missionária, receberá atribuição para organizar igrejas ou congregações na forma desta Constituição, dando de tudo relatório ao concílio.</alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="35">
+                <caput>
+                    <texto>O sustento do Pastor Efetivo e do Pastor Auxiliar cabe às igrejas que fixarão os vencimentos, com aprovação do Presbitério; os pastores evangelistas serão mantidos pelos presbitérios; os missionários, pelas organizações responsáveis.</texto>
+                </caput>
+            </artigo>
+            <artigo id="36">
+                <caput>
+                    <texto>São atribuições do ministro que pastoreia igreja:</texto>
+                    <alineas>
+                        <alinea id="a">orar com o rebanho e por este;</alinea>
+                        <alinea id="b">apascentá-lo na doutrina cristã;</alinea>
+                        <alinea id="c">exercer as suas funções com zelo;</alinea>
+                        <alinea id="d">orientar e superintender as atividades da igreja, a fim de tornar eficiente a vida espiritual do povo de Deus;</alinea>
+                        <alinea id="e">prestar assistência pastoral;</alinea>
+                        <alinea id="f">instruir os neófitos, dedicar atenção à infância e à mocidade, bem como aos necessitados, aflitos, enfermos e desviados;</alinea>
+                        <alinea id="g">exercer, juntamente com os outros presbíteros, o poder coletivo de governo.</alinea>
+                    </alineas>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Dos atos pastorais realizados, o ministro apresentará, periodicamente, relatórios ao Conselho, para registro.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="37">
+                <caput>
+                    <texto>Os ministros poderão ser designados para exercer funções na imprensa, na beneficência, no ensino ou em qualquer outra obra de interesse eclesiástico. Em qualquer destes cargos terão a superintendência espiritual dos que lhes forem confiados.</texto>
+                </caput>
+            </artigo>
+            <artigo id="38">
+                <caput>
+                    <texto>A atividade do ministro deve ser superintendida pelo Presbitério, ao qual, anualmente, prestará relatório dos seus atos.</texto>
+                </caput>
+            </artigo>
+            <artigo id="39">
+                <caput>
+                    <texto>Para ausentar-se do seu campo de trabalho por prazo superior a dez dias, o pastor necessitará de licença do Conselho; por prazo inferior basta comunicar ao Vice-Presidente. O Pastor Evangelista pedirá licença à Comissão Executiva do Presbitério.</texto>
+                </caput>
+            </artigo>
+            <artigo id="40">
+                <caput>
+                    <texto>É assegurado, anualmente, aos ministros em atividade o gozo de um mês de férias, seguida ou parceladamente, com os vencimentos.</texto>
+                </caput>
+            </artigo>
+            <artigo id="41">
+                <caput>
+                    <texto>Conceder-se-á licença ao ministro, com vencimentos integrais, até um ano, para tratamento de saúde; além desse prazo, com possíveis reduções de vencimentos, a juízo do Presbitério, quando Pastor Evangelista; e do Conselho, quando Pastor Efetivo.</texto>
+                </caput>
+            </artigo>
+            <artigo id="42">
+                <caput>
+                    <texto>Ao ministro poderá ser concedida licença, sem vencimentos, por um ano, para tratar de interesses particulares; essa licença poderá ser renovada por mais um ano, findo o qual, se o ministro não voltar à atividade será despojado sem censura.</texto>
+                </caput>
+            </artigo>
+            <artigo id="43">
+                <caput>
+                    <texto>Fica a juízo dos presbitérios conceder ou não licença aos seus ministros para se ocuparem em trabalhos de assistência social ou de natureza religiosa, fora dos limites da Igreja Presbiteriana, devendo prestar relatório anual informativo aos presbitérios.</texto>
+                </caput>
+            </artigo>
+            <artigo id="44">
+                <caput>
+                    <texto>Ao ministro que tenha servido, por longo tempo e satisfatoriamente, a uma igreja, poderá esta, pelo voto da assembleia e aprovação do Presbitério, oferecer-lhe, com ou sem vencimentos, o título de Pastor Emérito.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>O Pastor Emérito não tem parte na administração da igreja, embora continue a ter voto nos concílios superiores ao Conselho.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="45">
+                <caput>
+                    <texto>A passagem de um ministro para outro Presbitério ou para outra comunidade evangélica, far-se-á por meio de carta de transferência com destino determinado. Enquanto não for aceito continua o ministro sob jurisdição do concílio que expediu a carta.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>A carta de transferência é válida por um ano a contar da expedição.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>Nenhum Presbitério poderá dar carta de transferência a ministro em licença para tratar de interesses particulares, sem que primeiro o ministro regularize sua situação.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="46">
+                <caput>
+                    <texto>A admissão de um ministro que venha de outro Presbitério dependerá da conveniência do concílio que o admitir, podendo, ainda, este último, procurar conhecer suas opiniões teológicas.</texto>
+                </caput>
+            </artigo>
+            <artigo id="47">
+                <caput>
+                    <texto>A admissão de um ministro de outra comunidade evangélica ao Ministério da Igreja Presbiteriana do Brasil far-se-á por meio de carta de transferência; recebida esta, o Presbitério examinará o ministro quanto aos motivos que o levaram a tal passo, quanto à vocação ministerial, opiniões teológicas, governo e disciplina da igreja, e far-lhe-á, no momento oportuno, as perguntas dirigidas aos ordenandos.</texto>
+                </caput>
+            </artigo>
+            <artigo id="48">
+                <caput>
+                    <texto>Os ministros serão despojados do ofício por:</texto>
+                    <alineas>
+                        <alinea id="a">deposição;</alinea>
+                        <alinea id="b">exoneração a pedido;</alinea>
+                        <alinea id="c">exoneração administrativa nos termos do art. 42, in fine.</alinea>
+                    </alineas>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Despojado o ministro por exoneração, designará o Presbitério a igreja a que deva pertencer.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>O despojamento por exoneração a pedido só se dará pelo voto de dois terços dos membros do Presbitério.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="49">
+                <caput>
+                    <texto>O ministro poderá ser jubilado por motivo de saúde, idade, tempo de trabalho ou invalidez.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Ao atingir trinta e cinco anos de atividades efetivas, inclusive a licenciatura, o ministro terá direito à jubilação.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto ordem="1">Ao completar setenta anos de idade a jubilação será compulsória.</texto>
+                    <texto ordem="2" instrumento="emenda constitucional SC - 2018 - DOC. CXCVI">Ao completar setenta anos de idade o ministro poderá requerer sua jubilação.</texto>
+                </paragrafo>
+                <paragrafo id="3">
+                    <texto>A lei ordinária regulamentará a jubilação por motivo de saúde ou invalidez.</texto>
+                </paragrafo>
+                <paragrafo id="4">
+                    <texto instrumento="emenda constitucional SC - 2006 - DOC. XXXIV">A jubilação limita o exercício pastoral; não importando, porém, na perda de privilégios de ministro, a saber: pregar o Evangelho, ministrar os sacramentos, presidir Conselho quando convidado, ser eleito Secretário Executivo ou Tesoureiro de concílio, podendo, em havendo vigor, excepcionalmente, a convite de um Conselho ou a juízo de seu concílio, ser designado Pastor Efetivo não eleito, Pastor Auxiliar, Pastor Evangelista e Missionário.</texto>
+                </paragrafo>
+                <paragrafo id="5">
+                    <texto>O ministro jubilado, embora membro do concílio, não tem direito a voto; tê-lo-á se eleito Secretário Executivo ou Tesoureiro.</texto>
+                </paragrafo>
+                <paragrafo id="6">
+                    <texto>Cabe ao Presbitério propor a jubilação e ao Supremo Concílio efetivá-la de acordo com a lei de jubilação que estiver em vigor.</texto>
+                </paragrafo>
+            </artigo>
+        </secao>
         <secao id="3" titulo="Presbíteros e Diáconos"></secao>
     </capitulo>
     <capitulo id="5" titulo="Concílios">
