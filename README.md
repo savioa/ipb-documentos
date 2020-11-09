@@ -8,3 +8,4 @@
     * Tratar alterações anteriores à renumeração
 * Considerar identificadores únicos para o XML
 * Aplicar tratamento de histórico para alíneas
+    * Testar instrumentos

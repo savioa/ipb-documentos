@@ -33,6 +33,7 @@ class Constituicao:
                 with tag('style'):
                     text('span[data-lang] { font-style: italic; }')
                     text('del { text-decoration: line-through }')
+                line('script', '', src='base.js')
 
             with tag('body'):
                 with tag('section', klass='section'):
