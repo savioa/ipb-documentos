@@ -31,7 +31,7 @@ class Constituicao:
                 doc.stag('link', rel='stylesheet',
                          href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css')
                 with tag('style'):
-                    text('span.latim { font-style: italic; }')
+                    text('span[data-lang] { font-style: italic; }')
                     text('del { text-decoration: line-through }')
 
             with tag('body'):
@@ -81,11 +81,14 @@ class Secao:
     def gerar_html(self, doc, tag, line):
         with tag('section', id=self.gerar_id(), klass='secao block'):
             if self.titulo is None:
-                line('h2', 'Seção Única',
-                     klass='title is-5 has-text-centered is-sr-only')
+                titulo = 'Única'
+                visibilidade = ' is-sr-only'
             else:
-                line('h2', f'Seção {self.id}ª - {self.titulo}',
-                     klass='title is-5 has-text-centered')
+                titulo = f'{self.id}ª - {self.titulo}'
+                visibilidade = ''
+
+            line('h2', f'Seção {titulo}',
+                 klass=f'title is-5 has-text-centered{visibilidade}')
 
             for artigo in self.artigos:
                 artigo.gerar_html(doc, tag, line)
@@ -124,7 +127,8 @@ class Paragrafo:
         for versao in xml.findall('texto'):
             texto = versao.text
             instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
-            ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
+            ordem = int(versao.attrib['ordem']
+                        ) if 'ordem' in versao.attrib else 1
 
             if any(v.ordem == ordem for v in self.versoes_texto):
                 print(f'{Utilitario.ERRO}Erro{Utilitario.ENDC}')
@@ -134,9 +138,11 @@ class Paragrafo:
             Utilitario.verificar_pontuacao(texto)
 
             self.vigente = self.vigente and texto != 'Revogado.'
-            self.versoes_texto.append(Utilitario.VersaoTexto(texto, instrumento, ordem))
+            self.versoes_texto.append(
+                Utilitario.VersaoTexto(texto, instrumento, ordem))
 
-        self.versoes_texto = sorted(self.versoes_texto, key=attrgetter('ordem'))
+        self.versoes_texto = sorted(
+            self.versoes_texto, key=attrgetter('ordem'))
 
         alineas = xml.find('alineas')
 
@@ -156,28 +162,47 @@ class Paragrafo:
             else:
                 rotulo = 'Parágrafo único.'
 
-        with tag('p', id=self.gerar_id(), klass=f'{tipo} content'):
-            tamanho_historico = len(self.versoes_texto)
+        numero_versoes = len(self.versoes_texto)
 
+        with tag('p', id=self.gerar_id(), klass=f'{tipo} content'):
             for indice, versao in enumerate(self.versoes_texto, start=1):
-                if indice != tamanho_historico:
-                    with tag('del'):
-                        self.__gerar_html(doc, tag, line, rotulo, versao)
-                    doc.stag('br')
-                else:
-                    self.__gerar_html(doc, tag, line, rotulo, versao)
+                visivel = indice == numero_versoes
+
+                Paragrafo.__gerar_versao(
+                    doc, tag, line, rotulo, versao, visivel)
 
             for alinea in self.alineas:
                 alinea.gerar_html(doc, tag)
 
     def gerar_id(self): return f'{self.pai.gerar_id()}_p{self.id}'
 
-    def __gerar_html(self, doc, tag, line, rotulo, versao):
-        line('strong', rotulo)
-        doc.asis(f' {Utilitario.processar_texto(versao.texto)}')
+    @staticmethod
+    def __gerar_versao(doc, tag, line, rotulo, versao, visivel):
+        classes = f'versao{"" if visivel else " is-hidden"}'
 
         if versao.instrumento is not None:
-            line('span', versao.instrumento, klass='tag is-info ml-2')
+            with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
+                Paragrafo.__tratar_visibilidade(
+                    doc, tag, line, visivel, rotulo, versao.texto)
+        else:
+            with tag('span', klass=classes):
+                Paragrafo.__tratar_visibilidade(
+                    doc, tag, line, visivel, rotulo, versao.texto)
+
+    @staticmethod
+    def __tratar_visibilidade(doc, tag, line, visivel, rotulo, texto):
+        if not visivel:
+            with tag('del'):
+                Paragrafo.__gerar_texto_versao(doc, line, rotulo, texto)
+
+            doc.stag('br')
+        else:
+            Paragrafo.__gerar_texto_versao(doc, line, rotulo, texto)
+
+    @staticmethod
+    def __gerar_texto_versao(doc, line, rotulo, texto):
+        line('strong', rotulo)
+        doc.asis(f' {Utilitario.processar_texto(texto)}')
 
 
 class Caput(Paragrafo):
@@ -230,4 +255,4 @@ class Utilitario:
     @staticmethod
     def marcar_termos_latinos(texto):
         termos = ['ex officio', 'in fine', 'ad referendum', 'quorum']
-        return re.sub(f"({'|'.join(termos)})", r'<span class="latim">\1</span>', texto)
+        return re.sub(f"({'|'.join(termos)})", r'<span data-lang="latim">\1</span>', texto)
