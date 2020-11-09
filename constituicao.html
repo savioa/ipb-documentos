@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="has-navbar-fixed-top">
     <head>
         <meta charset="utf-8" />
         <title>Constituição da Igreja Presbiteriana do Brasil</title>
@@ -10,6 +10,34 @@
         <script src="base.js"></script>
     </head>
     <body>
+        <nav role="navigation" aria-label="main navigation" class="navbar is-fixed-top is-light">
+            <div class="navbar-brand">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Índice</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="#preambulo">Preâmbulo</a>
+                        <hr class="navbar-divider" />
+                        <a class="navbar-item" href="#c1">I - Natureza, Governo e Fins da Igreja</a>
+                        <a class="navbar-item" href="#c2">II - Organização das Comunidades Locais</a>
+                        <a class="navbar-item" href="#c3">III - Membros da Igreja</a>
+                        <a class="navbar-item" href="#c4">IV - Oficiais</a>
+                        <a class="navbar-item" href="#c5">V - Concílios</a>
+                        <a class="navbar-item" href="#c6">VI - Comissões e Outras Organizações</a>
+                        <a class="navbar-item" href="#c7">VII - Ordens da Igreja</a>
+                        <hr class="navbar-divider" />
+                        <a class="navbar-item" href="#cdg">Disposições Gerais</a>
+                        <a class="navbar-item" href="#cdt">Disposições Transitórias</a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <label class="checkbox"><input type="checkbox" id="mostrar_versoes" /> Apresentar versões obsoletas</label>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <section class="section">
             <div class="container">
                 <h1 class="title is-1 has-text-centered">Constituição da Igreja Presbiteriana do Brasil</h1>
@@ -539,7 +567,7 @@
                                 <span class="versao"><strong>§ 1º.</strong> Ao atingir trinta e cinco anos de atividades efetivas, inclusive a licenciatura, o ministro terá direito à jubilação.</span>
                             </p>
                             <p id="a49_p2" class="paragrafo content">
-                                <span class="versao is-hidden">
+                                <span class="versao obsoleta is-hidden">
                                     <del><strong>§ 2º.</strong> Ao completar setenta anos de idade a jubilação será compulsória.</del>
                                     <br />
                                 </span>

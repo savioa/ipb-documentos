@@ -20,7 +20,7 @@ class Constituicao:
 
         doc.asis('<!doctype html>')
 
-        with tag('html', lang='pt-BR'):
+        with tag('html', lang='pt-BR', klass='has-navbar-fixed-top'):
             with tag('head'):
                 doc.stag('meta', charset='utf-8')
                 line('title', titulo)
@@ -36,6 +36,34 @@ class Constituicao:
                 line('script', '', src='base.js')
 
             with tag('body'):
+                with tag('nav', ('role', 'navigation'), ('aria-label', 'main navigation'),
+                         klass='navbar is-fixed-top is-light'
+                         ):
+                    with tag('div', klass='navbar-brand'):
+                        with tag('div', klass='navbar-item has-dropdown is-hoverable'):
+                            line('a', 'Índice', klass='navbar-link')
+
+                            with tag('div', klass='navbar-dropdown'):
+                                line('a', 'Preâmbulo', klass='navbar-item', href='#preambulo')
+                                doc.stag('hr', klass='navbar-divider')
+                                line('a', 'I - Natureza, Governo e Fins da Igreja', klass='navbar-item', href='#c1')
+                                line('a', 'II - Organização das Comunidades Locais', klass='navbar-item', href='#c2')
+                                line('a', 'III - Membros da Igreja', klass='navbar-item', href='#c3')
+                                line('a', 'IV - Oficiais', klass='navbar-item', href='#c4')
+                                line('a', 'V - Concílios', klass='navbar-item', href='#c5')
+                                line('a', 'VI - Comissões e Outras Organizações', klass='navbar-item', href='#c6')
+                                line('a', 'VII - Ordens da Igreja', klass='navbar-item', href='#c7')
+                                doc.stag('hr', klass='navbar-divider')
+                                line('a', 'Disposições Gerais', klass='navbar-item', href='#cdg')
+                                line('a', 'Disposições Transitórias', klass='navbar-item', href='#cdt')
+
+                    with tag('div', klass='navbar-menu'):
+                        with tag('div', klass='navbar-end'):
+                            with tag('div', klass='navbar-item'):
+                                with tag('label', klass='checkbox'):
+                                    doc.stag('input', type='checkbox', id='mostrar_versoes')
+                                    text(' Apresentar versões obsoletas')
+
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
                         line('h1', titulo, klass='title is-1 has-text-centered')
@@ -179,7 +207,7 @@ class Paragrafo:
 
     @staticmethod
     def __gerar_versao(doc, tag, line, rotulo, versao, visivel):
-        classes = f'versao{"" if visivel else " is-hidden"}'
+        classes = f'versao{"" if visivel else " obsoleta is-hidden"}'
 
         if versao.instrumento is not None:
             with tag('span', ('data-instrumento', versao.instrumento), klass=classes):

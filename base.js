@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var instrumentos = Array.prototype.slice.call(document.querySelectorAll('span[data-instrumento]'), 0);
+    var obsoletos = document.querySelectorAll('.obsoleta');
+    var controle = document.querySelector('#mostrar_versoes');
+    
+    controle.addEventListener('change', (check) => {
+        if (obsoletos.length > 0) {
+            obsoletos.forEach(item => {
+                item.classList.toggle('is-hidden');
+            });
+        }
+    });
+
+    var instrumentos = document.querySelectorAll('span[data-instrumento]');
 
     if (instrumentos.length > 0) {
         instrumentos.forEach(el => {
@@ -7,12 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
             span.className = "tag is-light ml-2";
             span.appendChild(document.createTextNode(el.attributes['data-instrumento'].value));
 
+            var alvo = el;
+
             if (el.firstElementChild.tagName === "DEL") {
-                el.firstElementChild.appendChild(span);
+                alvo = el.firstElementChild;
             }
-            else {
-                el.appendChild(span);
-            }
+            
+            alvo.appendChild(span);
         });
     }
 });
