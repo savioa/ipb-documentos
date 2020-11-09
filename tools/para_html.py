@@ -17,7 +17,7 @@ constituicao = Constituicao(parse(caminho_xml).getroot())
 # constituicao.imprimir()
 html = constituicao.gerar_html()
 
-with open('constituicao.html', mode='w') as f:
+with open('index.html', mode='w') as f:
     f.write(indent(html.getvalue(), indentation='    '))
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)

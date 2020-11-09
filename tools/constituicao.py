@@ -15,6 +15,14 @@ class Constituicao:
 
     def gerar_html(self):
         titulo = 'Constituição da Igreja Presbiteriana do Brasil'
+        preambulo = ('Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes '
+                     'da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, '
+                     'no ano de 1950, com poderes para reforma da Constituição, investidos de toda '
+                     'autoridade para cumprir as resoluções da legislatura de 1946, depositando '
+                     'toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção '
+                     'da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, '
+                     'decretamos e promulgamos, para glória de Deus, a seguinte Constituição da '
+                     'Igreja Presbiteriana do Brasil.')
 
         doc, tag, text, line = Doc().ttl()
 
@@ -44,18 +52,28 @@ class Constituicao:
                             line('a', 'Índice', klass='navbar-link')
 
                             with tag('div', klass='navbar-dropdown'):
-                                line('a', 'Preâmbulo', klass='navbar-item', href='#preambulo')
+                                line('a', 'Preâmbulo',
+                                     klass='navbar-item', href='#preambulo')
                                 doc.stag('hr', klass='navbar-divider')
-                                line('a', 'I - Natureza, Governo e Fins da Igreja', klass='navbar-item', href='#c1')
-                                line('a', 'II - Organização das Comunidades Locais', klass='navbar-item', href='#c2')
-                                line('a', 'III - Membros da Igreja', klass='navbar-item', href='#c3')
-                                line('a', 'IV - Oficiais', klass='navbar-item', href='#c4')
-                                line('a', 'V - Concílios', klass='navbar-item', href='#c5')
-                                line('a', 'VI - Comissões e Outras Organizações', klass='navbar-item', href='#c6')
-                                line('a', 'VII - Ordens da Igreja', klass='navbar-item', href='#c7')
+                                line('a', 'I - Natureza, Governo e Fins da Igreja',
+                                     klass='navbar-item', href='#c1')
+                                line('a', 'II - Organização das Comunidades Locais',
+                                     klass='navbar-item', href='#c2')
+                                line('a', 'III - Membros da Igreja',
+                                     klass='navbar-item', href='#c3')
+                                line('a', 'IV - Oficiais',
+                                     klass='navbar-item', href='#c4')
+                                line('a', 'V - Concílios',
+                                     klass='navbar-item', href='#c5')
+                                line('a', 'VI - Comissões e Outras Organizações',
+                                     klass='navbar-item', href='#c6')
+                                line('a', 'VII - Ordens da Igreja',
+                                     klass='navbar-item', href='#c7')
                                 doc.stag('hr', klass='navbar-divider')
-                                line('a', 'Disposições Gerais', klass='navbar-item', href='#cdg')
-                                line('a', 'Disposições Transitórias', klass='navbar-item', href='#cdt')
+                                line('a', 'Disposições Gerais',
+                                     klass='navbar-item', href='#cdg')
+                                line('a', 'Disposições Transitórias',
+                                     klass='navbar-item', href='#cdt')
 
                     with tag('div', klass='navbar-menu'):
                         with tag('div', klass='navbar-end'):
@@ -67,6 +85,11 @@ class Constituicao:
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
                         line('h1', titulo, klass='title is-1 has-text-centered')
+
+                        with tag('section', id='preambulo', klass='capitulo block'):
+                            line('h2', 'Preâmbulo',
+                                 klass='title is-3 has-text-centered')
+                            line('p', preambulo)
 
                         for capitulo in self.capitulos:
                             capitulo.gerar_html(doc, tag, line)
