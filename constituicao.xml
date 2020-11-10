@@ -22,9 +22,15 @@
                 <paragrafo id="1">
                     <texto>A autoridade dos que são governados é exercida pelo povo reunido em assembleia, para:</texto>
                     <alineas>
-                        <alinea id="a">eleger pastores e oficiais da igreja ou pedir a sua exoneração;</alinea>
-                        <alinea id="b">pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;</alinea>
-                        <alinea id="c">deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.</alinea>
+                        <alinea id="a">
+                            <texto>eleger pastores e oficiais da igreja ou pedir a sua exoneração;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.</texto>
+                        </alinea>
                     </alineas>
                 </paragrafo>
                 <paragrafo id="2">
@@ -88,13 +94,27 @@
                 <paragrafo id="1">
                     <texto>Compete à assembleia:</texto>
                     <alineas>
-                        <alinea id="a">eleger pastores e oficiais da igreja;</alinea>
-                        <alinea id="b">pedir a exoneração deles ou opinar a respeito, quando solicitada pelo Conselho;</alinea>
-                        <alinea id="c">aprovar os seus estatutos e deliberar quanto à sua constituição em pessoa jurídica;</alinea>
-                        <alinea id="d">ouvir, para informação, os relatórios do movimento da igreja no ano anterior, e tomar conhecimento do orçamento para o ano em curso;</alinea>
-                        <alinea id="e">pronunciar-se sobre questões orçamentárias e administrativas, quando isso lhe for solicitado pelo Conselho;</alinea>
-                        <alinea id="f">adquirir, permutar, alienar, gravar de ônus real, dar em pagamento imóvel de sua propriedade e aceitar doações ou legados onerosos ou não, mediante parecer prévio do Conselho e, se este julgar conveniente também do respectivo Presbitério;</alinea>
-                        <alinea id="g">conferir a dignidade de Pastor Emérito, Presbítero Emérito e Diácono Emérito.</alinea>
+                        <alinea id="a">
+                            <texto>eleger pastores e oficiais da igreja;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>pedir a exoneração deles ou opinar a respeito, quando solicitada pelo Conselho;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>aprovar os seus estatutos e deliberar quanto à sua constituição em pessoa jurídica;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>ouvir, para informação, os relatórios do movimento da igreja no ano anterior, e tomar conhecimento do orçamento para o ano em curso;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>pronunciar-se sobre questões orçamentárias e administrativas, quando isso lhe for solicitado pelo Conselho;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>adquirir, permutar, alienar, gravar de ônus real, dar em pagamento imóvel de sua propriedade e aceitar doações ou legados onerosos ou não, mediante parecer prévio do Conselho e, se este julgar conveniente também do respectivo Presbitério;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>conferir a dignidade de Pastor Emérito, Presbítero Emérito e Diácono Emérito.</texto>
+                        </alinea>
                     </alineas>
                 </paragrafo>
                 <paragrafo id="2">
@@ -141,11 +161,21 @@
                 <caput>
                     <texto>São deveres dos membros da igreja, conforme o ensino e o Espírito de nosso Senhor Jesus Cristo:</texto>
                     <alineas>
-                        <alinea id="a">viver de acordo com a doutrina e prática da Escritura Sagrada;</alinea>
-                        <alinea id="b">honrar e propagar o Evangelho pela vida e pela palavra;</alinea>
-                        <alinea id="c">sustentar a igreja e as suas instituições, moral e financeiramente;</alinea>
-                        <alinea id="d">obedecer às autoridades da igreja, enquanto estas permanecerem fiéis às Sagradas Escrituras;</alinea>
-                        <alinea id="e">participar dos trabalhos e reuniões da sua igreja, inclusive assembleias.</alinea>
+                        <alinea id="a">
+                            <texto>viver de acordo com a doutrina e prática da Escritura Sagrada;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>honrar e propagar o Evangelho pela vida e pela palavra;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>sustentar a igreja e as suas instituições, moral e financeiramente;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>obedecer às autoridades da igreja, enquanto estas permanecerem fiéis às Sagradas Escrituras;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>participar dos trabalhos e reuniões da sua igreja, inclusive assembleias.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -160,13 +190,27 @@
                 <caput>
                     <texto>A admissão aos privilégios e direitos de membro comungante da igreja dar-se-á por:</texto>
                     <alineas>
-                        <alinea id="a">profissão de fé dos que tiverem sido batizados na infância;</alinea>
-                        <alinea id="b">profissão de fé e batismo;</alinea>
-                        <alinea id="c">carta de transferência de igreja evangélica;</alinea>
-                        <alinea id="d">jurisdição a pedido sobre os que vierem de outra comunidade evangélica;</alinea>
-                        <alinea id="e">jurisdição ex officio sobre membros de comunidade presbiteriana, após um ano de residência nos limites da igreja;</alinea>
-                        <alinea id="f">restauração dos que tiverem sido afastados ou excluídos dos privilégios e direitos da igreja;</alinea>
-                        <alinea id="g">designação do Presbitério nos casos do § 1º do art. 48.</alinea>
+                        <alinea id="a">
+                            <texto>profissão de fé dos que tiverem sido batizados na infância;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>profissão de fé e batismo;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>carta de transferência de igreja evangélica;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>jurisdição a pedido sobre os que vierem de outra comunidade evangélica;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>jurisdição ex officio sobre membros de comunidade presbiteriana, após um ano de residência nos limites da igreja;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>restauração dos que tiverem sido afastados ou excluídos dos privilégios e direitos da igreja;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>designação do Presbitério nos casos do § 1º do art. 48.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -174,9 +218,15 @@
                 <caput>
                     <texto>Os membros não comungantes são admitidos por:</texto>
                     <alineas>
-                        <alinea id="a">batismo na infância, de menores apresentados pelos pais ou responsáveis;</alinea>
-                        <alinea id="b">transferência dos pais ou responsáveis;</alinea>
-                        <alinea id="c">jurisdição assumida sobre os pais ou responsáveis.</alinea>
+                        <alinea id="a">
+                            <texto>batismo na infância, de menores apresentados pelos pais ou responsáveis;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>transferência dos pais ou responsáveis;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>jurisdição assumida sobre os pais ou responsáveis.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -186,8 +236,12 @@
                 <caput>
                     <texto>A transferência de membros comungantes da igreja ou congregação dar-se-á por:</texto>
                     <alineas>
-                        <alinea id="a">carta de transferência com destino determinado;</alinea>
-                        <alinea id="b">jurisdição ex officio.</alinea>
+                        <alinea id="a">
+                            <texto>carta de transferência com destino determinado;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>jurisdição ex officio.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -232,12 +286,24 @@
                 <caput>
                     <texto>A demissão de membros comungantes dar-se-á por:</texto>
                     <alineas>
-                        <alinea id="a">exclusão por disciplina;</alinea>
-                        <alinea id="b">exclusão a pedido;</alinea>
-                        <alinea id="c">exclusão por ausência;</alinea>
-                        <alinea id="d">carta de transferência;</alinea>
-                        <alinea id="e">jurisdição assumida por outra igreja;</alinea>
-                        <alinea id="f">falecimento.</alinea>
+                        <alinea id="a">
+                            <texto>exclusão por disciplina;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>exclusão a pedido;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>exclusão por ausência;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>carta de transferência;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>jurisdição assumida por outra igreja;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>falecimento.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -254,12 +320,24 @@
                 <caput>
                     <texto>A demissão de membros não comungantes dar-se-á por:</texto>
                     <alineas>
-                        <alinea id="a">carta de transferência dos pais ou responsáveis, a juízo do Conselho;</alinea>
-                        <alinea id="b">carta de transferência nos termos do parágrafo único, in fine, do art. 19;</alinea>
-                        <alinea id="c">haverem atingido a idade de dezoito anos;</alinea>
-                        <alinea id="d">profissão de fé;</alinea>
-                        <alinea id="e">solicitação dos pais ou responsáveis que tiverem aderido à outra comunidade religiosa, a juízo do Conselho;</alinea>
-                        <alinea id="f">falecimento.</alinea>
+                        <alinea id="a">
+                            <texto>carta de transferência dos pais ou responsáveis, a juízo do Conselho;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>carta de transferência nos termos do parágrafo único, in fine, do art. 19;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>haverem atingido a idade de dezoito anos;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>profissão de fé;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>solicitação dos pais ou responsáveis que tiverem aderido à outra comunidade religiosa, a juízo do Conselho;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>falecimento.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -271,9 +349,15 @@
                 <caput>
                     <texto>A igreja exerce as suas funções na esfera da doutrina, governo e beneficência, mediante oficiais que se classificam em:</texto>
                     <alineas>
-                        <alinea id="a">ministros do Evangelho ou presbíteros docentes;</alinea>
-                        <alinea id="b">presbíteros regentes;</alinea>
-                        <alinea id="c">diáconos.</alinea>
+                        <alinea id="a">
+                            <texto>ministros do Evangelho ou presbíteros docentes;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>presbíteros regentes;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>diáconos.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -303,8 +387,12 @@
                 <caput>
                     <texto>A admissão a qualquer ofício depende:</texto>
                     <alineas>
-                        <alinea id="a">da vocação do Espírito Santo, reconhecida pela aprovação do povo de Deus;</alinea>
-                        <alinea id="b">da ordenação e investidura solenes, conforme a liturgia.</alinea>
+                        <alinea id="a">
+                            <texto>da vocação do Espírito Santo, reconhecida pela aprovação do povo de Deus;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>da ordenação e investidura solenes, conforme a liturgia.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -327,10 +415,18 @@
                 <caput>
                     <texto>São funções privativas do ministro:</texto>
                     <alineas>
-                        <alinea id="a">administrar os sacramentos;</alinea>
-                        <alinea id="b">invocar a bênção apostólica sobre o povo de Deus;</alinea>
-                        <alinea id="c">celebrar o casamento religioso com efeito civil;</alinea>
-                        <alinea id="d">orientar e supervisionar a liturgia na igreja de que é pastor.</alinea>
+                        <alinea id="a">
+                            <texto>administrar os sacramentos;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>invocar a bênção apostólica sobre o povo de Deus;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>celebrar o casamento religioso com efeito civil;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>orientar e supervisionar a liturgia na igreja de que é pastor.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -360,11 +456,21 @@
                 <caput>
                     <texto>A designação de pastores obedecerá ao que abaixo se preceitua:</texto>
                     <alineas>
-                        <alinea id="a">o Pastor Efetivo será eleito por uma ou mais igrejas, pelo prazo máximo de cinco anos, podendo ser reeleito, competindo ao Presbitério julgar das eleições e dar posse ao eleito;</alinea>
-                        <alinea id="b">o Pastor Efetivo, designado pelo Presbitério nas condições do artigo anterior, § 1º in fine,tomará posse perante o Presbitério e assumirá o exercício na primeira reunião do Conselho;</alinea>
-                        <alinea id="c">o Pastor Auxiliar será designado pelo Conselho por um ano, mediante prévia indicação do pastor e aprovação do Presbitério, sendo empossado pelo pastor, perante o Conselho;</alinea>
-                        <alinea id="d">o Pastor Evangelista será designado pelo Presbitério diante do qual tomará posse e assumirá o exercício perante o Conselho, quando se tratar de igreja;</alinea>
-                        <alinea id="e">o Missionário, cedido pelo Presbitério à organização que superintende a obra missionária, receberá atribuição para organizar igrejas ou congregações na forma desta Constituição, dando de tudo relatório ao concílio.</alinea>
+                        <alinea id="a">
+                            <texto>o Pastor Efetivo será eleito por uma ou mais igrejas, pelo prazo máximo de cinco anos, podendo ser reeleito, competindo ao Presbitério julgar das eleições e dar posse ao eleito;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>o Pastor Efetivo, designado pelo Presbitério nas condições do artigo anterior, § 1º in fine,tomará posse perante o Presbitério e assumirá o exercício na primeira reunião do Conselho;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>o Pastor Auxiliar será designado pelo Conselho por um ano, mediante prévia indicação do pastor e aprovação do Presbitério, sendo empossado pelo pastor, perante o Conselho;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>o Pastor Evangelista será designado pelo Presbitério diante do qual tomará posse e assumirá o exercício perante o Conselho, quando se tratar de igreja;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>o Missionário, cedido pelo Presbitério à organização que superintende a obra missionária, receberá atribuição para organizar igrejas ou congregações na forma desta Constituição, dando de tudo relatório ao concílio.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -377,13 +483,27 @@
                 <caput>
                     <texto>São atribuições do ministro que pastoreia igreja:</texto>
                     <alineas>
-                        <alinea id="a">orar com o rebanho e por este;</alinea>
-                        <alinea id="b">apascentá-lo na doutrina cristã;</alinea>
-                        <alinea id="c">exercer as suas funções com zelo;</alinea>
-                        <alinea id="d">orientar e superintender as atividades da igreja, a fim de tornar eficiente a vida espiritual do povo de Deus;</alinea>
-                        <alinea id="e">prestar assistência pastoral;</alinea>
-                        <alinea id="f">instruir os neófitos, dedicar atenção à infância e à mocidade, bem como aos necessitados, aflitos, enfermos e desviados;</alinea>
-                        <alinea id="g">exercer, juntamente com os outros presbíteros, o poder coletivo de governo.</alinea>
+                        <alinea id="a">
+                            <texto>orar com o rebanho e por este;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>apascentá-lo na doutrina cristã;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>exercer as suas funções com zelo;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>orientar e superintender as atividades da igreja, a fim de tornar eficiente a vida espiritual do povo de Deus;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>prestar assistência pastoral;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>instruir os neófitos, dedicar atenção à infância e à mocidade, bem como aos necessitados, aflitos, enfermos e desviados;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>exercer, juntamente com os outros presbíteros, o poder coletivo de governo.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -458,9 +578,15 @@
                 <caput>
                     <texto>Os ministros serão despojados do ofício por:</texto>
                     <alineas>
-                        <alinea id="a">deposição;</alinea>
-                        <alinea id="b">exoneração a pedido;</alinea>
-                        <alinea id="c">exoneração administrativa nos termos do art. 42, in fine.</alinea>
+                        <alinea id="a">
+                            <texto>deposição;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>exoneração a pedido;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>exoneração administrativa nos termos do art. 42, in fine.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -505,14 +631,30 @@
                 <caput>
                     <texto>Compete ao presbítero:</texto>
                     <alineas>
-                        <alinea id="a">levar ao conhecimento do Conselho as faltas que não puder corrigir por meio de admoestações particulares;</alinea>
-                        <alinea id="b">auxiliar o pastor no trabalho de visitas;</alinea>
-                        <alinea id="c">instruir os neófitos, consolar os aflitos e cuidar da infância e da juventude;</alinea>
-                        <alinea id="d">orar com os crentes e por eles;</alinea>
-                        <alinea id="e">informar o pastor dos casos de doenças e aflições;</alinea>
-                        <alinea id="f">distribuir os elementos da Santa Ceia;</alinea>
-                        <alinea id="g">tomar parte na ordenação de ministros e oficiais;</alinea>
-                        <alinea id="h">representar o Conselho no Presbitério, este no Sínodo e no Supremo Concílio.</alinea>
+                        <alinea id="a">
+                            <texto>levar ao conhecimento do Conselho as faltas que não puder corrigir por meio de admoestações particulares;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>auxiliar o pastor no trabalho de visitas;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>instruir os neófitos, consolar os aflitos e cuidar da infância e da juventude;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>orar com os crentes e por eles;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>informar o pastor dos casos de doenças e aflições;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>distribuir os elementos da Santa Ceia;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>tomar parte na ordenação de ministros e oficiais;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>representar o Conselho no Presbitério, este no Sínodo e no Supremo Concílio.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -525,10 +667,18 @@
                 <caput>
                     <texto>O diácono é o oficial eleito pela igreja e ordenado pelo Conselho, para, sob a supervisão deste, dedicar-se especialmente:</texto>
                     <alineas>
-                        <alinea id="a">à arrecadação de ofertas para fins piedosos;</alinea>
-                        <alinea id="b">ao cuidado dos pobres, doentes e inválidos;</alinea>
-                        <alinea id="c">à manutenção da ordem e reverência nos lugares reservados ao serviço divino;</alinea>
-                        <alinea id="d">exercer a fiscalização para que haja boa ordem na Casa de Deus e suas dependências.</alinea>
+                        <alinea id="a">
+                            <texto>à arrecadação de ofertas para fins piedosos;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>ao cuidado dos pobres, doentes e inválidos;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>à manutenção da ordem e reverência nos lugares reservados ao serviço divino;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>exercer a fiscalização para que haja boa ordem na Casa de Deus e suas dependências.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -542,8 +692,12 @@
                 <paragrafo id="2">
                     <texto>Findo o mandato do presbítero e não sendo reeleito, ou tendo sido exonerado a pedido, ou, ainda, por haver mudado de residência que não lhe permita exercer o cargo, ficará em disponibilidade, podendo, entretanto, quando convidado:</texto>
                     <alineas>
-                        <alinea id="a">distribuir os elementos da Santa Ceia;</alinea>
-                        <alinea id="b">tomar parte na ordenação de novos oficiais.</alinea>
+                        <alinea id="a">
+                            <texto>distribuir os elementos da Santa Ceia;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>tomar parte na ordenação de novos oficiais.</texto>
+                        </alinea>
                     </alineas>
                 </paragrafo>
             </artigo>
@@ -556,11 +710,21 @@
                 <caput>
                     <texto>As funções de presbítero ou de diácono cessam quando:</texto>
                     <alineas>
-                        <alinea id="a">terminar o mandato, não sendo reeleito;</alinea>
-                        <alinea id="b">mudar-se para lugar que o impossibilite de exercer o cargo;</alinea>
-                        <alinea id="c">for deposto;</alinea>
-                        <alinea id="d">ausentar-se sem justo motivo, durante seis meses, das reuniões do Conselho, se for presbítero e da Junta Diaconal, se for diácono;</alinea>
-                        <alinea id="e">for exonerado administrativamente ou a pedido, ouvida a igreja.</alinea>
+                        <alinea id="a">
+                            <texto>terminar o mandato, não sendo reeleito;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>mudar-se para lugar que o impossibilite de exercer o cargo;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>for deposto;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>ausentar-se sem justo motivo, durante seis meses, das reuniões do Conselho, se for presbítero e da Junta Diaconal, se for diácono;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>for exonerado administrativamente ou a pedido, ouvida a igreja.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -600,10 +764,18 @@
                 <caput>
                     <texto>Os concílios da Igreja Presbiteriana do Brasil em ordem ascendente são:</texto>
                     <alineas>
-                        <alinea id="a">o Conselho, que exerce jurisdição sobre a igreja local;</alinea>
-                        <alinea id="b">o Presbitério, que exerce jurisdição sobre os ministros e conselhos de determinada região;</alinea>
-                        <alinea id="c">o Sínodo, que exerce jurisdição sobre três ou mais presbitérios;</alinea>
-                        <alinea id="d">o Supremo Concílio, que exerce jurisdição sobre todos os concílios.</alinea>
+                        <alinea id="a">
+                            <texto>o Conselho, que exerce jurisdição sobre a igreja local;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>o Presbitério, que exerce jurisdição sobre os ministros e conselhos de determinada região;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>o Sínodo, que exerce jurisdição sobre três ou mais presbitérios;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>o Supremo Concílio, que exerce jurisdição sobre todos os concílios.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -624,8 +796,12 @@
                 <caput>
                     <texto>Se qualquer membro de um concílio discordar de resolução deste, sem, contudo, desejar recorrer, poderá expressar sua opinião contrária pelo:</texto>
                     <alineas>
-                        <alinea id="a">dissentimento;</alinea>
-                        <alinea id="b">protesto.</alinea>
+                        <alinea id="a">
+                            <texto>dissentimento;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>protesto.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -642,10 +818,18 @@
                 <caput>
                     <texto>Os membros dos concílios são:</texto>
                     <alineas>
-                        <alinea id="a">efetivos - os ministros e presbíteros que constituem o concílio, bem como o Presidente da legislatura anterior;</alinea>
-                        <alinea id="b">ex officio - os ministros e presbíteros em comissões ou encargos determinados por seu concílio e os presidentes dos concílios superiores, os quais gozarão de todos os direitos, menos o de votar;</alinea>
-                        <alinea id="c">correspondentes - ministros da Igreja Presbiteriana do Brasil, que, embora não efetivos, estejam presentes, podendo fazer uso da palavra;</alinea>
-                        <alinea id="d">visitantes - ministros de quaisquer comunidades evangélicas, que serão convidados a tomar assento, sem direito a deliberar.</alinea>
+                        <alinea id="a">
+                            <texto>efetivos - os ministros e presbíteros que constituem o concílio, bem como o Presidente da legislatura anterior;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>ex officio - os ministros e presbíteros em comissões ou encargos determinados por seu concílio e os presidentes dos concílios superiores, os quais gozarão de todos os direitos, menos o de votar;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>correspondentes - ministros da Igreja Presbiteriana do Brasil, que, embora não efetivos, estejam presentes, podendo fazer uso da palavra;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>visitantes - ministros de quaisquer comunidades evangélicas, que serão convidados a tomar assento, sem direito a deliberar.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -686,21 +870,51 @@
                 <caput>
                     <texto>Compete aos concílios:</texto>
                     <alineas>
-                        <alinea id="a">dar testemunho contra erros de doutrina e prática;</alinea>
-                        <alinea id="b">exigir obediência aos preceitos de Nosso Senhor Jesus Cristo, conforme a Palavra de Deus;</alinea>
-                        <alinea id="c">promover e dirigir a obra de educação religiosa e evangélica da comunidade sob sua jurisdição, escolhendo e nomeando pessoas idôneas para ministrá-las;</alinea>
-                        <alinea id="d">velar pelo fiel cumprimento da presente Constituição;</alinea>
-                        <alinea id="e">cumprir e fazer cumprir com zelo e eficiência as suas determinações, bem como as ordens e resoluções dos concílios superiores;</alinea>
-                        <alinea id="f">excetuados os sínodos, nomear representantes aos concílios superiores e suplentes que correspondam ao número e ofício, custeando-lhes as despesas de viagem;</alinea>
-                        <alinea id="g">propor aos concílios superiores quaisquer assuntos que julguem oportunos;</alinea>
-                        <alinea id="h">determinar planos e medidas que contribuam para o progresso, paz e pureza da comunidade sob sua jurisdição;</alinea>
-                        <alinea id="i">receber e encaminhar ao concílio imediatamente superior os recursos, documentos ou memoriais que lhes forem apresentados com esse fim, uma vez redigidos em termos convenientes;</alinea>
-                        <alinea id="j">fazer subir ao concílio imediatamente superior representações, consultas, referências, memoriais, e documentos que julgarem oportunos;</alinea>
-                        <alinea id="l">enviar ao concílio imediatamente superior por seus representantes, o livro de atas, o relatório de suas atividades e a estatística do trabalho sob sua jurisdição;</alinea>
-                        <alinea id="m">examinar as atas e relatórios do concílio imediatamente inferior;</alinea>
-                        <alinea id="n">tomar conhecimento das observações feitas pelos concílios superiores às suas atas, inserindo o registro desse fato na ata de sua primeira reunião;</alinea>
-                        <alinea id="o">julgar as representações, consultas, referências, recursos, documentos e memoriais de seus membros ou os que subirem dos concílios inferiores;</alinea>
-                        <alinea id="p">tomar medidas de caráter financeiro para a manutenção do trabalho que lhes tenha sido confiado.</alinea>
+                        <alinea id="a">
+                            <texto>dar testemunho contra erros de doutrina e prática;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>exigir obediência aos preceitos de Nosso Senhor Jesus Cristo, conforme a Palavra de Deus;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>promover e dirigir a obra de educação religiosa e evangélica da comunidade sob sua jurisdição, escolhendo e nomeando pessoas idôneas para ministrá-las;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>velar pelo fiel cumprimento da presente Constituição;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>cumprir e fazer cumprir com zelo e eficiência as suas determinações, bem como as ordens e resoluções dos concílios superiores;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>excetuados os sínodos, nomear representantes aos concílios superiores e suplentes que correspondam ao número e ofício, custeando-lhes as despesas de viagem;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>propor aos concílios superiores quaisquer assuntos que julguem oportunos;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>determinar planos e medidas que contribuam para o progresso, paz e pureza da comunidade sob sua jurisdição;</texto>
+                        </alinea>
+                        <alinea id="i">
+                            <texto>receber e encaminhar ao concílio imediatamente superior os recursos, documentos ou memoriais que lhes forem apresentados com esse fim, uma vez redigidos em termos convenientes;</texto>
+                        </alinea>
+                        <alinea id="j">
+                            <texto>fazer subir ao concílio imediatamente superior representações, consultas, referências, memoriais, e documentos que julgarem oportunos;</texto>
+                        </alinea>
+                        <alinea id="l">
+                            <texto>enviar ao concílio imediatamente superior por seus representantes, o livro de atas, o relatório de suas atividades e a estatística do trabalho sob sua jurisdição;</texto>
+                        </alinea>
+                        <alinea id="m">
+                            <texto>examinar as atas e relatórios do concílio imediatamente inferior;</texto>
+                        </alinea>
+                        <alinea id="n">
+                            <texto>tomar conhecimento das observações feitas pelos concílios superiores às suas atas, inserindo o registro desse fato na ata de sua primeira reunião;</texto>
+                        </alinea>
+                        <alinea id="o">
+                            <texto>julgar as representações, consultas, referências, recursos, documentos e memoriais de seus membros ou os que subirem dos concílios inferiores;</texto>
+                        </alinea>
+                        <alinea id="p">
+                            <texto>tomar medidas de caráter financeiro para a manutenção do trabalho que lhes tenha sido confiado.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -711,9 +925,15 @@
                 <paragrafo id="1">
                     <texto>São considerados assuntos dessa natureza:</texto>
                     <alineas>
-                        <alinea id="a">casos novos;</alinea>
-                        <alinea id="b">matéria em que o concílio esteja dividido;</alinea>
-                        <alinea id="c">matéria que exija solução preliminar ou seja de interesse geral.</alinea>
+                        <alinea id="a">
+                            <texto>casos novos;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>matéria em que o concílio esteja dividido;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>matéria que exija solução preliminar ou seja de interesse geral.</texto>
+                        </alinea>
                     </alineas>
                 </paragrafo>
             </artigo>
@@ -731,10 +951,18 @@
                 <caput>
                     <texto>Os concílios reunir-se-ão extraordinariamente, quando:</texto>
                     <alineas>
-                        <alinea id="a">o determine o próprio concílio;</alinea>
-                        <alinea id="b">a sua Mesa julgar necessário;</alinea>
-                        <alinea id="c">o determinarem concílios superiores;</alinea>
-                        <alinea id="d">requerido por três ministros e dois presbíteros no caso de presbitérios; por cinco ministros e três presbíteros representando ao menos dois terços dos presbitérios, em se tratando de sínodos; e por dez ministros e cinco presbíteros representando pelo menos dois terços dos sínodos para o Supremo Concílio.</alinea>
+                        <alinea id="a">
+                            <texto>o determine o próprio concílio;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>a sua Mesa julgar necessário;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>o determinarem concílios superiores;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>requerido por três ministros e dois presbíteros no caso de presbitérios; por cinco ministros e três presbíteros representando ao menos dois terços dos presbitérios, em se tratando de sínodos; e por dez ministros e cinco presbíteros representando pelo menos dois terços dos sínodos para o Supremo Concílio.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -798,11 +1026,21 @@
                 <caput>
                     <texto>O Conselho reunir-se-á:</texto>
                     <alineas>
-                        <alinea id="a">pelo menos de três em três meses;</alinea>
-                        <alinea id="b">quando convocado pelo pastor;</alinea>
-                        <alinea id="c">quando convocado pelo Vice-Presidente no caso do § 2º, do art. 78;</alinea>
-                        <alinea id="d">a pedido da maioria dos presbíteros, ou de um presbítero quando a igreja não tiver mais de dois;</alinea>
-                        <alinea id="e">por ordem do Presbitério.</alinea>
+                        <alinea id="a">
+                            <texto>pelo menos de três em três meses;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>quando convocado pelo pastor;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>quando convocado pelo Vice-Presidente no caso do § 2º, do art. 78;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>a pedido da maioria dos presbíteros, ou de um presbítero quando a igreja não tiver mais de dois;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>por ordem do Presbitério.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -818,28 +1056,72 @@
                 <caput>
                     <texto>São funções privativas do Conselho:</texto>
                     <alineas>
-                        <alinea id="a">exercer o governo espiritual e administrativo da igreja sob sua jurisdição, velando atentamente pela fé e comportamento dos crentes, de modo que não negligenciem os seus privilégios e deveres;</alinea>
-                        <alinea id="b">admitir, disciplinar, transferir e demitir membros;</alinea>
-                        <alinea id="c">impor penas e relevá-las;</alinea>
-                        <alinea id="d">encaminhar a escolha e eleição de presbíteros e diáconos, ordená-los e instalá-los, depois de verificar a regularidade do processo das eleições e a idoneidade dos escolhidos;</alinea>
-                        <alinea id="e">encaminhar a escolha e eleição de pastores;</alinea>
-                        <alinea id="f">receber o ministro designado pelo Presbitério para o cargo de pastor;</alinea>
-                        <alinea id="g">estabelecer e orientar a Junta Diaconal;</alinea>
-                        <alinea id="h">supervisionar, orientar e superintender a obra de educação religiosa, o trabalho das sociedades auxiliadoras femininas, das uniões de mocidade e outras organizações da igreja, bem como a obra educativa em geral e quaisquer atividades espirituais;</alinea>
-                        <alinea id="i">exigir que os oficiais e funcionários sob sua direção cumpram fielmente suas obrigações;</alinea>
-                        <alinea id="j">organizar e manter em boa ordem os arquivos, registros e estatística da igreja;</alinea>
-                        <alinea id="l">organizar e manter em dia o rol de membros comungantes e de não comungantes;</alinea>
-                        <alinea id="m">apresentar anualmente à igreja relatório das suas atividades, acompanhado das respectivas estatísticas;</alinea>
-                        <alinea id="n">resolver caso de dúvida sobre doutrina e prática, para orientação da consciência cristã;</alinea>
-                        <alinea id="o">suspender a execução de medidas votadas pelas sociedades domésticas da igreja que possam prejudicar os interesses espirituais;</alinea>
-                        <alinea id="p">examinar os relatórios, os livros de atas e os das tesourarias das organizações domésticas, registrando neles as suas observações;</alinea>
-                        <alinea id="q">aprovar ou não os estatutos das sociedades domésticas da igreja e dar posse às suas diretorias;</alinea>
-                        <alinea id="r">estabelecer pontos de pregação e congregações;</alinea>
-                        <alinea id="s">velar pela regularidade dos serviços religiosos;</alinea>
-                        <alinea id="t">eleger representante ao Presbitério;</alinea>
-                        <alinea id="u">velar por que os pais não se descuidem de apresentar seus filhos ao batismo;</alinea>
-                        <alinea id="v">observar e pôr em execução as ordens legais dos concílios superiores;</alinea>
-                        <alinea id="x">designar, se convier, mulheres piedosas para cuidarem dos enfermos, dos presos, das viúvas e órfãos, dos pobres em geral, para alívio dos que sofrem.</alinea>
+                        <alinea id="a">
+                            <texto>exercer o governo espiritual e administrativo da igreja sob sua jurisdição, velando atentamente pela fé e comportamento dos crentes, de modo que não negligenciem os seus privilégios e deveres;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>admitir, disciplinar, transferir e demitir membros;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>impor penas e relevá-las;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>encaminhar a escolha e eleição de presbíteros e diáconos, ordená-los e instalá-los, depois de verificar a regularidade do processo das eleições e a idoneidade dos escolhidos;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>encaminhar a escolha e eleição de pastores;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>receber o ministro designado pelo Presbitério para o cargo de pastor;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>estabelecer e orientar a Junta Diaconal;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>supervisionar, orientar e superintender a obra de educação religiosa, o trabalho das sociedades auxiliadoras femininas, das uniões de mocidade e outras organizações da igreja, bem como a obra educativa em geral e quaisquer atividades espirituais;</texto>
+                        </alinea>
+                        <alinea id="i">
+                            <texto>exigir que os oficiais e funcionários sob sua direção cumpram fielmente suas obrigações;</texto>
+                        </alinea>
+                        <alinea id="j">
+                            <texto>organizar e manter em boa ordem os arquivos, registros e estatística da igreja;</texto>
+                        </alinea>
+                        <alinea id="l">
+                            <texto>organizar e manter em dia o rol de membros comungantes e de não comungantes;</texto>
+                        </alinea>
+                        <alinea id="m">
+                            <texto>apresentar anualmente à igreja relatório das suas atividades, acompanhado das respectivas estatísticas;</texto>
+                        </alinea>
+                        <alinea id="n">
+                            <texto>resolver caso de dúvida sobre doutrina e prática, para orientação da consciência cristã;</texto>
+                        </alinea>
+                        <alinea id="o">
+                            <texto>suspender a execução de medidas votadas pelas sociedades domésticas da igreja que possam prejudicar os interesses espirituais;</texto>
+                        </alinea>
+                        <alinea id="p">
+                            <texto>examinar os relatórios, os livros de atas e os das tesourarias das organizações domésticas, registrando neles as suas observações;</texto>
+                        </alinea>
+                        <alinea id="q">
+                            <texto>aprovar ou não os estatutos das sociedades domésticas da igreja e dar posse às suas diretorias;</texto>
+                        </alinea>
+                        <alinea id="r">
+                            <texto>estabelecer pontos de pregação e congregações;</texto>
+                        </alinea>
+                        <alinea id="s">
+                            <texto>velar pela regularidade dos serviços religiosos;</texto>
+                        </alinea>
+                        <alinea id="t">
+                            <texto>eleger representante ao Presbitério;</texto>
+                        </alinea>
+                        <alinea id="u">
+                            <texto>velar por que os pais não se descuidem de apresentar seus filhos ao batismo;</texto>
+                        </alinea>
+                        <alinea id="v">
+                            <texto>observar e pôr em execução as ordens legais dos concílios superiores;</texto>
+                        </alinea>
+                        <alinea id="x">
+                            <texto>designar, se convier, mulheres piedosas para cuidarem dos enfermos, dos presos, das viúvas e órfãos, dos pobres em geral, para alívio dos que sofrem.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -875,21 +1157,51 @@
                 <caput>
                     <texto>São funções privativas do Presbitério:</texto>
                     <alineas>
-                        <alinea id="a">admitir, transferir, disciplinar, licenciar e ordenar candidatos ao Ministério e designar onde devem trabalhar;</alinea>
-                        <alinea id="b">conceder licença aos ministros e estabelecer ou dissolver as relações destes com as igrejas ou congregações;</alinea>
-                        <alinea id="c">admitir, transferir e disciplinar ministros e propor a sua jubilação;</alinea>
-                        <alinea id="d">designar ministros para igrejas vagas e funções especiais;</alinea>
-                        <alinea id="e">velar por que os ministros se dediquem diligentemente ao cumprimento da sua sagrada missão;</alinea>
-                        <alinea id="f">organizar, dissolver, unir e dividir igrejas e congregações e fazer que observem a Constituição da Igreja;</alinea>
-                        <alinea id="g">receber e julgar relatórios das igrejas, dos ministros e das comissões a ele subordinadas;</alinea>
-                        <alinea id="h">julgar da legalidade e conveniência das eleições de pastores, promovendo a respectiva instalação;</alinea>
-                        <alinea id="i">examinar as atas dos conselhos, inserindo nas mesmas as observações que julgar necessárias;</alinea>
-                        <alinea id="j">providenciar para que as igrejas remetam pontualmente o dízimo de sua renda para o Supremo Concílio;</alinea>
-                        <alinea id="l">estabelecer e manter trabalhos de evangelização, dentro dos seus próprios limites, em regiões não ocupadas por outros presbitérios ou missões presbiterianas;</alinea>
-                        <alinea id="m">velar por que as ordens dos concílios superiores sejam cumpridas;</alinea>
-                        <alinea id="n">visitar as igrejas com o fim de investigar e corrigir quaisquer males que nelas se tenham suscitado;</alinea>
-                        <alinea id="o">propor ao Sínodo e ao Supremo Concílio todas as medidas de vantagem para a igreja em geral;</alinea>
-                        <alinea id="p">eleger representantes aos concílios superiores.</alinea>
+                        <alinea id="a">
+                            <texto>admitir, transferir, disciplinar, licenciar e ordenar candidatos ao Ministério e designar onde devem trabalhar;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>conceder licença aos ministros e estabelecer ou dissolver as relações destes com as igrejas ou congregações;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>admitir, transferir e disciplinar ministros e propor a sua jubilação;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>designar ministros para igrejas vagas e funções especiais;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>velar por que os ministros se dediquem diligentemente ao cumprimento da sua sagrada missão;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>organizar, dissolver, unir e dividir igrejas e congregações e fazer que observem a Constituição da Igreja;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>receber e julgar relatórios das igrejas, dos ministros e das comissões a ele subordinadas;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>julgar da legalidade e conveniência das eleições de pastores, promovendo a respectiva instalação;</texto>
+                        </alinea>
+                        <alinea id="i">
+                            <texto>examinar as atas dos conselhos, inserindo nas mesmas as observações que julgar necessárias;</texto>
+                        </alinea>
+                        <alinea id="j">
+                            <texto>providenciar para que as igrejas remetam pontualmente o dízimo de sua renda para o Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="l">
+                            <texto>estabelecer e manter trabalhos de evangelização, dentro dos seus próprios limites, em regiões não ocupadas por outros presbitérios ou missões presbiterianas;</texto>
+                        </alinea>
+                        <alinea id="m">
+                            <texto>velar por que as ordens dos concílios superiores sejam cumpridas;</texto>
+                        </alinea>
+                        <alinea id="n">
+                            <texto>visitar as igrejas com o fim de investigar e corrigir quaisquer males que nelas se tenham suscitado;</texto>
+                        </alinea>
+                        <alinea id="o">
+                            <texto>propor ao Sínodo e ao Supremo Concílio todas as medidas de vantagem para a igreja em geral;</texto>
+                        </alinea>
+                        <alinea id="p">
+                            <texto>eleger representantes aos concílios superiores.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -924,15 +1236,33 @@
                 <caput>
                     <texto>Compete ao Sínodo:</texto>
                     <alineas>
-                        <alinea id="a">organizar, disciplinar, fundir, dividir e dissolver presbitérios;</alinea>
-                        <alinea id="b">resolver dúvidas e questões que subam dos presbitérios;</alinea>
-                        <alinea id="c">superintender a obra de evangelização, de educação religiosa, o trabalho feminino e o da mocidade, bem como as instituições religiosas, educativas e sociais, no âmbito sinodal, de acordo com os padrões estabelecidos pelo Supremo Concílio;</alinea>
-                        <alinea id="d">designar ministros e comissões para a execução de seus planos;</alinea>
-                        <alinea id="e">executar e fazer cumprir suas próprias resoluções e as do Supremo Concílio;</alinea>
-                        <alinea id="f">defender os direitos, bens e privilégios da igreja;</alinea>
-                        <alinea id="g">apreciar os relatórios e examinar as atas dos presbitérios de sua jurisdição, lançando nos livros respectivos as observações necessárias;</alinea>
-                        <alinea id="h">responder as consultas que lhe forem apresentadas;</alinea>
-                        <alinea id="i">propor ao Supremo Concílio as medidas que julgue de vantagem geral para a igreja.</alinea>
+                        <alinea id="a">
+                            <texto>organizar, disciplinar, fundir, dividir e dissolver presbitérios;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>resolver dúvidas e questões que subam dos presbitérios;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>superintender a obra de evangelização, de educação religiosa, o trabalho feminino e o da mocidade, bem como as instituições religiosas, educativas e sociais, no âmbito sinodal, de acordo com os padrões estabelecidos pelo Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>designar ministros e comissões para a execução de seus planos;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>executar e fazer cumprir suas próprias resoluções e as do Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>defender os direitos, bens e privilégios da igreja;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>apreciar os relatórios e examinar as atas dos presbitérios de sua jurisdição, lançando nos livros respectivos as observações necessárias;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>responder as consultas que lhe forem apresentadas;</texto>
+                        </alinea>
+                        <alinea id="i">
+                            <texto>propor ao Supremo Concílio as medidas que julgue de vantagem geral para a igreja.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -952,23 +1282,57 @@
                 <caput>
                     <texto>Compete ao Supremo Concílio:</texto>
                     <alineas>
-                        <alinea id="a">formular sistemas ou padrões de doutrina e prática, quanto à fé; estabelecer regras de governo, de disciplina e de liturgia, de conformidade com o ensino das Sagradas Escrituras;</alinea>
-                        <alinea id="b">organizar, disciplinar, fundir e dissolver sínodos;</alinea>
-                        <alinea id="c">resolver em última instância, dúvidas e questões que subam legalmente dos concílios inferiores;</alinea>
-                        <alinea id="d">corresponder-se, em nome da Igreja Presbiteriana do Brasil, com outras entidades eclesiásticas;</alinea>
-                        <alinea id="e">jubilar ministros;</alinea>
-                        <alinea id="f">receber os dízimos das igrejas para manutenção das causas gerais;</alinea>
-                        <alinea id="g">definir as relações entre a igreja e o Estado;</alinea>
-                        <alinea id="h">processar a admissão de outras organizações eclesiásticas que desejarem unir-se ou filiar-se à Igreja Presbiteriana do Brasil;</alinea>
-                        <alinea id="i">gerir, por intermédio de sua Comissão Executiva, toda a vida da igreja, como organização civil;</alinea>
-                        <alinea id="j">criar e superintender seminários, bem como estabelecer padrões de ensino pré-teológico e teológico;</alinea>
-                        <alinea id="l">superintender, por meio de secretarias especializadas, o trabalho feminino, da mocidade e de educação religiosa e as atividades da infância;</alinea>
-                        <alinea id="m">colaborar, no que julgar oportuno, com entidades eclesiásticas, dentro ou fora do país, para o desenvolvimento do reino de Deus, desde que não seja ferida a ortodoxia presbiteriana;</alinea>
-                        <alinea id="n">executar e fazer cumprir a presente Constituição e as deliberações do próprio Concílio;</alinea>
-                        <alinea id="o">receber, transferir, alienar ou gravar com ônus os bens da Igreja;</alinea>
-                        <alinea id="p">examinar as atas dos sínodos, inserindo nelas as observações que julgar necessárias;</alinea>
-                        <alinea id="q">examinar e homologar as atas da Comissão Executiva, inserindo nelas as observações julgadas necessárias;</alinea>
-                        <alinea id="r">defender os direitos, bens e propriedades da Igreja.</alinea>
+                        <alinea id="a">
+                            <texto>formular sistemas ou padrões de doutrina e prática, quanto à fé; estabelecer regras de governo, de disciplina e de liturgia, de conformidade com o ensino das Sagradas Escrituras;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>organizar, disciplinar, fundir e dissolver sínodos;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>resolver em última instância, dúvidas e questões que subam legalmente dos concílios inferiores;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>corresponder-se, em nome da Igreja Presbiteriana do Brasil, com outras entidades eclesiásticas;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>jubilar ministros;</texto>
+                        </alinea>
+                        <alinea id="f">
+                            <texto>receber os dízimos das igrejas para manutenção das causas gerais;</texto>
+                        </alinea>
+                        <alinea id="g">
+                            <texto>definir as relações entre a igreja e o Estado;</texto>
+                        </alinea>
+                        <alinea id="h">
+                            <texto>processar a admissão de outras organizações eclesiásticas que desejarem unir-se ou filiar-se à Igreja Presbiteriana do Brasil;</texto>
+                        </alinea>
+                        <alinea id="i">
+                            <texto>gerir, por intermédio de sua Comissão Executiva, toda a vida da igreja, como organização civil;</texto>
+                        </alinea>
+                        <alinea id="j">
+                            <texto>criar e superintender seminários, bem como estabelecer padrões de ensino pré-teológico e teológico;</texto>
+                        </alinea>
+                        <alinea id="l">
+                            <texto>superintender, por meio de secretarias especializadas, o trabalho feminino, da mocidade e de educação religiosa e as atividades da infância;</texto>
+                        </alinea>
+                        <alinea id="m">
+                            <texto>colaborar, no que julgar oportuno, com entidades eclesiásticas, dentro ou fora do país, para o desenvolvimento do reino de Deus, desde que não seja ferida a ortodoxia presbiteriana;</texto>
+                        </alinea>
+                        <alinea id="n">
+                            <texto>executar e fazer cumprir a presente Constituição e as deliberações do próprio Concílio;</texto>
+                        </alinea>
+                        <alinea id="o">
+                            <texto>receber, transferir, alienar ou gravar com ônus os bens da Igreja;</texto>
+                        </alinea>
+                        <alinea id="p">
+                            <texto>examinar as atas dos sínodos, inserindo nelas as observações que julgar necessárias;</texto>
+                        </alinea>
+                        <alinea id="q">
+                            <texto>examinar e homologar as atas da Comissão Executiva, inserindo nelas as observações julgadas necessárias;</texto>
+                        </alinea>
+                        <alinea id="r">
+                            <texto>defender os direitos, bens e propriedades da Igreja.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -988,9 +1352,15 @@
                 <caput>
                     <texto>Haverá três categorias de comissões: temporárias, permanentes e especiais:</texto>
                     <alineas>
-                        <alinea id="1">Temporárias - as que têm função durante as sessões do concílio;</alinea>
-                        <alinea id="2">Permanentes - as que funcionam durante os interregnos dos concílios, para dirimir assuntos que lhes sejam entregues pelos mesmos e cujo mandato se extinguirá com a reunião ordinária seguinte do aludido concílio, ao qual deverão apresentar relatório;</alinea>
-                        <alinea id="3">Especiais - as que recebem poderes específicos para tratar, em definitivo, de certos assuntos, e cujo mandato se extinguirá ao apresentar o relatório final.</alinea>
+                        <alinea id="1">
+                            <texto>Temporárias - as que têm função durante as sessões do concílio;</texto>
+                        </alinea>
+                        <alinea id="2">
+                            <texto>Permanentes - as que funcionam durante os interregnos dos concílios, para dirimir assuntos que lhes sejam entregues pelos mesmos e cujo mandato se extinguirá com a reunião ordinária seguinte do aludido concílio, ao qual deverão apresentar relatório;</texto>
+                        </alinea>
+                        <alinea id="3">
+                            <texto>Especiais - as que recebem poderes específicos para tratar, em definitivo, de certos assuntos, e cujo mandato se extinguirá ao apresentar o relatório final.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -1038,8 +1408,12 @@
                 <caput>
                     <texto>São atribuições das comissões executivas:</texto>
                     <alineas>
-                        <alinea id="a">zelar pela pronta e fiel execução das ordens emanadas dos concílios respectivos, ou baixadas nos interregnos, em caráter urgente, pelos concílios superiores;</alinea>
-                        <alinea id="b">resolver assuntos de urgência de atribuição dos respectivos concílios, quando surgirem nos interregnos, sempre ad referendum dos mesmos.</alinea>
+                        <alinea id="a">
+                            <texto>zelar pela pronta e fiel execução das ordens emanadas dos concílios respectivos, ou baixadas nos interregnos, em caráter urgente, pelos concílios superiores;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>resolver assuntos de urgência de atribuição dos respectivos concílios, quando surgirem nos interregnos, sempre ad referendum dos mesmos.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -1140,9 +1514,15 @@
                 <caput>
                     <texto>Quem se sentir chamado para o Ministério da Palavra de Deus, deverá apresentar ao Presbitério os seguintes atestados:</texto>
                     <alineas>
-                        <alinea id="a">de ser membro da igreja em plena comunhão;</alinea>
-                        <alinea id="b">do Conselho, declarando que, no trabalho da igreja, já demonstrou vocação para o Ministério Sagrado;</alinea>
-                        <alinea id="c">de sanidade física e mental, fornecido por profissional indicado pelo concílio.</alinea>
+                        <alinea id="a">
+                            <texto>de ser membro da igreja em plena comunhão;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>do Conselho, declarando que, no trabalho da igreja, já demonstrou vocação para o Ministério Sagrado;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>de sanidade física e mental, fornecido por profissional indicado pelo concílio.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -1179,9 +1559,15 @@
                 <caput>
                     <texto>Deve ainda o candidato à licenciatura apresentar ao Presbitério:</texto>
                     <alineas>
-                        <alinea id="a">uma exegese de um passo das Escrituras Sagradas, no texto original em que deverá revelar capacidade para a crítica, método de exposição, lógica nas conclusões e clareza no salientar a força e expressão da passagem bíblica;</alinea>
-                        <alinea id="b">uma tese de doutrina evangélica da Confissão de Fé;</alinea>
-                        <alinea id="c">um sermão proferido em público perante o concílio, no qual o candidato deverá revelar sã doutrina, boa forma literária, retórica, didática e sobretudo, espiritualidade e piedade.</alinea>
+                        <alinea id="a">
+                            <texto>uma exegese de um passo das Escrituras Sagradas, no texto original em que deverá revelar capacidade para a crítica, método de exposição, lógica nas conclusões e clareza no salientar a força e expressão da passagem bíblica;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>uma tese de doutrina evangélica da Confissão de Fé;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>um sermão proferido em público perante o concílio, no qual o candidato deverá revelar sã doutrina, boa forma literária, retórica, didática e sobretudo, espiritualidade e piedade.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
                 <paragrafo id="1">
@@ -1241,8 +1627,12 @@
                 <caput>
                     <texto>As provas para ordenação consistem de:</texto>
                     <alineas>
-                        <alinea id="a">exame da experiência religiosa do ordenando, mormente depois de licenciado; das doutrinas e práticas mais correntes no momento; história eclesiástica, movimento missionário, sacramentos e problemas da igreja;</alinea>
-                        <alinea id="b">sermão em público perante o Presbitério.</alinea>
+                        <alinea id="a">
+                            <texto>exame da experiência religiosa do ordenando, mormente depois de licenciado; das doutrinas e práticas mais correntes no momento; história eclesiástica, movimento missionário, sacramentos e problemas da igreja;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>sermão em público perante o Presbitério.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -1306,9 +1696,15 @@
                 <caput>
                     <texto>A dissolução das relações de Pastor Efetivo com a igreja confiada aos seus cuidados verificar-se-á:</texto>
                     <alineas>
-                        <alinea id="a">a pedido do pastor, ouvida a igreja;</alinea>
-                        <alinea id="b">a pedido da igreja, ouvido o pastor;</alinea>
-                        <alinea id="c">administrativamente pelo concílio que tiver jurisdição sobre o ministro depois de ouvidos este e a igreja.</alinea>
+                        <alinea id="a">
+                            <texto>a pedido do pastor, ouvida a igreja;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>a pedido da igreja, ouvido o pastor;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>administrativamente pelo concílio que tiver jurisdição sobre o ministro depois de ouvidos este e a igreja.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -1328,10 +1724,18 @@
                 <caput>
                     <texto>As emendas de que trata o artigo anterior serão feitas do seguinte modo:</texto>
                     <alineas>
-                        <alinea id="a">surgindo no plenário do Supremo Concílio alguma proposta, que mereça estudo e consideração pela sua importância e oportunidade, será nomeada uma comissão de expediente para redigir o respectivo anteprojeto que, depois de aprovado pelo plenário do Supremo Concílio, baixará aos presbitérios para que se manifestem a respeito;</alinea>
-                        <alinea id="b">estes concílios devem estudar o anteprojeto na sua primeira reunião ordinária e enviar o seu parecer à Comissão Executiva do Supremo Concílio;</alinea>
-                        <alinea id="c">se o anteprojeto tiver alcançado a aprovação de, pelo menos, dois terços dos presbitérios, será submetido ao Supremo Concílio, em sua primeira reunião ordinária. Ao ser convocado o Supremo Concílio, dar-se-á conhecimento da matéria a ser discutida;</alinea>
-                        <alinea id="d">esse concílio, composto de representantes de, pelo menos, dois terços dos presbitérios, elaborará, decretará e promulgará as emendas.</alinea>
+                        <alinea id="a">
+                            <texto>surgindo no plenário do Supremo Concílio alguma proposta, que mereça estudo e consideração pela sua importância e oportunidade, será nomeada uma comissão de expediente para redigir o respectivo anteprojeto que, depois de aprovado pelo plenário do Supremo Concílio, baixará aos presbitérios para que se manifestem a respeito;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>estes concílios devem estudar o anteprojeto na sua primeira reunião ordinária e enviar o seu parecer à Comissão Executiva do Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>se o anteprojeto tiver alcançado a aprovação de, pelo menos, dois terços dos presbitérios, será submetido ao Supremo Concílio, em sua primeira reunião ordinária. Ao ser convocado o Supremo Concílio, dar-se-á conhecimento da matéria a ser discutida;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>esse concílio, composto de representantes de, pelo menos, dois terços dos presbitérios, elaborará, decretará e promulgará as emendas.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -1339,11 +1743,21 @@
                 <caput>
                     <texto>A reforma de que trata o art. 139 processar-se-á do seguinte modo:</texto>
                     <alineas>
-                        <alinea id="a">surgindo no plenário do Supremo Concílio proposta, que mereça estudo e consideração, pela sua importância e oportunidade, será nomeada uma comissão especial habilitada a fazer em conjunto o seu trabalho;</alinea>
-                        <alinea id="b">esta comissão especial elaborará o anteprojeto de reforma, que será enviado à Comissão Executiva do Supremo Concílio, a fim de que esta o encaminhe aos presbitérios;</alinea>
-                        <alinea id="c">deverão estes estudar o anteprojeto e enviar os seus pareceres à Comissão Executiva do Supremo Concílio;</alinea>
-                        <alinea id="d">se, pelo menos, três quartos dos presbitérios se manifestarem favoráveis, em princípio, à reforma, a Comissão Executiva convocará o Supremo Concílio para se reunir em Assembleia Constituinte;</alinea>
-                        <alinea id="e">a Assembleia Constituinte, composta de representantes de, pelo menos, três quartos dos presbitérios, elaborará, decretará e promulgará a reforma, que tenha sido aprovada por maioria absoluta dos membros presentes no caso da Constituição. Tratando-se dos Símbolos de Fé será necessária a aprovação de dois terços dos membros presentes.</alinea>
+                        <alinea id="a">
+                            <texto>surgindo no plenário do Supremo Concílio proposta, que mereça estudo e consideração, pela sua importância e oportunidade, será nomeada uma comissão especial habilitada a fazer em conjunto o seu trabalho;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>esta comissão especial elaborará o anteprojeto de reforma, que será enviado à Comissão Executiva do Supremo Concílio, a fim de que esta o encaminhe aos presbitérios;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>deverão estes estudar o anteprojeto e enviar os seus pareceres à Comissão Executiva do Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>se, pelo menos, três quartos dos presbitérios se manifestarem favoráveis, em princípio, à reforma, a Comissão Executiva convocará o Supremo Concílio para se reunir em Assembleia Constituinte;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>a Assembleia Constituinte, composta de representantes de, pelo menos, três quartos dos presbitérios, elaborará, decretará e promulgará a reforma, que tenha sido aprovada por maioria absoluta dos membros presentes no caso da Constituição. Tratando-se dos Símbolos de Fé será necessária a aprovação de dois terços dos membros presentes.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>
@@ -1356,11 +1770,21 @@
                 <caput>
                     <texto>O Supremo Concílio organizará:</texto>
                     <alineas>
-                        <alinea id="a">um manual de liturgia, de que possam servir-se as Igrejas Presbiterianas do Brasil;</alinea>
-                        <alinea id="b">modelo de estatutos para concílios, igrejas e sociedades internas;</alinea>
-                        <alinea id="c">modelo de regimento interno para os concílios;</alinea>
-                        <alinea id="d">fórmulas para atas, estatísticas e outros trabalhos de caráter geral das congregações, igrejas e concílios;</alinea>
-                        <alinea id="e">instruções sobre o critério a seguir no exame das atas dos concílios.</alinea>
+                        <alinea id="a">
+                            <texto>um manual de liturgia, de que possam servir-se as Igrejas Presbiterianas do Brasil;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>modelo de estatutos para concílios, igrejas e sociedades internas;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>modelo de regimento interno para os concílios;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>fórmulas para atas, estatísticas e outros trabalhos de caráter geral das congregações, igrejas e concílios;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>instruções sobre o critério a seguir no exame das atas dos concílios.</texto>
+                        </alinea>
                     </alineas>
                 </caput>
             </artigo>

@@ -136,7 +136,7 @@ class Capitulo:
 
     Attrs:
         secoes (list[Secao]): Conjunto de seções do capítulo.
-        id (str): Identificador do capítulo.
+        ide (str): Identificador do capítulo.
         titulo (str): Título do capítulo.
     """
 
@@ -189,7 +189,7 @@ class Secao:
 
     Attrs:
         artigos (list[Artigo]): Conjunto de artigos da seção.
-        id (str): Identificador da seção.
+        ide (str): Identificador da seção.
         titulo (str): Título da seção.
         pai (Capitulo): Capítulo que contém a seção.
     """
@@ -249,7 +249,7 @@ class Artigo:
 
     Attrs:
         paragrafos (list[Paragrafo]): Conjunto de parágrafos do artigo.
-        id (str): Identificador da seção.
+        ide (str): Identificador da seção.
     """
 
     def __init__(self, xml):
@@ -294,11 +294,10 @@ class Paragrafo:
     """Representa um parágrafo de um artigo.
 
     Attrs:
-        id (str): Identificador da seção.
+        ide (str): Identificador da seção.
         alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
-        versoes_texto (): Conjunto de versões do texto do parágrafo.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do parágrafo.
         pai (Artigo): Artigo que contém o parágrafo.
-        vigente (bool): Valor que indica se o parágrafo está vigente.
     """
 
     def __init__(self, pai, xml, caput=False):
@@ -307,35 +306,13 @@ class Paragrafo:
         Args:
             pai (Artigo): Artigo que contém o parágrafo.
             xml (Element): Fragmento de XML com o conteúdo do parágrafo.
-            caput (bool, optional): Valor que indica se o parágrafo é o caput do artigo.
-                Padrão: False.
+            caput (bool, optional): Valor que indica se o parágrafo é o caput. Padrão: False.
         """
 
         self.ide = 0 if caput else int(xml.attrib['id'])
         self.alineas = []
-        self.versoes_texto = []
+        self.versoes_texto = Utilitario.extrair_versoes(xml)
         self.pai = pai
-        self.vigente = True
-
-        for versao in xml.findall('texto'):
-            texto = versao.text
-            instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
-            ordem = int(versao.attrib['ordem']
-                        ) if 'ordem' in versao.attrib else 1
-
-            if any(v.ordem == ordem for v in self.versoes_texto):
-                print(f'{Utilitario.ERRO}Erro{Utilitario.ENDC}')
-                print(f'* Texto com ordem repetida: {texto}')
-                sys.exit(1)
-
-            Utilitario.verificar_pontuacao(texto)
-
-            self.vigente = self.vigente and texto != 'Revogado.'
-            self.versoes_texto.append(
-                Utilitario.VersaoTexto(texto, instrumento, ordem))
-
-        self.versoes_texto = sorted(
-            self.versoes_texto, key=attrgetter('ordem'))
 
         alineas = xml.find('alineas')
 
@@ -373,10 +350,10 @@ class Paragrafo:
 
                 if versao.instrumento is not None:
                     with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Paragrafo.__gerar_versao(html, versao_vigente, rotulo, versao.texto)
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto)
                 else:
                     with tag('span', klass=classes):
-                        Paragrafo.__gerar_versao(html, versao_vigente, rotulo, versao.texto)
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto)
 
             for alinea in self.alineas:
                 alinea.gerar_html(html)
@@ -389,31 +366,6 @@ class Paragrafo:
         """
 
         return f'{self.pai.obter_id_html()}_p{self.ide}'
-
-    @staticmethod
-    def __gerar_versao(html, vigente, rotulo, texto):
-        """Adiciona a materialização da versão do texto do parágrafo ao documento HTML.
-
-        Args:
-            html (dict): Acessórios para materialização.
-            vigente (bool): Valor que indica se a versão é vigente.
-            rotulo (str): Rótulo do parágrafo.
-            texto (str): Texto do parágrafo na versão.
-        """
-
-        doc = html['doc']
-        tag = html['tag']
-        line = html['line']
-
-        if not vigente:
-            with tag('del'):
-                line('strong', rotulo)
-                doc.asis(f' {Utilitario.processar_texto(texto)}')
-
-            doc.stag('br')
-        else:
-            line('strong', rotulo)
-            doc.asis(f' {Utilitario.processar_texto(texto)}')
 
 
 class Caput(Paragrafo):
@@ -434,8 +386,8 @@ class Alinea:
     """Representa uma alínea de um parágrafo.
 
     Attrs:
-        id (str): Identificador da alínea.
-        texto (str): Texto da alínea.
+        ide (str): Identificador da alínea.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto da alínea.
         pai (Paragrafo): Parágrafo que contém a alínea.
     """
 
@@ -448,10 +400,8 @@ class Alinea:
         """
 
         self.ide = xml.attrib['id']
-        self.texto = xml.text
+        self.versoes_texto = Utilitario.extrair_versoes(xml)
         self.pai = pai
-
-        Utilitario.verificar_pontuacao(self.texto)
 
     def gerar_html(self, html):
         """Adiciona a materialização da alínea ao documento HTML.
@@ -464,8 +414,23 @@ class Alinea:
         tag = html['tag']
 
         doc.stag('br')
+
+        rotulo = f'{self.ide})'
+        numero_versoes = len(self.versoes_texto)
+
         with tag('span', id=self.obter_id_html()):
-            doc.asis(f'{self.ide}) {Utilitario.processar_texto(self.texto)}')
+
+            for indice, versao in enumerate(self.versoes_texto, start=1):
+                versao_vigente = indice == numero_versoes
+
+                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+
+                if versao.instrumento is not None:
+                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                else:
+                    with tag('span', klass=classes):
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
 
     def obter_id_html(self):
         """Obtém o identificador da alínea para uso em link HTML.
@@ -485,6 +450,69 @@ class Utilitario:
     ALERTA = '\033[33m'
     ERRO = '\033[31m'
     ENDC = '\033[0m'
+
+    @staticmethod
+    def gerar_versao(html, vigente, rotulo, texto, destacar_rotulo=True):
+        """Adiciona a materialização da versão do texto de um item ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+            vigente (bool): Valor que indica se a versão é vigente.
+            rotulo (str): Rótulo do item.
+            texto (str): Texto do item na versão.
+            destacar_rotulo: Valor que indica se o rótulo deve ser destacado. Padrão: True.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+        line = html['line']
+
+        if not vigente:
+            with tag('del'):
+                if destacar_rotulo:
+                    line('strong', rotulo)
+                    doc.asis(f' {Utilitario.processar_texto(texto)}')
+                else:
+                    doc.asis(f'{rotulo} {Utilitario.processar_texto(texto)}')
+
+            doc.stag('br')
+        else:
+            if destacar_rotulo:
+                line('strong', rotulo)
+                doc.asis(f' {Utilitario.processar_texto(texto)}')
+            else:
+                doc.asis(f'{rotulo} {Utilitario.processar_texto(texto)}')
+
+    @staticmethod
+    def extrair_versoes(xml):
+        """Extrai as versões do texto de um item (parágrafo/alínea) a partir de um fragmento de XML.
+
+        Args:
+            xml (Element): Fragmento de XML com o texto de um item.
+
+        Returns:
+            list[VersaoTexto]: Conjunto de versões do texto de um item.
+        """
+
+        versoes = []
+
+        for versao in xml.findall('texto'):
+            texto = versao.text
+            instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
+            ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
+
+            if any(v.ordem == ordem for v in versoes):
+                print(f'{Utilitario.ERRO}Erro{Utilitario.ENDC}')
+                print(f'* Texto com ordem repetida: {texto}')
+                sys.exit(1)
+
+            Utilitario.verificar_pontuacao(texto)
+
+            versoes.append(Utilitario.VersaoTexto(texto, instrumento, ordem))
+
+        versoes = sorted(versoes, key=attrgetter('ordem'))
+
+        return versoes
 
     @staticmethod
     def verificar_pontuacao(texto):

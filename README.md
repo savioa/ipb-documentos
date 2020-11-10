@@ -7,5 +7,3 @@
     * Marcar para imprimir novamente com rótulo 'Parágrafo único.'
     * Tratar alterações anteriores à renumeração
 * Considerar identificadores únicos para o XML
-* Aplicar tratamento de histórico para alíneas
-    * Testar instrumentos
