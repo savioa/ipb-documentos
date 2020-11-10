@@ -126,6 +126,9 @@ class Constituicao:
 
         return doc
 
+    def __str__(self):
+        return self.__class__.__name__
+
 
 class Capitulo:
     """Representa um capítulo da constituição, formado por um conjunto de seções.
@@ -144,7 +147,7 @@ class Capitulo:
         """
 
         self.secoes = []
-        self.id = xml.attrib['id']
+        self.ide = xml.attrib['id']
         self.titulo = xml.attrib['titulo']
 
         for secao in xml.findall('secao'):
@@ -161,8 +164,8 @@ class Capitulo:
         line = html['line']
 
         with tag('section', id=self.obter_id_html(), klass='capitulo block'):
-            if self.id != 'dg' and self.id != 'dt':
-                line('h2', f'Capítulo {roman.toRoman(int(self.id))}',
+            if self.ide not in ('dg', 'dt'):
+                line('h2', f'Capítulo {roman.toRoman(int(self.ide))}',
                      klass='title is-3 has-text-centered')
 
             line('h2', self.titulo, klass='title is-3 has-text-centered')
@@ -177,7 +180,7 @@ class Capitulo:
             str: Identificador do capítulo.
         """
 
-        return f'c{self.id}'
+        return f'c{self.ide}'
 
 
 class Secao:
@@ -199,7 +202,7 @@ class Secao:
         """
 
         self.artigos = []
-        self.id = int(xml.attrib['id'])
+        self.ide = int(xml.attrib['id'])
         self.titulo = xml.attrib['titulo'] if 'titulo' in xml.attrib else None
         self.pai = pai
 
@@ -221,7 +224,7 @@ class Secao:
                 titulo = 'Única'
                 visibilidade = ' is-sr-only'
             else:
-                titulo = f'{self.id}ª - {self.titulo}'
+                titulo = f'{self.ide}ª - {self.titulo}'
                 visibilidade = ''
 
             line('h2', f'Seção {titulo}',
@@ -237,7 +240,7 @@ class Secao:
             str: Identificador da seção.
         """
 
-        return f'{self.pai.obter_id_html()}_s{self.id}'
+        return f'{self.pai.obter_id_html()}_s{self.ide}'
 
 
 class Artigo:
@@ -255,7 +258,7 @@ class Artigo:
         """
 
         self.paragrafos = []
-        self.id = int(xml.attrib['id'])
+        self.ide = int(xml.attrib['id'])
 
         self.paragrafos.append(Caput(self, xml.find('caput')))
 
@@ -282,7 +285,7 @@ class Artigo:
             str: Identificador do artigo.
         """
 
-        return f'a{self.id}'
+        return f'a{self.ide}'
 
 
 class Paragrafo:
@@ -301,10 +304,11 @@ class Paragrafo:
         Args:
             pai (Artigo): Artigo que contém o parágrafo.
             xml (Element): Fragmento de XML com o conteúdo do parágrafo.
-            caput (bool, optional): Valor que indica se o parágrafo é o caput do artigo. Padrão: False.
+            caput (bool, optional): Valor que indica se o parágrafo é o caput do artigo.
+                Padrão: False.
         """
 
-        self.id = 0 if caput else int(xml.attrib['id'])
+        self.ide = 0 if caput else int(xml.attrib['id'])
         self.alineas = []
         self.versoes_texto = []
         self.pai = pai
@@ -345,14 +349,14 @@ class Paragrafo:
 
         tag = html['tag']
 
-        if self.id == 0:
+        if self.ide == 0:
             tipo = 'caput'
-            terminal = 'º' if self.pai.id < 10 else '.'
-            rotulo = f'Art. {self.pai.id}{terminal}'
+            terminal = 'º' if self.pai.ide < 10 else '.'
+            rotulo = f'Art. {self.pai.ide}{terminal}'
         else:
             tipo = 'paragrafo'
             if len(self.pai.paragrafos) > 2:
-                rotulo = f'§ {self.id}º.'
+                rotulo = f'§ {self.ide}º.'
             else:
                 rotulo = 'Parágrafo único.'
 
@@ -381,7 +385,7 @@ class Paragrafo:
             str: Identificador do parágrafo.
         """
 
-        return f'{self.pai.obter_id_html()}_p{self.id}'
+        return f'{self.pai.obter_id_html()}_p{self.ide}'
 
     @staticmethod
     def __gerar_versao(html, vigente, rotulo, texto):
@@ -422,15 +426,6 @@ class Caput(Paragrafo):
 
         super().__init__(pai, xml, caput=True)
 
-    def gerar_html(self, html):
-        """Adiciona a materialização do caput ao documento HTML.
-
-        Args:
-            html (dict): Acessórios para materialização.
-        """
-
-        super().gerar_html(html)
-
 
 class Alinea:
     """Representa uma alínea de um parágrafo.
@@ -448,7 +443,7 @@ class Alinea:
             xml (Element): Fragmento de XML com o conteúdo da alínea.
         """
 
-        self.id = xml.attrib['id']
+        self.ide = xml.attrib['id']
         self.texto = xml.text
         self.pai = pai
 
@@ -466,7 +461,7 @@ class Alinea:
 
         doc.stag('br')
         with tag('span', id=self.obter_id_html()):
-            doc.asis(f'{self.id}) {Utilitario.processar_texto(self.texto)}')
+            doc.asis(f'{self.ide}) {Utilitario.processar_texto(self.texto)}')
 
     def obter_id_html(self):
         """Obtém o identificador da alínea para uso em link HTML.
@@ -475,7 +470,7 @@ class Alinea:
             str: Identificador da alínea.
         """
 
-        return f'{self.pai.obter_id_html()}_{self.id}'
+        return f'{self.pai.obter_id_html()}_{self.ide}'
 
 
 class Utilitario:
