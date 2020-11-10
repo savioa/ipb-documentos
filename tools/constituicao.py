@@ -23,12 +23,22 @@ class Constituicao:
                      'da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, '
                      'decretamos e promulgamos, para glória de Deus, a seguinte Constituição da '
                      'Igreja Presbiteriana do Brasil.')
+        capitulos = {'preambulo': 'Preâmbulo',
+                     'c1': 'I - Natureza, Governo e Fins da Igreja',
+                     'c2': 'II - Organização das Comunidades Locais',
+                     'c3': 'III - Membros da Igreja',
+                     'c4': 'IV - Oficiais',
+                     'c5': 'V - Concílios',
+                     'c6': 'VI - Comissões e Outras Organizações',
+                     'c7': 'VII - Ordens da Igreja',
+                     'cdg': 'Disposições Gerais',
+                     'cdt': 'Disposições Transitórias'}
 
         doc, tag, text, line = Doc().ttl()
 
         doc.asis('<!doctype html>')
 
-        with tag('html', lang='pt-BR', klass='has-navbar-fixed-top'):
+        with tag('html', lang='pt-BR', klass='has-navbar-fixed-bottom'):
             with tag('head'):
                 doc.stag('meta', charset='utf-8')
                 line('title', titulo)
@@ -44,38 +54,20 @@ class Constituicao:
                 line('script', '', src='base.js')
 
             with tag('body'):
-                with tag('nav', ('role', 'navigation'), ('aria-label', 'main navigation'),
-                         klass='navbar is-fixed-top is-light'
+                with tag('nav', ('aria-label', 'main navigation'),
+                         klass='navbar is-fixed-bottom is-light is-hidden-mobile'
                          ):
-                    with tag('div', klass='navbar-brand'):
-                        with tag('div', klass='navbar-item has-dropdown is-hoverable'):
-                            line('a', 'Índice', klass='navbar-link')
-
-                            with tag('div', klass='navbar-dropdown'):
-                                line('a', 'Preâmbulo',
-                                     klass='navbar-item', href='#preambulo')
-                                doc.stag('hr', klass='navbar-divider')
-                                line('a', 'I - Natureza, Governo e Fins da Igreja',
-                                     klass='navbar-item', href='#c1')
-                                line('a', 'II - Organização das Comunidades Locais',
-                                     klass='navbar-item', href='#c2')
-                                line('a', 'III - Membros da Igreja',
-                                     klass='navbar-item', href='#c3')
-                                line('a', 'IV - Oficiais',
-                                     klass='navbar-item', href='#c4')
-                                line('a', 'V - Concílios',
-                                     klass='navbar-item', href='#c5')
-                                line('a', 'VI - Comissões e Outras Organizações',
-                                     klass='navbar-item', href='#c6')
-                                line('a', 'VII - Ordens da Igreja',
-                                     klass='navbar-item', href='#c7')
-                                doc.stag('hr', klass='navbar-divider')
-                                line('a', 'Disposições Gerais',
-                                     klass='navbar-item', href='#cdg')
-                                line('a', 'Disposições Transitórias',
-                                     klass='navbar-item', href='#cdt')
-
                     with tag('div', klass='navbar-menu'):
+                        with tag('div', klass='navbar-start'):
+                            with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
+                                line('a', 'Índice', klass='navbar-link')
+
+                                with tag('div', klass='navbar-dropdown'):
+                                    for chave, texto in capitulos.items():
+                                        line('a', texto, klass='navbar-item', href=f'#{chave}')
+                                        if chave == 'preambulo' or chave == 'c7':
+                                            doc.stag('hr', klass='navbar-divider')
+
                         with tag('div', klass='navbar-end'):
                             with tag('div', klass='navbar-item'):
                                 with tag('label', klass='checkbox'):
@@ -85,6 +77,12 @@ class Constituicao:
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
                         line('h1', titulo, klass='title is-1 has-text-centered')
+
+                        line('h2', 'Índice', klass='title is-3 has-text-centered is-hidden-tablet')
+                        with tag('ul', klass='content is-hidden-tablet'):
+                            for chave, texto in capitulos.items():
+                                with tag('li'):
+                                    line('a', texto, klass='', href=f'#{chave}')
 
                         with tag('section', id='preambulo', klass='capitulo block'):
                             line('h2', 'Preâmbulo',
