@@ -91,7 +91,8 @@ class Constituicao:
                          ):
                     with tag('div', klass='navbar-menu'):
                         with tag('div', klass='navbar-start'):
-                            with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
+                            with tag('div',
+                                     klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
                                 line('a', 'Índice', href='#', klass='navbar-link')
 
                                 with tag('div', klass='navbar-dropdown'):
@@ -250,6 +251,7 @@ class Artigo:
         paragrafos (list[Paragrafo]): Conjunto de parágrafos do artigo.
         id (str): Identificador da seção.
     """
+
     def __init__(self, xml):
         """Inicia uma instância da classe Artigo a partir de um fragmento de XML.
 
@@ -298,6 +300,7 @@ class Paragrafo:
         pai (Artigo): Artigo que contém o parágrafo.
         vigente (bool): Valor que indica se o parágrafo está vigente.
     """
+
     def __init__(self, pai, xml, caput=False):
         """Inicia uma instância da classe Paragrafo a partir de um fragmento de XML.
 
@@ -435,6 +438,7 @@ class Alinea:
         texto (str): Texto da alínea.
         pai (Paragrafo): Parágrafo que contém a alínea.
     """
+
     def __init__(self, pai, xml):
         """Inicia uma instância da classe Alinea a partir de um fragmento de XML.
 
