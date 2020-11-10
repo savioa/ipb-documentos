@@ -1,9 +1,12 @@
-from yattag.indentation import indent
-from constituicao import Constituicao
+"""Geração da constituição representada em HTML"""
 
 import os
 from time import perf_counter
 from xml.etree.ElementTree import parse
+
+from yattag.indentation import indent
+from constituicao import Constituicao
+
 
 inicio_tempo = perf_counter()
 

@@ -1,19 +1,50 @@
+"""Representa a constituição da IPB.
+
+Classes:
+    Constituicao
+    Capitulo
+    Secao
+    Artigo
+    Paragrafo
+    Caput
+    Alinea
+    Utilitario
+"""
+
 import re
-import roman
 import sys
 from collections import namedtuple
 from operator import attrgetter
+import roman
 from yattag import Doc
 
 
 class Constituicao:
+    """Representa a constituição, formada por um conjunto de capítulos.
+
+    Attrs:
+        capitulos (list[Capitulo]): Conjunto de capítulos da constituição.
+    """
+
     def __init__(self, xml):
+        """Inicia uma instância da classe Constituicao a partir de um documento XML.
+
+        Args:
+            xml (Element): Documento XML com o conteúdo da constituição.
+        """
+
         self.capitulos = []
 
         for capitulo in xml.findall('capitulo'):
             self.capitulos.append(Capitulo(capitulo))
 
     def gerar_html(self):
+        """Gera a materialização da constituição como documento HTML.
+
+        Returns:
+            yattag.doc.Doc: Documento HTML com a constituição.
+        """
+
         titulo = 'Constituição da Igreja Presbiteriana do Brasil'
         preambulo = ('Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes '
                      'da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, '
@@ -35,6 +66,7 @@ class Constituicao:
                      'cdt': 'Disposições Transitórias'}
 
         doc, tag, text, line = Doc().ttl()
+        html = {'doc': doc, 'tag': tag, 'text': text, 'line': line}
 
         doc.asis('<!doctype html>')
 
@@ -60,12 +92,12 @@ class Constituicao:
                     with tag('div', klass='navbar-menu'):
                         with tag('div', klass='navbar-start'):
                             with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
-                                line('a', 'Índice', klass='navbar-link')
+                                line('a', 'Índice', href='#', klass='navbar-link')
 
                                 with tag('div', klass='navbar-dropdown'):
                                     for chave, texto in capitulos.items():
                                         line('a', texto, klass='navbar-item', href=f'#{chave}')
-                                        if chave == 'preambulo' or chave == 'c7':
+                                        if chave in ('preambulo', 'c7'):
                                             doc.stag('hr', klass='navbar-divider')
 
                         with tag('div', klass='navbar-end'):
@@ -90,13 +122,27 @@ class Constituicao:
                             line('p', preambulo)
 
                         for capitulo in self.capitulos:
-                            capitulo.gerar_html(doc, tag, line)
+                            capitulo.gerar_html(html)
 
         return doc
 
 
 class Capitulo:
+    """Representa um capítulo da constituição, formado por um conjunto de seções.
+
+    Attrs:
+        secoes (list[Secao]): Conjunto de seções do capítulo.
+        id (str): Identificador do capítulo.
+        titulo (str): Título do capítulo.
+    """
+
     def __init__(self, xml):
+        """Inicia uma instância da classe Capitulo a partir de um fragmento de XML.
+
+        Args:
+            xml (Element): Fragmento de XML com o conteúdo do capítulo.
+        """
+
         self.secoes = []
         self.id = xml.attrib['id']
         self.titulo = xml.attrib['titulo']
@@ -104,8 +150,17 @@ class Capitulo:
         for secao in xml.findall('secao'):
             self.secoes.append(Secao(self, secao))
 
-    def gerar_html(self, doc, tag, line):
-        with tag('section', id=self.gerar_id(), klass='capitulo block'):
+    def gerar_html(self, html):
+        """Adiciona a materialização do capítulo ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+        line = html['line']
+
+        with tag('section', id=self.obter_id_html(), klass='capitulo block'):
             if self.id != 'dg' and self.id != 'dt':
                 line('h2', f'Capítulo {roman.toRoman(int(self.id))}',
                      klass='title is-3 has-text-centered')
@@ -113,23 +168,55 @@ class Capitulo:
             line('h2', self.titulo, klass='title is-3 has-text-centered')
 
             for secao in self.secoes:
-                secao.gerar_html(doc, tag, line)
+                secao.gerar_html(html)
 
-    def gerar_id(self): return f'c{self.id}'
+    def obter_id_html(self):
+        """Obtém o identificador do capítulo para uso em link HTML.
+
+        Returns:
+            str: Identificador do capítulo.
+        """
+
+        return f'c{self.id}'
 
 
 class Secao:
+    """Representa uma seção de um capítulo, formada por um conjunto de artigos.
+
+    Attrs:
+        artigos (list[Artigo]): Conjunto de artigos da seção.
+        id (str): Identificador da seção.
+        titulo (str): Título da seção.
+        pai (Capitulo): Capítulo que contém a seção.
+    """
+
     def __init__(self, pai, xml):
-        self.pai = pai
+        """Inicia uma instância da classe Secao a partir de um fragmento de XML.
+
+        Args:
+            pai (Capitulo): Capítulo que contém a seção.
+            xml (Element): Fragmento de XML com o conteúdo da seção.
+        """
+
         self.artigos = []
         self.id = int(xml.attrib['id'])
         self.titulo = xml.attrib['titulo'] if 'titulo' in xml.attrib else None
+        self.pai = pai
 
         for artigo in xml.findall('artigo'):
             self.artigos.append(Artigo(artigo))
 
-    def gerar_html(self, doc, tag, line):
-        with tag('section', id=self.gerar_id(), klass='secao block'):
+    def gerar_html(self, html):
+        """Adiciona a materialização da seção ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+        line = html['line']
+
+        with tag('section', id=self.obter_id_html(), klass='secao block'):
             if self.titulo is None:
                 titulo = 'Única'
                 visibilidade = ' is-sr-only'
@@ -141,13 +228,32 @@ class Secao:
                  klass=f'title is-5 has-text-centered{visibilidade}')
 
             for artigo in self.artigos:
-                artigo.gerar_html(doc, tag, line)
+                artigo.gerar_html(html)
 
-    def gerar_id(self): return f'{self.pai.gerar_id()}_s{self.id}'
+    def obter_id_html(self):
+        """Obtém o identificador da seção para uso em link HTML.
+
+        Returns:
+            str: Identificador da seção.
+        """
+
+        return f'{self.pai.obter_id_html()}_s{self.id}'
 
 
 class Artigo:
+    """Representa um artigo, formado por um conjunto de parágrafos.
+
+    Attrs:
+        paragrafos (list[Paragrafo]): Conjunto de parágrafos do artigo.
+        id (str): Identificador da seção.
+    """
     def __init__(self, xml):
+        """Inicia uma instância da classe Artigo a partir de um fragmento de XML.
+
+        Args:
+            xml (Element): Fragmento de XML com o conteúdo do artigo.
+        """
+
         self.paragrafos = []
         self.id = int(xml.attrib['id'])
 
@@ -156,23 +262,53 @@ class Artigo:
         for paragrafo in xml.findall('paragrafo'):
             self.paragrafos.append(Paragrafo(self, paragrafo))
 
-    def gerar_html(self, doc, tag, line):
-        with tag('div', id=self.gerar_id(), klass='artigo block'):
-            for paragrafo in self.paragrafos:
-                paragrafo.gerar_html(doc, tag, line)
+    def gerar_html(self, html):
+        """Adiciona a materialização do artigo ao documento HTML.
 
-    def gerar_id(self): return f'a{self.id}'
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+
+        with tag('div', id=self.obter_id_html(), klass='artigo block'):
+            for paragrafo in self.paragrafos:
+                paragrafo.gerar_html(html)
+
+    def obter_id_html(self):
+        """Obtém o identificador do artigo para uso em link HTML.
+
+        Returns:
+            str: Identificador do artigo.
+        """
+
+        return f'a{self.id}'
 
 
 class Paragrafo:
-    def __init__(self, pai, xml, caput=False):
-        self.pai = pai
-        self.alineas = []
-        self.versoes_texto = []
+    """Representa um parágrafo de um artigo.
 
-        self.vigente = True
+    Attrs:
+        id (str): Identificador da seção.
+        alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
+        versoes_texto (): Conjunto de versões do texto do parágrafo.
+        pai (Artigo): Artigo que contém o parágrafo.
+        vigente (bool): Valor que indica se o parágrafo está vigente.
+    """
+    def __init__(self, pai, xml, caput=False):
+        """Inicia uma instância da classe Paragrafo a partir de um fragmento de XML.
+
+        Args:
+            pai (Artigo): Artigo que contém o parágrafo.
+            xml (Element): Fragmento de XML com o conteúdo do parágrafo.
+            caput (bool, optional): Valor que indica se o parágrafo é o caput do artigo. Padrão: False.
+        """
 
         self.id = 0 if caput else int(xml.attrib['id'])
+        self.alineas = []
+        self.versoes_texto = []
+        self.pai = pai
+        self.vigente = True
 
         for versao in xml.findall('texto'):
             texto = versao.text
@@ -200,7 +336,15 @@ class Paragrafo:
             for alinea in alineas.findall('alinea'):
                 self.alineas.append(Alinea(self, alinea))
 
-    def gerar_html(self, doc, tag, line):
+    def gerar_html(self, html):
+        """Adiciona a materialização do parágrafo ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+
         if self.id == 0:
             tipo = 'caput'
             terminal = 'º' if self.pai.id < 10 else '.'
@@ -214,72 +358,129 @@ class Paragrafo:
 
         numero_versoes = len(self.versoes_texto)
 
-        with tag('p', id=self.gerar_id(), klass=f'{tipo} content'):
+        with tag('p', id=self.obter_id_html(), klass=f'{tipo} content'):
             for indice, versao in enumerate(self.versoes_texto, start=1):
-                visivel = indice == numero_versoes
+                versao_vigente = indice == numero_versoes
 
-                Paragrafo.__gerar_versao(
-                    doc, tag, line, rotulo, versao, visivel)
+                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+
+                if versao.instrumento is not None:
+                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
+                        Paragrafo.__gerar_versao(html, versao_vigente, rotulo, versao.texto)
+                else:
+                    with tag('span', klass=classes):
+                        Paragrafo.__gerar_versao(html, versao_vigente, rotulo, versao.texto)
 
             for alinea in self.alineas:
-                alinea.gerar_html(doc, tag)
+                alinea.gerar_html(html)
 
-    def gerar_id(self): return f'{self.pai.gerar_id()}_p{self.id}'
+    def obter_id_html(self):
+        """Obtém o identificador do parágrafo para uso em link HTML.
 
-    @staticmethod
-    def __gerar_versao(doc, tag, line, rotulo, versao, visivel):
-        classes = f'versao{"" if visivel else " obsoleta is-hidden"}'
+        Returns:
+            str: Identificador do parágrafo.
+        """
 
-        if versao.instrumento is not None:
-            with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                Paragrafo.__tratar_visibilidade(
-                    doc, tag, line, visivel, rotulo, versao.texto)
-        else:
-            with tag('span', klass=classes):
-                Paragrafo.__tratar_visibilidade(
-                    doc, tag, line, visivel, rotulo, versao.texto)
+        return f'{self.pai.obter_id_html()}_p{self.id}'
 
     @staticmethod
-    def __tratar_visibilidade(doc, tag, line, visivel, rotulo, texto):
-        if not visivel:
+    def __gerar_versao(html, vigente, rotulo, texto):
+        """Adiciona a materialização da versão do texto do parágrafo ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+            vigente (bool): Valor que indica se a versão é vigente.
+            rotulo (str): Rótulo do parágrafo.
+            texto (str): Texto do parágrafo na versão.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+        line = html['line']
+
+        if not vigente:
             with tag('del'):
-                Paragrafo.__gerar_texto_versao(doc, line, rotulo, texto)
+                line('strong', rotulo)
+                doc.asis(f' {Utilitario.processar_texto(texto)}')
 
             doc.stag('br')
         else:
-            Paragrafo.__gerar_texto_versao(doc, line, rotulo, texto)
-
-    @staticmethod
-    def __gerar_texto_versao(doc, line, rotulo, texto):
-        line('strong', rotulo)
-        doc.asis(f' {Utilitario.processar_texto(texto)}')
+            line('strong', rotulo)
+            doc.asis(f' {Utilitario.processar_texto(texto)}')
 
 
 class Caput(Paragrafo):
+    """Representa o caput de um artigo."""
+
     def __init__(self, pai, xml):
+        """Inicia uma instância da classe Caput a partir de um fragmento de XML.
+
+        Args:
+            pai (Artigo): Artigo que contém o caput.
+            xml (Element): Fragmento de XML com o conteúdo do caput.
+        """
+
         super().__init__(pai, xml, caput=True)
 
-    def gerar_html(self, doc, tag, line):
-        super().gerar_html(doc, tag, line)
+    def gerar_html(self, html):
+        """Adiciona a materialização do caput ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        super().gerar_html(html)
 
 
 class Alinea:
+    """Representa uma alínea de um parágrafo.
+
+    Attrs:
+        id (str): Identificador da alínea.
+        texto (str): Texto da alínea.
+        pai (Paragrafo): Parágrafo que contém a alínea.
+    """
     def __init__(self, pai, xml):
-        self.pai = pai
+        """Inicia uma instância da classe Alinea a partir de um fragmento de XML.
+
+        Args:
+            pai (Paragrafo): Parágrafo que contém a alínea.
+            xml (Element): Fragmento de XML com o conteúdo da alínea.
+        """
+
         self.id = xml.attrib['id']
         self.texto = xml.text
+        self.pai = pai
 
         Utilitario.verificar_pontuacao(self.texto)
 
-    def gerar_html(self, doc, tag):
+    def gerar_html(self, html):
+        """Adiciona a materialização da alínea ao documento HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+
         doc.stag('br')
-        with tag('span', id=self.gerar_id()):
+        with tag('span', id=self.obter_id_html()):
             doc.asis(f'{self.id}) {Utilitario.processar_texto(self.texto)}')
 
-    def gerar_id(self): return f'{self.pai.gerar_id()}_{self.id}'
+    def obter_id_html(self):
+        """Obtém o identificador da alínea para uso em link HTML.
+
+        Returns:
+            str: Identificador da alínea.
+        """
+
+        return f'{self.pai.obter_id_html()}_{self.id}'
 
 
 class Utilitario:
+    """Define métodos e atributos utilitários para o tratamento da constituição."""
+
     VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
 
     ALERTA = '\033[33m'
@@ -288,21 +489,52 @@ class Utilitario:
 
     @staticmethod
     def verificar_pontuacao(texto):
-        if texto.endswith(tuple([';', '.', ':'])):
-            return
+        """Verifica a presença de pontuação ao fim de um texto.
 
-        print(f'{Utilitario.ALERTA}Alerta{Utilitario.ENDC}')
-        print(f'* Texto sem terminal: {texto}')
+        Args:
+            texto (str): Texto que deve terminar com pontuação.
+        """
+
+        if not texto.endswith(tuple([';', '.', ':'])):
+            print(f'{Utilitario.ALERTA}Alerta{Utilitario.ENDC}')
+            print(f'* Texto sem terminal: {texto}')
 
     @staticmethod
     def processar_texto(texto):
+        """Processa um texto marcando referências e termos latinos.
+
+        Args:
+            texto (str): Texto com referências e termos latinos.
+
+        Returns:
+            str: Texto com referências e termos latinos marcados.
+        """
+
         return Utilitario.marcar_referencias(Utilitario.marcar_termos_latinos(texto))
 
     @staticmethod
     def marcar_referencias(texto):
+        """Identifica referências em um texto e as marca como links HTML.
+
+        Args:
+            texto (str): Texto com referências.
+
+        Returns:
+            str: Texto com referências marcadas.
+        """
+
         return re.sub(r'art\. (\d{1,3})(º)?', r'<a href="#a\1">art. \1\2</a>', texto)
 
     @staticmethod
     def marcar_termos_latinos(texto):
+        """Identifica termos latinos em um texto e os marca para destaque.
+
+        Args:
+            texto (str): Texto com termos latinos.
+
+        Returns:
+            str: Texto com termos latinos marcados.
+        """
+
         termos = ['ex officio', 'in fine', 'ad referendum', 'quorum']
         return re.sub(f"({'|'.join(termos)})", r'<span data-lang="latim">\1</span>', texto)
