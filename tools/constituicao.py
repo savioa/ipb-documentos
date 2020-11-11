@@ -18,6 +18,14 @@ from operator import attrgetter
 import roman
 from yattag import Doc
 
+CLASSES_TITULO = 'title is-1 has-text-centered'
+CLASSES_SUBTITULO = 'title is-3 has-text-centered'
+CLASSES_SECAO = 'title is-5 has-text-centered'
+
+ESCAPE_ALERTA = '\033[33m'
+ESCAPE_ERRO = '\033[31m'
+ESCAPE_ENDC = '\033[0m'
+
 
 class Constituicao:
     """Representa a constituição, formada por um conjunto de capítulos.
@@ -46,6 +54,7 @@ class Constituicao:
         """
 
         titulo = 'Constituição da Igreja Presbiteriana do Brasil'
+
         preambulo = ('Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes '
                      'da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, '
                      'no ano de 1950, com poderes para reforma da Constituição, investidos de toda '
@@ -54,6 +63,7 @@ class Constituicao:
                      'da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, '
                      'decretamos e promulgamos, para glória de Deus, a seguinte Constituição da '
                      'Igreja Presbiteriana do Brasil.')
+
         capitulos = {'preambulo': 'Preâmbulo',
                      'c1': 'I - Natureza, Governo e Fins da Igreja',
                      'c2': 'II - Organização das Comunidades Locais',
@@ -65,6 +75,8 @@ class Constituicao:
                      'cdg': 'Disposições Gerais',
                      'cdt': 'Disposições Transitórias'}
 
+        url_css = 'https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'
+
         doc, tag, text, line = Doc().ttl()
         html = {'doc': doc, 'tag': tag, 'text': text, 'line': line}
 
@@ -74,12 +86,9 @@ class Constituicao:
             with tag('head'):
                 doc.stag('meta', charset='utf-8')
                 line('title', titulo)
-                doc.stag('meta', name='author',
-                         content='Igreja Presbiteriana do Brasil')
-                doc.stag('meta', name='viewport',
-                         content='width=device-width, initial-scale=1')
-                doc.stag('link', rel='stylesheet',
-                         href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css')
+                doc.stag('meta', name='author', content='Igreja Presbiteriana do Brasil')
+                doc.stag('meta', name='viewport', content='width=device-width, initial-scale=1')
+                doc.stag('link', rel='stylesheet', href=url_css)
                 with tag('style'):
                     text('span[data-lang] { font-style: italic; }')
                     text('del { text-decoration: line-through }')
@@ -109,17 +118,16 @@ class Constituicao:
 
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
-                        line('h1', titulo, klass='title is-1 has-text-centered')
+                        line('h1', titulo, klass=CLASSES_TITULO)
 
-                        line('h2', 'Índice', klass='title is-3 has-text-centered is-hidden-tablet')
+                        line('h2', 'Índice', klass=f'{CLASSES_SUBTITULO} is-hidden-tablet')
                         with tag('ul', klass='content is-hidden-tablet'):
                             for chave, texto in capitulos.items():
                                 with tag('li'):
                                     line('a', texto, klass='', href=f'#{chave}')
 
                         with tag('section', id='preambulo', klass='capitulo block'):
-                            line('h2', 'Preâmbulo',
-                                 klass='title is-3 has-text-centered')
+                            line('h2', 'Preâmbulo', klass=CLASSES_SUBTITULO)
                             line('p', preambulo)
 
                         for capitulo in self.capitulos:
@@ -166,10 +174,9 @@ class Capitulo:
 
         with tag('section', id=self.obter_id_html(), klass='capitulo block'):
             if self.ide not in ('dg', 'dt'):
-                line('h2', f'Capítulo {roman.toRoman(int(self.ide))}',
-                     klass='title is-3 has-text-centered')
+                line('h2', f'Capítulo {roman.toRoman(int(self.ide))}', klass=CLASSES_SUBTITULO)
 
-            line('h2', self.titulo, klass='title is-3 has-text-centered')
+            line('h2', self.titulo, klass=CLASSES_SUBTITULO)
 
             for secao in self.secoes:
                 secao.gerar_html(html)
@@ -228,8 +235,7 @@ class Secao:
                 titulo = f'{self.ide}ª - {self.titulo}'
                 visibilidade = ''
 
-            line('h2', f'Seção {titulo}',
-                 klass=f'title is-5 has-text-centered{visibilidade}')
+            line('h3', f'Seção {titulo}', klass=f'{CLASSES_SECAO}{visibilidade}')
 
             for artigo in self.artigos:
                 artigo.gerar_html(html)
@@ -419,7 +425,6 @@ class Alinea:
         numero_versoes = len(self.versoes_texto)
 
         with tag('span', id=self.obter_id_html()):
-
             for indice, versao in enumerate(self.versoes_texto, start=1):
                 versao_vigente = indice == numero_versoes
 
@@ -446,10 +451,6 @@ class Utilitario:
     """Define métodos e atributos utilitários para o tratamento da constituição."""
 
     VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
-
-    ALERTA = '\033[33m'
-    ERRO = '\033[31m'
-    ENDC = '\033[0m'
 
     @staticmethod
     def gerar_versao(html, vigente, rotulo, texto, destacar_rotulo=True):
@@ -502,7 +503,7 @@ class Utilitario:
             ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
 
             if any(v.ordem == ordem for v in versoes):
-                print(f'{Utilitario.ERRO}Erro{Utilitario.ENDC}')
+                print(f'{ESCAPE_ERRO}Erro{ESCAPE_ENDC}')
                 print(f'* Texto com ordem repetida: {texto}')
                 sys.exit(1)
 
@@ -523,7 +524,7 @@ class Utilitario:
         """
 
         if not texto.endswith(tuple([';', '.', ':'])):
-            print(f'{Utilitario.ALERTA}Alerta{Utilitario.ENDC}')
+            print(f'{ESCAPE_ALERTA}Alerta{ESCAPE_ENDC}')
             print(f'* Texto sem terminal: {texto}')
 
     @staticmethod
