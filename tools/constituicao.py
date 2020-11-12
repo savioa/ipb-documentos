@@ -77,6 +77,12 @@ class Constituicao:
 
         url_css = 'https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'
 
+        css = """
+            span[data-lang] { font-style: italic; }
+            del { text-decoration: line-through }
+            .paragrafo { margin-left: 1rem!important; }
+            .capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }"""
+
         doc, tag, text, line = Doc().ttl()
         html = {'doc': doc, 'tag': tag, 'text': text, 'line': line}
 
@@ -89,11 +95,7 @@ class Constituicao:
                 doc.stag('meta', name='author', content='Igreja Presbiteriana do Brasil')
                 doc.stag('meta', name='viewport', content='width=device-width, initial-scale=1')
                 doc.stag('link', rel='stylesheet', href=url_css)
-                with tag('style'):
-                    text('span[data-lang] { font-style: italic; } ')
-                    text('del { text-decoration: line-through } ')
-                    text('.paragrafo { margin-left: 1rem!important; } ')
-                    text('.capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }')
+                line('style', css)
                 line('script', '', src='base.js')
 
             with tag('body'):
