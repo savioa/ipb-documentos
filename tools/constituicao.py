@@ -90,8 +90,10 @@ class Constituicao:
                 doc.stag('meta', name='viewport', content='width=device-width, initial-scale=1')
                 doc.stag('link', rel='stylesheet', href=url_css)
                 with tag('style'):
-                    text('span[data-lang] { font-style: italic; }')
-                    text('del { text-decoration: line-through }')
+                    text('span[data-lang] { font-style: italic; } ')
+                    text('del { text-decoration: line-through } ')
+                    text('.paragrafo { margin-left: 1rem!important; } ')
+                    text('.capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }')
                 line('script', '', src='base.js')
 
             with tag('body'):
@@ -121,12 +123,12 @@ class Constituicao:
                         line('h1', titulo, klass=CLASSES_TITULO)
 
                         line('h2', 'Índice', klass=f'{CLASSES_SUBTITULO} is-hidden-tablet')
-                        with tag('ul', klass='content is-hidden-tablet'):
+                        with tag('ul', klass='is-hidden-tablet'):
                             for chave, texto in capitulos.items():
                                 with tag('li'):
-                                    line('a', texto, klass='', href=f'#{chave}')
+                                    line('a', texto, href=f'#{chave}')
 
-                        with tag('section', id='preambulo', klass='capitulo block'):
+                        with tag('section', id='preambulo', klass='capitulo'):
                             line('h2', 'Preâmbulo', klass=CLASSES_SUBTITULO)
                             line('p', preambulo)
 
@@ -172,7 +174,7 @@ class Capitulo:
         tag = html['tag']
         line = html['line']
 
-        with tag('section', id=self.obter_id_html(), klass='capitulo block'):
+        with tag('section', id=self.obter_id_html(), klass='capitulo'):
             if self.ide not in ('dg', 'dt'):
                 line('h2', f'Capítulo {roman.toRoman(int(self.ide))}', klass=CLASSES_SUBTITULO)
 
@@ -227,7 +229,7 @@ class Secao:
         tag = html['tag']
         line = html['line']
 
-        with tag('section', id=self.obter_id_html(), klass='secao block'):
+        with tag('section', id=self.obter_id_html(), klass='secao'):
             if self.titulo is None:
                 titulo = 'Única'
                 visibilidade = ' is-sr-only'
@@ -282,7 +284,7 @@ class Artigo:
 
         tag = html['tag']
 
-        with tag('div', id=self.obter_id_html(), klass='artigo block'):
+        with tag('div', id=self.obter_id_html(), klass='artigo'):
             for paragrafo in self.paragrafos:
                 paragrafo.gerar_html(html)
 
