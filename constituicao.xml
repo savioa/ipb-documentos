@@ -1351,17 +1351,17 @@
             <artigo id="99">
                 <caput>
                     <texto>Haverá três categorias de comissões: temporárias, permanentes e especiais:</texto>
-                    <alineas>
-                        <alinea id="1">
+                    <incisos>
+                        <inciso id="1">
                             <texto>Temporárias - as que têm função durante as sessões do concílio;</texto>
-                        </alinea>
-                        <alinea id="2">
+                        </inciso>
+                        <inciso id="2">
                             <texto>Permanentes - as que funcionam durante os interregnos dos concílios, para dirimir assuntos que lhes sejam entregues pelos mesmos e cujo mandato se extinguirá com a reunião ordinária seguinte do aludido concílio, ao qual deverão apresentar relatório;</texto>
-                        </alinea>
-                        <alinea id="3">
+                        </inciso>
+                        <inciso id="3">
                             <texto>Especiais - as que recebem poderes específicos para tratar, em definitivo, de certos assuntos, e cujo mandato se extinguirá ao apresentar o relatório final.</texto>
-                        </alinea>
-                    </alineas>
+                        </inciso>
+                    </incisos>
                 </caput>
                 <paragrafo id="1">
                     <texto>As da terceira categoria serão constituídas pelo menos de três ministros e dois presbíteros.</texto>

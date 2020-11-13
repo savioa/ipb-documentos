@@ -317,6 +317,7 @@ class Paragrafo:
     Attrs:
         ide (str): Identificador da seção.
         alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
+        incisos (list[Inciso]): Conjunto de incisos do parágrafo.
         versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do parágrafo.
         pai (Artigo): Artigo que contém o parágrafo.
     """
@@ -332,6 +333,7 @@ class Paragrafo:
 
         self.ide = 0 if caput else int(xml.attrib['id'])
         self.alineas = []
+        self.incisos = []
         self.versoes_texto = Utilitario.extrair_versoes(xml)
         self.pai = pai
 
@@ -340,6 +342,12 @@ class Paragrafo:
         if alineas is not None:
             for alinea in alineas.findall('alinea'):
                 self.alineas.append(Alinea(self, alinea))
+
+        incisos = xml.find('incisos')
+
+        if incisos is not None:
+            for inciso in incisos.findall('inciso'):
+                self.incisos.append(Inciso(self, inciso))
 
     def gerar_html(self, html):
         """Adiciona a materialização do parágrafo ao objeto HTML.
@@ -379,6 +387,9 @@ class Paragrafo:
             for alinea in self.alineas:
                 alinea.gerar_html(html)
 
+            for inciso in self.incisos:
+                inciso.gerar_html(html)
+
     def obter_id_html(self):
         """Obtém o identificador do parágrafo para uso em link HTML.
 
@@ -401,6 +412,76 @@ class Caput(Paragrafo):
         """
 
         super().__init__(pai, xml, caput=True)
+
+
+class Inciso:
+    """Representa um inciso de um parágrafo.
+
+    Attrs:
+        ide (str): Identificador do inciso.
+        alineas (list[Alineas]): Conjunto de alíneas do inciso.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do inciso.
+        pai (Paragrafo): Parágrafo que contém o inciso.
+    """
+
+    def __init__(self, pai, xml):
+        """Inicia uma instância da classe Inciso a partir de um fragmento de XML.
+
+        Args:
+            pai (Paragrafo): Parágrafo que contém o inciso.
+            xml (Element): Fragmento de XML com o conteúdo do inciso.
+        """
+
+        self.ide = int(xml.attrib['id'])
+        self.alineas = []
+        self.versoes_texto = Utilitario.extrair_versoes(xml)
+        self.pai = pai
+
+        alineas = xml.find('alineas')
+
+        if alineas is not None:
+            for alinea in alineas.findall('alinea'):
+                self.alineas.append(Alinea(self, alinea))
+
+    def gerar_html(self, html):
+        """Adiciona a materialização do inciso ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+
+        doc.stag('br')
+
+        rotulo = f'{roman.toRoman(self.ide)} -'
+        numero_versoes = len(self.versoes_texto)
+
+        with tag('span', id=self.obter_id_html()):
+            for indice, versao in enumerate(self.versoes_texto, start=1):
+                versao_vigente = indice == numero_versoes
+
+                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+
+                if versao.instrumento is not None:
+                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                else:
+                    with tag('span', klass=classes):
+                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+
+            for alinea in self.alineas:
+                alinea.gerar_html(html)
+
+    def obter_id_html(self):
+        """Obtém o identificador do inciso para uso em link HTML.
+
+        Returns:
+            str: Identificador do inciso.
+        """
+
+        return f'{self.pai.obter_id_html()}_i{self.ide}'
 
 
 class Alinea:
