@@ -5,11 +5,9 @@ document.addEventListener('keyup', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    var obsoletos = document.querySelectorAll('.obsoleta');
-    var controle_mostrar = document.querySelector('#mostrar_versoes');
-    var controle_ir = document.querySelector('#ir');
+    document.querySelector('#mostrar_versoes').addEventListener('change', () => {
+        const obsoletos = document.querySelectorAll('.obsoleta');
 
-    controle_mostrar.addEventListener('change', () => {
         if (obsoletos.length > 0) {
             obsoletos.forEach(item => {
                 item.classList.toggle('is-hidden');
@@ -17,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    controle_ir.addEventListener('keyup', (e) => {
+    document.querySelector('#ir').addEventListener('keyup', (e) => {
         if (e.code == 'Enter') {
-            let destino = document.querySelector('#a' + e.currentTarget.value);
+            const destino = document.querySelector('#a' + e.currentTarget.value);
 
             if (destino === null) {
                 window.alert('O artigo não foi encontrado.');
@@ -31,15 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    var instrumentos = document.querySelectorAll('span[data-instrumento]');
+    const instrumentos = document.querySelectorAll('span[data-instrumento]');
 
     if (instrumentos.length > 0) {
         instrumentos.forEach(el => {
-            var span = document.createElement('span');
+            const span = document.createElement('span');
             span.className = 'tag is-light ml-2';
             span.appendChild(document.createTextNode(el.attributes['data-instrumento'].value));
 
-            var alvo = el;
+            const alvo = el;
 
             if (el.firstElementChild.tagName === 'DEL') {
                 alvo = el.firstElementChild;
