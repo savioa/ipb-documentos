@@ -95,6 +95,8 @@ class Constituicao:
                 doc.stag('meta', name='author', content='Igreja Presbiteriana do Brasil')
                 doc.stag('meta', name='viewport', content='width=device-width, initial-scale=1')
                 doc.stag('link', rel='stylesheet', href=url_css)
+                doc.stag('link', rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+                doc.stag('link', rel='icon', href='favicon.ico', type='image/x-icon')
                 line('style', css)
                 line('script', '', src='base.js')
 
@@ -118,7 +120,7 @@ class Constituicao:
                             with tag('div', klass='navbar-item'):
                                 with tag('div', klass='field'):
                                     with tag('div', klass='control'):
-                                        doc.stag('input', klass='input', type='input',
+                                        doc.stag('input', klass='input', type='text',
                                                  placeholder='Vá para um artigo', id='ir')
 
                             with tag('div', klass='navbar-item'):
