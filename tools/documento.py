@@ -647,6 +647,14 @@ class Utilitario:
             str: Texto com referências marcadas.
         """
 
+        regex_artigos = r'arts\. (?:\d{1,3}(?:º)?,)*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?'
+        ocorrencia_artigos = re.search(regex_artigos, texto)
+
+        if ocorrencia_artigos is not None:
+            texto_original = ocorrencia_artigos.group(0)
+            texto_final = re.sub(r'(\d{1,3})(º)?', r'<a href="#a\1">\1\2</a>', texto_original)
+            texto = texto.replace(texto_original, texto_final)
+
         return re.sub(r'art\. (\d{1,3})(º)?', r'<a href="#a\1">art. \1\2</a>', texto)
 
     @staticmethod
