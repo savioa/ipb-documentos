@@ -116,6 +116,12 @@ class Constituicao:
 
                         with tag('div', klass='navbar-end'):
                             with tag('div', klass='navbar-item'):
+                                with tag('div', klass='field'):
+                                    with tag('div', klass='control'):
+                                        doc.stag('input', klass='input', type='input',
+                                                 placeholder='Vá para um artigo', id='ir')
+
+                            with tag('div', klass='navbar-item'):
                                 with tag('label', klass='checkbox'):
                                     doc.stag('input', type='checkbox', id='mostrar_versoes')
                                     text(' Apresentar versões obsoletas')
