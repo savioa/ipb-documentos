@@ -1,7 +1,7 @@
-"""Representa a constituição da IPB.
+"""Representa um documento da IPB.
 
 Classes:
-    Constituicao
+    Documento
     Capitulo
     Secao
     Artigo
@@ -27,53 +27,55 @@ ESCAPE_ERRO = '\033[31m'
 ESCAPE_ENDC = '\033[0m'
 
 
-class Constituicao:
-    """Representa a constituição, formada por um conjunto de capítulos.
+class Documento:
+    """Representa um documento, formado por um conjunto de capítulos.
 
     Attrs:
-        capitulos (list[Capitulo]): Conjunto de capítulos da constituição.
+        capitulos (list[Capitulo]): Conjunto de capítulos do documento.
+        titulo (str): Título do documento.
+        preambulo (str): Preâmbulo do documento.
     """
 
     def __init__(self, xml):
-        """Inicia uma instância da classe Constituicao a partir de um documento XML.
+        """Inicia uma instância da classe Documento a partir de um objeto XML.
 
         Args:
-            xml (Element): Documento XML com o conteúdo da constituição.
+            xml (Element): Objeto XML com o conteúdo do documento.
         """
 
         self.capitulos = []
+        self.titulo = xml.attrib['titulo']
+        self.preambulo = None
+
+        preambulo = xml.find('preambulo')
+
+        if preambulo is not None:
+            self.preambulo = preambulo.find('texto').text
 
         for capitulo in xml.findall('capitulo'):
             self.capitulos.append(Capitulo(capitulo))
 
     def gerar_html(self):
-        """Gera a materialização da constituição como documento HTML.
+        """Gera a materialização do documento como objeto HTML.
 
         Returns:
-            yattag.doc.Doc: Documento HTML com a constituição.
+            yattag.doc.Doc: Objeto HTML com o documento.
         """
 
-        titulo = 'Constituição da Igreja Presbiteriana do Brasil'
+        capitulos = []
 
-        preambulo = ('Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes '
-                     'da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, '
-                     'no ano de 1950, com poderes para reforma da Constituição, investidos de toda '
-                     'autoridade para cumprir as resoluções da legislatura de 1946, depositando '
-                     'toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção '
-                     'da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, '
-                     'decretamos e promulgamos, para glória de Deus, a seguinte Constituição da '
-                     'Igreja Presbiteriana do Brasil.')
+        if self.preambulo is not None:
+            capitulos.append(('preambulo', 'Preâmbulo'))
 
-        capitulos = {'preambulo': 'Preâmbulo',
-                     'c1': 'I - Natureza, Governo e Fins da Igreja',
-                     'c2': 'II - Organização das Comunidades Locais',
-                     'c3': 'III - Membros da Igreja',
-                     'c4': 'IV - Oficiais',
-                     'c5': 'V - Concílios',
-                     'c6': 'VI - Comissões e Outras Organizações',
-                     'c7': 'VII - Ordens da Igreja',
-                     'cdg': 'Disposições Gerais',
-                     'cdt': 'Disposições Transitórias'}
+        for capitulo in self.capitulos:
+            chave = capitulo.obter_id_html()
+
+            if capitulo.ide.isnumeric():
+                valor = f'{roman.toRoman(int(capitulo.ide))} - {capitulo.titulo}'
+            else:
+                valor = capitulo.titulo
+
+            capitulos.append((chave, valor))
 
         url_css = 'https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'
 
@@ -91,7 +93,7 @@ class Constituicao:
         with tag('html', lang='pt-BR', klass='has-navbar-fixed-bottom'):
             with tag('head'):
                 doc.stag('meta', charset='utf-8')
-                line('title', titulo)
+                line('title', self.titulo)
                 doc.stag('meta', name='author', content='Igreja Presbiteriana do Brasil')
                 doc.stag('meta', name='viewport', content='width=device-width, initial-scale=1')
                 doc.stag('link', rel='stylesheet', href=url_css)
@@ -111,10 +113,10 @@ class Constituicao:
                                 line('a', 'Índice', href='#', klass='navbar-link')
 
                                 with tag('div', klass='navbar-dropdown'):
-                                    for chave, texto in capitulos.items():
-                                        line('a', texto, klass='navbar-item', href=f'#{chave}')
-                                        if chave in ('preambulo', 'c7'):
-                                            doc.stag('hr', klass='navbar-divider')
+                                    for capitulo in capitulos:
+                                        chave = capitulo[0]
+                                        valor = capitulo[1]
+                                        line('a', valor, klass='navbar-item', href=f'#{chave}')
 
                         with tag('div', klass='navbar-end'):
                             with tag('div', klass='navbar-item'):
@@ -130,17 +132,18 @@ class Constituicao:
 
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
-                        line('h1', titulo, klass=CLASSES_TITULO)
+                        line('h1', self.titulo, klass=CLASSES_TITULO)
 
                         line('h2', 'Índice', klass=f'{CLASSES_SUBTITULO} is-hidden-tablet')
                         with tag('ul', klass='is-hidden-tablet'):
-                            for chave, texto in capitulos.items():
+                            for capitulo in capitulos:
                                 with tag('li'):
-                                    line('a', texto, href=f'#{chave}')
+                                    line('a', capitulo[1], href=f'#{capitulo[0]}')
 
-                        with tag('section', id='preambulo', klass='capitulo'):
-                            line('h2', 'Preâmbulo', klass=CLASSES_SUBTITULO)
-                            line('p', preambulo)
+                        if self.preambulo is not None:
+                            with tag('section', id='preambulo', klass='capitulo'):
+                                line('h2', 'Preâmbulo', klass=CLASSES_SUBTITULO)
+                                line('p', self.preambulo)
 
                         for capitulo in self.capitulos:
                             capitulo.gerar_html(html)
@@ -152,7 +155,7 @@ class Constituicao:
 
 
 class Capitulo:
-    """Representa um capítulo da constituição, formado por um conjunto de seções.
+    """Representa um capítulo do documento, formado por um conjunto de seções.
 
     Attrs:
         secoes (list[Secao]): Conjunto de seções do capítulo.
@@ -175,7 +178,7 @@ class Capitulo:
             self.secoes.append(Secao(self, secao))
 
     def gerar_html(self, html):
-        """Adiciona a materialização do capítulo ao documento HTML.
+        """Adiciona a materialização do capítulo ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -230,7 +233,7 @@ class Secao:
             self.artigos.append(Artigo(artigo))
 
     def gerar_html(self, html):
-        """Adiciona a materialização da seção ao documento HTML.
+        """Adiciona a materialização da seção ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -286,7 +289,7 @@ class Artigo:
             self.paragrafos.append(Paragrafo(self, paragrafo))
 
     def gerar_html(self, html):
-        """Adiciona a materialização do artigo ao documento HTML.
+        """Adiciona a materialização do artigo ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -339,7 +342,7 @@ class Paragrafo:
                 self.alineas.append(Alinea(self, alinea))
 
     def gerar_html(self, html):
-        """Adiciona a materialização do parágrafo ao documento HTML.
+        """Adiciona a materialização do parágrafo ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -422,7 +425,7 @@ class Alinea:
         self.pai = pai
 
     def gerar_html(self, html):
-        """Adiciona a materialização da alínea ao documento HTML.
+        """Adiciona a materialização da alínea ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -460,13 +463,13 @@ class Alinea:
 
 
 class Utilitario:
-    """Define métodos e atributos utilitários para o tratamento da constituição."""
+    """Define métodos e atributos utilitários para o tratamento de um documento."""
 
     VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
 
     @staticmethod
     def gerar_versao(html, vigente, rotulo, texto, destacar_rotulo=True):
-        """Adiciona a materialização da versão do texto de um item ao documento HTML.
+        """Adiciona a materialização da versão do texto de um item ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
@@ -576,5 +579,5 @@ class Utilitario:
             str: Texto com termos latinos marcados.
         """
 
-        termos = ['ex officio', 'in fine', 'ad referendum', 'quorum']
+        termos = ['ex officio', 'in fine', 'ad referendum', 'quorum', 'ad hoc']
         return re.sub(f"({'|'.join(termos)})", r'<span data-lang="latim">\1</span>', texto)

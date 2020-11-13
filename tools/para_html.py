@@ -1,11 +1,11 @@
-"""Geração da constituição representada em HTML"""
+"""Geração de documentos da IPB em HTML"""
 
 import os
 from time import perf_counter
 from xml.etree.ElementTree import parse
 
 from yattag.indentation import indent
-from constituicao import Constituicao
+from documento import Documento
 
 
 inicio_tempo = perf_counter()
@@ -13,14 +13,11 @@ inicio_tempo = perf_counter()
 if 'tools' in os.getcwd():
     os.chdir('../')
 
-caminho_xml = os.path.join(os.getcwd(), 'constituicao.xml')
+caminho_constituicao = os.path.join(os.getcwd(), 'constituicao.xml')
 
-constituicao = Constituicao(parse(caminho_xml).getroot())
-
-# constituicao.imprimir()
-html = constituicao.gerar_html()
+constituicao = Documento(parse(caminho_constituicao).getroot())
 
 with open('index.html', mode='w', encoding='utf-8') as f:
-    f.write(indent(html.getvalue(), indentation='    '))
+    f.write(indent(constituicao.gerar_html().getvalue(), indentation='    '))
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)
