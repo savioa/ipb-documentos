@@ -13,11 +13,21 @@ inicio_tempo = perf_counter()
 if 'tools' in os.getcwd():
     os.chdir('../')
 
-caminho_constituicao = os.path.join(os.getcwd(), 'constituicao.xml')
+# Constituição
+caminho_documento = os.path.join(os.getcwd(), 'constituicao.xml')
 
-constituicao = Documento(parse(caminho_constituicao).getroot())
+constituicao = Documento(parse(caminho_documento).getroot())
 
 with open('index.html', mode='w', encoding='utf-8') as f:
     f.write(indent(constituicao.gerar_html().getvalue(), indentation='    '))
+
+# Código de Disciplina
+caminho_documento = os.path.join(os.getcwd(), 'codigo_de_disciplina.xml')
+
+codigo_de_disciplina = Documento(parse(caminho_documento).getroot())
+
+with open('codigo_de_disciplina.html', mode='w', encoding='utf-8') as f:
+    f.write(indent(codigo_de_disciplina.gerar_html().getvalue(), indentation='    '))
+
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)
