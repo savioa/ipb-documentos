@@ -1,4 +1,8 @@
-<documento titulo="Código de Disciplina da Igreja Presbiteriana do Brasil">
+<?xml version="1.0" encoding="UTF-8"?>
+<documento titulo="Código de Disciplina da Igreja Presbiteriana do Brasil"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://savioa.github.io/ipb-documentos"
+    xsi:schemaLocation="https://savioa.github.io/ipb-documentos documento.xsd">
     <preambulo>
         <texto>Em nome do Pai, e do Filho, e do Espírito Santo, nós, legítimos representantes da Igreja Presbiteriana do Brasil, reunidos em Supremo Concílio, no ano de 1951, investidos de toda a autoridade para cumprir as resoluções das legislaturas de 1946 e de 1950, com toda a confiança na bênção de Deus, nosso Pai, e visando exercer a justiça, manter a paz, sustentar a disciplina, preservar a unidade e promover a edificação da igreja de Cristo, decretamos e promulgamos, para glória de Deus Altíssimo, o seguinte Código de Disciplina.</texto>
     </preambulo>

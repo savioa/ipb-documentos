@@ -26,6 +26,8 @@ ESCAPE_ALERTA = '\033[33m'
 ESCAPE_ERRO = '\033[31m'
 ESCAPE_ENDC = '\033[0m'
 
+NS = '{https://savioa.github.io/ipb-documentos}'
+
 
 class Documento:
     """Representa um documento, formado por um conjunto de capítulos.
@@ -47,12 +49,12 @@ class Documento:
         self.titulo = xml.attrib['titulo']
         self.preambulo = None
 
-        preambulo = xml.find('preambulo')
+        preambulo = xml.find(NS + 'preambulo')
 
         if preambulo is not None:
-            self.preambulo = preambulo.find('texto').text
+            self.preambulo = preambulo.find(NS + 'texto').text
 
-        for capitulo in xml.findall('capitulo'):
+        for capitulo in xml.findall(NS + 'capitulo'):
             self.capitulos.append(Capitulo(capitulo))
 
     def gerar_html(self):
@@ -174,7 +176,7 @@ class Capitulo:
         self.ide = xml.attrib['id']
         self.titulo = xml.attrib['titulo']
 
-        for secao in xml.findall('secao'):
+        for secao in xml.findall(NS + 'secao'):
             self.secoes.append(Secao(self, secao))
 
     def gerar_html(self, html):
@@ -229,7 +231,7 @@ class Secao:
         self.titulo = xml.attrib['titulo'] if 'titulo' in xml.attrib else None
         self.pai = pai
 
-        for artigo in xml.findall('artigo'):
+        for artigo in xml.findall(NS + 'artigo'):
             self.artigos.append(Artigo(artigo))
 
     def gerar_html(self, html):
@@ -283,9 +285,9 @@ class Artigo:
         self.paragrafos = []
         self.ide = int(xml.attrib['id'])
 
-        self.paragrafos.append(Caput(self, xml.find('caput')))
+        self.paragrafos.append(Caput(self, xml.find(NS + 'caput')))
 
-        for paragrafo in xml.findall('paragrafo'):
+        for paragrafo in xml.findall(NS + 'paragrafo'):
             self.paragrafos.append(Paragrafo(self, paragrafo))
 
     def gerar_html(self, html):
@@ -337,16 +339,16 @@ class Paragrafo:
         self.versoes_texto = Utilitario.extrair_versoes(xml)
         self.pai = pai
 
-        alineas = xml.find('alineas')
+        alineas = xml.find(NS + 'alineas')
 
         if alineas is not None:
-            for alinea in alineas.findall('alinea'):
+            for alinea in alineas.findall(NS + 'alinea'):
                 self.alineas.append(Alinea(self, alinea))
 
-        incisos = xml.find('incisos')
+        incisos = xml.find(NS + 'incisos')
 
         if incisos is not None:
-            for inciso in incisos.findall('inciso'):
+            for inciso in incisos.findall(NS + 'inciso'):
                 self.incisos.append(Inciso(self, inciso))
 
     def gerar_html(self, html):
@@ -437,10 +439,10 @@ class Inciso:
         self.versoes_texto = Utilitario.extrair_versoes(xml)
         self.pai = pai
 
-        alineas = xml.find('alineas')
+        alineas = xml.find(NS + 'alineas')
 
         if alineas is not None:
-            for alinea in alineas.findall('alinea'):
+            for alinea in alineas.findall(NS + 'alinea'):
                 self.alineas.append(Alinea(self, alinea))
 
     def gerar_html(self, html):
@@ -593,7 +595,7 @@ class Utilitario:
 
         versoes = []
 
-        for versao in xml.findall('texto'):
+        for versao in xml.findall(NS + 'texto'):
             texto = versao.text
             instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
             ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
