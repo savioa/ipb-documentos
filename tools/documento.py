@@ -105,32 +105,7 @@ class Documento:
                 line('script', '', src='base.js')
 
             with tag('body'):
-                with tag('nav', ('aria-label', 'main navigation'),
-                         klass='navbar is-fixed-bottom is-light is-hidden-mobile'
-                         ):
-                    with tag('div', klass='navbar-menu'):
-                        with tag('div', klass='navbar-start'):
-                            with tag('div',
-                                     klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
-                                line('a', 'Índice', href='#', klass='navbar-link')
-
-                                with tag('div', klass='navbar-dropdown'):
-                                    for capitulo in capitulos:
-                                        chave = capitulo[0]
-                                        valor = capitulo[1]
-                                        line('a', valor, klass='navbar-item', href=f'#{chave}')
-
-                        with tag('div', klass='navbar-end'):
-                            with tag('div', klass='navbar-item'):
-                                with tag('div', klass='field'):
-                                    with tag('div', klass='control'):
-                                        doc.stag('input', klass='input', type='text',
-                                                 placeholder='Vá para um artigo', id='ir')
-
-                            with tag('div', klass='navbar-item'):
-                                with tag('label', klass='checkbox'):
-                                    doc.stag('input', type='checkbox', id='mostrar_versoes')
-                                    text(' Apresentar versões obsoletas')
+                Documento.gerar_navegacao(html, capitulos)
 
                 with tag('section', klass='section'):
                     with tag('div', klass='container'):
@@ -152,8 +127,44 @@ class Documento:
 
         return doc
 
-    def __str__(self):
-        return self.__class__.__name__
+    @staticmethod
+    def gerar_navegacao(html, capitulos):
+        """Adiciona os elementos de navegação ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+            capitulos (list[tuple]): Identificadores e rótulos dos capítulos do documento.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+        text = html['text']
+        line = html['line']
+
+        with tag('nav', ('aria-label', 'main navigation'),
+                 klass='navbar is-fixed-bottom is-light is-hidden-mobile'):
+            with tag('div', klass='navbar-menu'):
+                with tag('div', klass='navbar-start'):
+                    with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
+                        line('a', 'Índice', href='#', klass='navbar-link')
+
+                        with tag('div', klass='navbar-dropdown'):
+                            for capitulo in capitulos:
+                                chave = capitulo[0]
+                                valor = capitulo[1]
+                                line('a', valor, klass='navbar-item', href=f'#{chave}')
+
+                with tag('div', klass='navbar-end'):
+                    with tag('div', klass='navbar-item'):
+                        with tag('div', klass='field'):
+                            with tag('div', klass='control'):
+                                doc.stag('input', klass='input', type='text',
+                                         placeholder='Vá para um artigo', id='ir')
+
+                    with tag('div', klass='navbar-item'):
+                        with tag('label', klass='checkbox'):
+                            doc.stag('input', type='checkbox', id='mostrar_versoes')
+                            text(' Apresentar versões obsoletas')
 
 
 class Capitulo:
