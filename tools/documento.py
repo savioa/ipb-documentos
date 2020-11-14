@@ -324,251 +324,75 @@ class Artigo:
         return f'a{self.ide}'
 
 
-class Paragrafo:
-    """Representa um parágrafo de um artigo.
+class ItemComTextoVersionado:
+    """Representa um item do documento que contém texto versionado (Paragrafo, Inciso ou Alinea).
 
     Attrs:
-        ide (str): Identificador da seção.
-        alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
-        incisos (list[Inciso]): Conjunto de incisos do parágrafo.
-        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do parágrafo.
-        pai (Artigo): Artigo que contém o parágrafo.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do item.
+        pai (variable): Elemento que contém o item (Artigo, Paragrafo ou Inciso).
     """
 
-    def __init__(self, pai, xml, caput=False):
-        """Inicia uma instância da classe Paragrafo a partir de um fragmento de XML.
+    def __init__(self, pai, xml):
+        """Inicia uma instância da classe ItemComTextoVersionado a partir de um fragmento de XML.
 
         Args:
-            pai (Artigo): Artigo que contém o parágrafo.
-            xml (Element): Fragmento de XML com o conteúdo do parágrafo.
-            caput (bool, optional): Valor que indica se o parágrafo é o caput. Padrão: False.
+            pai (variable): Elemento que contém o item (Artigo, Paragrafo ou Inciso).
+            xml (Element): Fragmento de XML com o conteúdo do item.
         """
 
-        self.ide = 0 if caput else int(xml.attrib['id'])
-        self.alineas = []
-        self.incisos = []
-        self.versoes_texto = Utilitario.extrair_versoes(xml)
+        self.versoes_texto = []
+
+        for versao in xml.findall(NS + 'texto'):
+            texto = versao.text
+            instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
+            ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
+
+            if any(v.ordem == ordem for v in self.versoes_texto):
+                print(f'{ESCAPE_ERRO}Erro{ESCAPE_ENDC}')
+                print(f'* Texto com ordem repetida: {texto}')
+                sys.exit(1)
+
+            Utilitario.verificar_pontuacao(texto)
+
+            self.versoes_texto.append(Utilitario.VersaoTexto(texto, instrumento, ordem))
+
+        self.versoes_texto = sorted(self.versoes_texto, key=attrgetter('ordem'))
+
         self.pai = pai
 
-        alineas = xml.find(NS + 'alineas')
-
-        if alineas is not None:
-            for alinea in alineas.findall(NS + 'alinea'):
-                self.alineas.append(Alinea(self, alinea))
-
-        incisos = xml.find(NS + 'incisos')
-
-        if incisos is not None:
-            for inciso in incisos.findall(NS + 'inciso'):
-                self.incisos.append(Inciso(self, inciso))
-
-    def gerar_html(self, html):
-        """Adiciona a materialização do parágrafo ao objeto HTML.
+    def gerar_html_versoes(self, html, destacar_rotulo):
+        """Adiciona a materialização do item ao objeto HTML.
 
         Args:
             html (dict): Acessórios para materialização.
+            destacar_rotulo (bool): Valor que indica se o rótulo deve ser destacado.
         """
 
         tag = html['tag']
 
-        if self.ide == 0:
-            tipo = 'caput'
-            terminal = 'º' if self.pai.ide < 10 else '.'
-            rotulo = f'Art. {self.pai.ide}{terminal}'
-        else:
-            tipo = 'paragrafo'
-            if len(self.pai.paragrafos) > 2:
-                rotulo = f'§ {self.ide}º.'
+        numero_versoes = len(self.versoes_texto)
+        rotulo = self.obter_rotulo()
+        artigo = self.pai
+
+        if type(artigo) is not Artigo:
+            artigo = artigo.pai
+
+        for indice, versao in enumerate(self.versoes_texto, start=1):
+            versao_vigente = indice == numero_versoes
+
+            classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
+
+            if versao.instrumento is not None:
+                with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
+                    ItemComTextoVersionado.gerar_versao(
+                        html, versao_vigente, rotulo, versao.texto, artigo, destacar_rotulo)
             else:
-                rotulo = 'Parágrafo único.'
-
-        numero_versoes = len(self.versoes_texto)
-
-        with tag('p', id=self.obter_id_html(), klass=f'{tipo} content'):
-            for indice, versao in enumerate(self.versoes_texto, start=1):
-                versao_vigente = indice == numero_versoes
-
-                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
-
-                if versao.instrumento is not None:
-                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai)
-                else:
-                    with tag('span', klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai)
-
-            for alinea in self.alineas:
-                alinea.gerar_html(html)
-
-            for inciso in self.incisos:
-                inciso.gerar_html(html)
-
-    def obter_id_html(self):
-        """Obtém o identificador do parágrafo para uso em link HTML.
-
-        Returns:
-            str: Identificador do parágrafo.
-        """
-
-        return f'{self.pai.obter_id_html()}_p{self.ide}'
-
-
-class Caput(Paragrafo):
-    """Representa o caput de um artigo."""
-
-    def __init__(self, pai, xml):
-        """Inicia uma instância da classe Caput a partir de um fragmento de XML.
-
-        Args:
-            pai (Artigo): Artigo que contém o caput.
-            xml (Element): Fragmento de XML com o conteúdo do caput.
-        """
-
-        super().__init__(pai, xml, caput=True)
-
-
-class Inciso:
-    """Representa um inciso de um parágrafo.
-
-    Attrs:
-        ide (str): Identificador do inciso.
-        alineas (list[Alineas]): Conjunto de alíneas do inciso.
-        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do inciso.
-        pai (Paragrafo): Parágrafo que contém o inciso.
-    """
-
-    def __init__(self, pai, xml):
-        """Inicia uma instância da classe Inciso a partir de um fragmento de XML.
-
-        Args:
-            pai (Paragrafo): Parágrafo que contém o inciso.
-            xml (Element): Fragmento de XML com o conteúdo do inciso.
-        """
-
-        self.ide = int(xml.attrib['id'])
-        self.alineas = []
-        self.versoes_texto = Utilitario.extrair_versoes(xml)
-        self.pai = pai
-
-        alineas = xml.find(NS + 'alineas')
-
-        if alineas is not None:
-            for alinea in alineas.findall(NS + 'alinea'):
-                self.alineas.append(Alinea(self, alinea))
-
-    def gerar_html(self, html):
-        """Adiciona a materialização do inciso ao objeto HTML.
-
-        Args:
-            html (dict): Acessórios para materialização.
-        """
-
-        doc = html['doc']
-        tag = html['tag']
-
-        doc.stag('br')
-
-        rotulo = f'{roman.toRoman(self.ide)} -'
-        numero_versoes = len(self.versoes_texto)
-
-        with tag('span', id=self.obter_id_html()):
-            for indice, versao in enumerate(self.versoes_texto, start=1):
-                versao_vigente = indice == numero_versoes
-
-                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
-
-                if versao.instrumento is not None:
-                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
-                else:
-                    with tag('span', klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
-
-            for alinea in self.alineas:
-                alinea.gerar_html(html)
-
-    def obter_id_html(self):
-        """Obtém o identificador do inciso para uso em link HTML.
-
-        Returns:
-            str: Identificador do inciso.
-        """
-
-        return f'{self.pai.obter_id_html()}_i{self.ide}'
-
-
-class Alinea:
-    """Representa uma alínea de um parágrafo.
-
-    Attrs:
-        ide (str): Identificador da alínea.
-        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto da alínea.
-        pai (Paragrafo): Parágrafo que contém a alínea.
-    """
-
-    def __init__(self, pai, xml):
-        """Inicia uma instância da classe Alinea a partir de um fragmento de XML.
-
-        Args:
-            pai (Paragrafo): Parágrafo que contém a alínea.
-            xml (Element): Fragmento de XML com o conteúdo da alínea.
-        """
-
-        self.ide = xml.attrib['id']
-        self.versoes_texto = Utilitario.extrair_versoes(xml)
-        self.pai = pai
-
-    def gerar_html(self, html):
-        """Adiciona a materialização da alínea ao objeto HTML.
-
-        Args:
-            html (dict): Acessórios para materialização.
-        """
-
-        doc = html['doc']
-        tag = html['tag']
-
-        doc.stag('br')
-
-        rotulo = f'{self.ide})'
-        numero_versoes = len(self.versoes_texto)
-
-        with tag('span', id=self.obter_id_html()):
-            for indice, versao in enumerate(self.versoes_texto, start=1):
-                versao_vigente = indice == numero_versoes
-
-                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
-
-                if versao.instrumento is not None:
-                    with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
-                else:
-                    with tag('span', klass=classes):
-                        Utilitario.gerar_versao(
-                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
-
-    def obter_id_html(self):
-        """Obtém o identificador da alínea para uso em link HTML.
-
-        Returns:
-            str: Identificador da alínea.
-        """
-
-        return f'{self.pai.obter_id_html()}_{self.ide}'
-
-
-class Utilitario:
-    """Define métodos e atributos utilitários para o tratamento de um documento."""
-
-    VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
+                with tag('span', klass=classes):
+                    ItemComTextoVersionado.gerar_versao(
+                        html, versao_vigente, rotulo, versao.texto, artigo, destacar_rotulo)
 
     @staticmethod
-    def gerar_versao(html, vigente, rotulo, texto, artigo, destacar_rotulo=True):
+    def gerar_versao(html, vigente, rotulo, texto, artigo, destacar_rotulo):
         """Adiciona a materialização da versão do texto de um item ao objeto HTML.
 
         Args:
@@ -577,7 +401,7 @@ class Utilitario:
             rotulo (str): Rótulo do item.
             texto (str): Texto do item na versão.
             artigo (Artigo): Artigo que contém o texto.
-            destacar_rotulo: Valor que indica se o rótulo deve ser destacado. Padrão: True.
+            destacar_rotulo (bool): Valor que indica se o rótulo deve ser destacado.
         """
 
         doc = html['doc']
@@ -600,36 +424,225 @@ class Utilitario:
             else:
                 doc.asis(f'{rotulo} {Utilitario.processar_texto(texto, artigo)}')
 
-    @staticmethod
-    def extrair_versoes(xml):
-        """Extrai as versões do texto de um item (parágrafo/alínea) a partir de um fragmento de XML.
+
+class Paragrafo(ItemComTextoVersionado):
+    """Representa um parágrafo de um artigo.
+
+    Attrs:
+        ide (str): Identificador da seção.
+        alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
+        incisos (list[Inciso]): Conjunto de incisos do parágrafo.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do parágrafo.
+        pai (Artigo): Artigo que contém o parágrafo.
+    """
+
+    def __init__(self, pai, xml, caput=False):
+        """Inicia uma instância da classe Paragrafo a partir de um fragmento de XML.
 
         Args:
-            xml (Element): Fragmento de XML com o texto de um item.
-
-        Returns:
-            list[VersaoTexto]: Conjunto de versões do texto de um item.
+            pai (Artigo): Artigo que contém o parágrafo.
+            xml (Element): Fragmento de XML com o conteúdo do parágrafo.
+            caput (bool, optional): Valor que indica se o parágrafo é o caput. Padrão: False.
         """
 
-        versoes = []
+        self.ide = 0 if caput else int(xml.attrib['id'])
+        self.alineas = []
+        self.incisos = []
+        super().__init__(pai, xml)
 
-        for versao in xml.findall(NS + 'texto'):
-            texto = versao.text
-            instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
-            ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
+        alineas = xml.find(NS + 'alineas')
 
-            if any(v.ordem == ordem for v in versoes):
-                print(f'{ESCAPE_ERRO}Erro{ESCAPE_ENDC}')
-                print(f'* Texto com ordem repetida: {texto}')
-                sys.exit(1)
+        if alineas is not None:
+            for alinea in alineas.findall(NS + 'alinea'):
+                self.alineas.append(Alinea(self, alinea))
 
-            Utilitario.verificar_pontuacao(texto)
+        incisos = xml.find(NS + 'incisos')
 
-            versoes.append(Utilitario.VersaoTexto(texto, instrumento, ordem))
+        if incisos is not None:
+            for inciso in incisos.findall(NS + 'inciso'):
+                self.incisos.append(Inciso(self, inciso))
 
-        versoes = sorted(versoes, key=attrgetter('ordem'))
+    def gerar_html(self, html):
+        """Adiciona a materialização do parágrafo ao objeto HTML.
 
-        return versoes
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+
+        tipo = 'caput' if self.ide == 0 else 'paragrafo'
+
+        with tag('p', id=self.obter_id_html(), klass=f'{tipo} content'):
+            self.gerar_html_versoes(html, True)
+
+            for alinea in self.alineas:
+                alinea.gerar_html(html)
+
+            for inciso in self.incisos:
+                inciso.gerar_html(html)
+
+    def obter_id_html(self):
+        """Obtém o identificador do parágrafo para uso em link HTML.
+
+        Returns:
+            str: Identificador do parágrafo.
+        """
+
+        return f'{self.pai.obter_id_html()}_p{self.ide}'
+
+    def obter_rotulo(self):
+        """Obtém o rótulo do parágrafo.
+
+        Returns:
+            str: Rótulo do parágrafo.
+        """
+
+        if self.ide == 0:
+            return f"Art. {self.pai.ide}{'º' if self.pai.ide < 10 else '.'}"
+        else:
+            if len(self.pai.paragrafos) > 2:
+                return f'§ {self.ide}º.'
+            else:
+                return 'Parágrafo único.'
+
+
+class Caput(Paragrafo):
+    """Representa o caput de um artigo."""
+
+    def __init__(self, pai, xml):
+        """Inicia uma instância da classe Caput a partir de um fragmento de XML.
+
+        Args:
+            pai (Artigo): Artigo que contém o caput.
+            xml (Element): Fragmento de XML com o conteúdo do caput.
+        """
+
+        super().__init__(pai, xml, caput=True)
+
+
+class Inciso(ItemComTextoVersionado):
+    """Representa um inciso de um parágrafo.
+
+    Attrs:
+        ide (str): Identificador do inciso.
+        alineas (list[Alineas]): Conjunto de alíneas do inciso.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do inciso.
+        pai (Paragrafo): Parágrafo que contém o inciso.
+    """
+
+    def __init__(self, pai, xml):
+        """Inicia uma instância da classe Inciso a partir de um fragmento de XML.
+
+        Args:
+            pai (Paragrafo): Parágrafo que contém o inciso.
+            xml (Element): Fragmento de XML com o conteúdo do inciso.
+        """
+
+        self.ide = int(xml.attrib['id'])
+        self.alineas = []
+        super().__init__(pai, xml)
+
+        alineas = xml.find(NS + 'alineas')
+
+        if alineas is not None:
+            for alinea in alineas.findall(NS + 'alinea'):
+                self.alineas.append(Alinea(self, alinea))
+
+    def gerar_html(self, html):
+        """Adiciona a materialização do inciso ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+
+        doc.stag('br')
+
+        with tag('span', id=self.obter_id_html()):
+            self.gerar_html_versoes(html, False)
+
+            for alinea in self.alineas:
+                alinea.gerar_html(html)
+
+    def obter_id_html(self):
+        """Obtém o identificador do inciso para uso em link HTML.
+
+        Returns:
+            str: Identificador do inciso.
+        """
+
+        return f'{self.pai.obter_id_html()}_i{self.ide}'
+
+    def obter_rotulo(self):
+        """Obtém o rótulo do inciso.
+
+        Returns:
+            str: Rótulo do inciso.
+        """
+
+        return f'{roman.toRoman(self.ide)} -'
+
+
+class Alinea(ItemComTextoVersionado):
+    """Representa uma alínea de um parágrafo.
+
+    Attrs:
+        ide (str): Identificador da alínea.
+        versoes_texto (list[VersaoTexto]): Conjunto de versões do texto da alínea.
+        pai (Paragrafo): Parágrafo que contém a alínea.
+    """
+
+    def __init__(self, pai, xml):
+        """Inicia uma instância da classe Alinea a partir de um fragmento de XML.
+
+        Args:
+            pai (Paragrafo): Parágrafo que contém a alínea.
+            xml (Element): Fragmento de XML com o conteúdo da alínea.
+        """
+
+        self.ide = xml.attrib['id']
+        super().__init__(pai, xml)
+
+    def gerar_html(self, html):
+        """Adiciona a materialização da alínea ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+
+        doc.stag('br')
+
+        with tag('span', id=self.obter_id_html()):
+            self.gerar_html_versoes(html, False)
+
+    def obter_id_html(self):
+        """Obtém o identificador da alínea para uso em link HTML.
+
+        Returns:
+            str: Identificador da alínea.
+        """
+
+        return f'{self.pai.obter_id_html()}_{self.ide}'
+
+    def obter_rotulo(self):
+        """Obtém o rótulo da alínea.
+
+        Returns:
+            str: Rótulo da alínea.
+        """
+        return f'{self.ide})'
+
+
+class Utilitario:
+    """Define métodos e atributos utilitários para o tratamento de um documento."""
+
+    VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
 
     @staticmethod
     def verificar_pontuacao(texto):
