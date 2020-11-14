@@ -328,17 +328,21 @@ class ItemComTextoVersionado:
     """Representa um item do documento que contém texto versionado (Paragrafo, Inciso ou Alinea).
 
     Attrs:
+        ide (str): Identificador do item.
         versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do item.
         pai (variable): Elemento que contém o item (Artigo, Paragrafo ou Inciso).
     """
 
-    def __init__(self, pai, xml):
+    def __init__(self, ide, pai, xml):
         """Inicia uma instância da classe ItemComTextoVersionado a partir de um fragmento de XML.
 
         Args:
+            ide (variable): Identificador do item.
             pai (variable): Elemento que contém o item (Artigo, Paragrafo ou Inciso).
             xml (Element): Fragmento de XML com o conteúdo do item.
         """
+
+        self.ide = ide
 
         self.versoes_texto = []
 
@@ -398,7 +402,7 @@ class ItemComTextoVersionado:
             str: Rótulo do item.
         """
 
-        return ''
+        return self.ide
 
     @staticmethod
     def gerar_versao(html, vigente, rotulo, texto, artigo, destacar_rotulo):
@@ -457,7 +461,7 @@ class Paragrafo(ItemComTextoVersionado):
         self.ide = 0 if caput else int(xml.attrib['id'])
         self.alineas = []
         self.incisos = []
-        super().__init__(pai, xml)
+        super().__init__(self.ide, pai, xml)
 
         alineas = xml.find(NS + 'alineas')
 
@@ -550,7 +554,7 @@ class Inciso(ItemComTextoVersionado):
 
         self.ide = int(xml.attrib['id'])
         self.alineas = []
-        super().__init__(pai, xml)
+        super().__init__(self.ide, pai, xml)
 
         alineas = xml.find(NS + 'alineas')
 
@@ -613,7 +617,7 @@ class Alinea(ItemComTextoVersionado):
         """
 
         self.ide = xml.attrib['id']
-        super().__init__(pai, xml)
+        super().__init__(self.ide, pai, xml)
 
     def gerar_html(self, html):
         """Adiciona a materialização da alínea ao objeto HTML.
