@@ -112,7 +112,7 @@ class Documento:
                         line('h1', self.titulo, klass=CLASSES_TITULO)
 
                         line('h2', 'Índice', klass=f'{CLASSES_SUBTITULO} is-hidden-tablet')
-                        with tag('ul', klass='is-hidden-tablet'):
+                        with tag('ul', klass='content is-hidden-tablet'):
                             for capitulo in capitulos:
                                 with tag('li'):
                                     line('a', capitulo[1], href=f'#{capitulo[0]}')
