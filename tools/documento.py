@@ -388,14 +388,16 @@ class Paragrafo:
             for indice, versao in enumerate(self.versoes_texto, start=1):
                 versao_vigente = indice == numero_versoes
 
-                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
 
                 if versao.instrumento is not None:
                     with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai)
                 else:
                     with tag('span', klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai)
 
             for alinea in self.alineas:
                 alinea.gerar_html(html)
@@ -475,14 +477,16 @@ class Inciso:
             for indice, versao in enumerate(self.versoes_texto, start=1):
                 versao_vigente = indice == numero_versoes
 
-                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
 
                 if versao.instrumento is not None:
                     with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
                 else:
                     with tag('span', klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
 
             for alinea in self.alineas:
                 alinea.gerar_html(html)
@@ -537,14 +541,16 @@ class Alinea:
             for indice, versao in enumerate(self.versoes_texto, start=1):
                 versao_vigente = indice == numero_versoes
 
-                classes = f'versao{"" if versao_vigente else " obsoleta is-hidden"}'
+                classes = f"versao{'' if versao_vigente else ' obsoleta is-hidden'}"
 
                 if versao.instrumento is not None:
                     with tag('span', ('data-instrumento', versao.instrumento), klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
                 else:
                     with tag('span', klass=classes):
-                        Utilitario.gerar_versao(html, versao_vigente, rotulo, versao.texto, False)
+                        Utilitario.gerar_versao(
+                            html, versao_vigente, rotulo, versao.texto, self.pai.pai, False)
 
     def obter_id_html(self):
         """Obtém o identificador da alínea para uso em link HTML.
@@ -562,7 +568,7 @@ class Utilitario:
     VersaoTexto = namedtuple('VersaoTexto', 'texto instrumento ordem')
 
     @staticmethod
-    def gerar_versao(html, vigente, rotulo, texto, destacar_rotulo=True):
+    def gerar_versao(html, vigente, rotulo, texto, artigo, destacar_rotulo=True):
         """Adiciona a materialização da versão do texto de um item ao objeto HTML.
 
         Args:
@@ -570,6 +576,7 @@ class Utilitario:
             vigente (bool): Valor que indica se a versão é vigente.
             rotulo (str): Rótulo do item.
             texto (str): Texto do item na versão.
+            artigo (Artigo): Artigo que contém o texto.
             destacar_rotulo: Valor que indica se o rótulo deve ser destacado. Padrão: True.
         """
 
@@ -581,17 +588,17 @@ class Utilitario:
             with tag('del'):
                 if destacar_rotulo:
                     line('strong', rotulo)
-                    doc.asis(f' {Utilitario.processar_texto(texto)}')
+                    doc.asis(f' {Utilitario.processar_texto(texto, artigo)}')
                 else:
-                    doc.asis(f'{rotulo} {Utilitario.processar_texto(texto)}')
+                    doc.asis(f'{rotulo} {Utilitario.processar_texto(texto, artigo)}')
 
             doc.stag('br')
         else:
             if destacar_rotulo:
                 line('strong', rotulo)
-                doc.asis(f' {Utilitario.processar_texto(texto)}')
+                doc.asis(f' {Utilitario.processar_texto(texto, artigo)}')
             else:
-                doc.asis(f'{rotulo} {Utilitario.processar_texto(texto)}')
+                doc.asis(f'{rotulo} {Utilitario.processar_texto(texto, artigo)}')
 
     @staticmethod
     def extrair_versoes(xml):
@@ -637,28 +644,34 @@ class Utilitario:
             print(f'* Texto sem terminal: {texto}')
 
     @staticmethod
-    def processar_texto(texto):
+    def processar_texto(texto, artigo):
         """Processa um texto marcando referências e termos latinos.
 
         Args:
             texto (str): Texto com referências e termos latinos.
+            artigo (Artigo): Artigo que contém o texto.
 
         Returns:
             str: Texto com referências e termos latinos marcados.
         """
 
-        return Utilitario.marcar_referencias(Utilitario.marcar_termos_latinos(texto))
+        return Utilitario.marcar_referencias(Utilitario.marcar_termos_latinos(texto), artigo)
 
     @staticmethod
-    def marcar_referencias(texto):
+    def marcar_referencias(texto, artigo):
         """Identifica referências em um texto e as marca como links HTML.
 
         Args:
             texto (str): Texto com referências.
+            artigo (Artigo): Artigo que contém o texto.
 
         Returns:
             str: Texto com referências marcadas.
         """
+
+        if 'artigo anterior' in texto:
+            texto = re.sub(
+                'artigo anterior', f'<a href="#a{artigo.ide - 1}">artigo anterior</a>', texto)
 
         regex_artigos = r'arts\. (?:\d{1,3}(?:º)?,)*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?'
         ocorrencia_artigos = re.search(regex_artigos, texto)
