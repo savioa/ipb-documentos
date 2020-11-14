@@ -374,7 +374,7 @@ class ItemComTextoVersionado:
         rotulo = self.obter_rotulo()
         artigo = self.pai
 
-        if type(artigo) is not Artigo:
+        if not isinstance(artigo, Artigo):
             artigo = artigo.pai
 
         for indice, versao in enumerate(self.versoes_texto, start=1):
@@ -390,6 +390,15 @@ class ItemComTextoVersionado:
                 with tag('span', klass=classes):
                     ItemComTextoVersionado.gerar_versao(
                         html, versao_vigente, rotulo, versao.texto, artigo, destacar_rotulo)
+
+    def obter_rotulo(self):
+        """Obtém o rótulo do item.
+
+        Returns:
+            str: Rótulo do item.
+        """
+
+        return ''
 
     @staticmethod
     def gerar_versao(html, vigente, rotulo, texto, artigo, destacar_rotulo):
@@ -500,11 +509,11 @@ class Paragrafo(ItemComTextoVersionado):
 
         if self.ide == 0:
             return f"Art. {self.pai.ide}{'º' if self.pai.ide < 10 else '.'}"
-        else:
-            if len(self.pai.paragrafos) > 2:
-                return f'§ {self.ide}º.'
-            else:
-                return 'Parágrafo único.'
+
+        if len(self.pai.paragrafos) > 2:
+            return f'§ {self.ide}º.'
+
+        return 'Parágrafo único.'
 
 
 class Caput(Paragrafo):
