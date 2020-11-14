@@ -868,21 +868,21 @@
             <artigo id="83">
                 <caput>
                     <texto>Incumbe ao Secretário do concílio ou tribunal:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>zelar pelos livros, papéis, processos que lhe forem confiados, organizando a secretaria;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>funcionar nos processos, cumprindo as determinações dos juízes e atender às partes;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>dar as certidões autorizadas pelo Presidente, uma vez pagas pelo interessado as despesas;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>dar às partes ciência de prazo, de despachos e sentenças, fazer citações, notificações e intimações, de tudo lavrando os termos e certidões nos autos.</texto>
+                        </alinea>
+                    </alineas>
                 </caput>
-                <alineas>
-                    <alinea id="a">
-                        <texto>zelar pelos livros, papéis, processos que lhe forem confiados, organizando a secretaria;</texto>
-                    </alinea>
-                    <alinea id="b">
-                        <texto>funcionar nos processos, cumprindo as determinações dos juízes e atender às partes;</texto>
-                    </alinea>
-                    <alinea id="c">
-                        <texto>dar as certidões autorizadas pelo Presidente, uma vez pagas pelo interessado as despesas;</texto>
-                    </alinea>
-                    <alinea id="d">
-                        <texto>dar às partes ciência de prazo, de despachos e sentenças, fazer citações, notificações e intimações, de tudo lavrando os termos e certidões nos autos.</texto>
-                    </alinea>
-                </alineas>
             </artigo>
         </secao>
         <secao id="7" titulo="Das Citações">
@@ -1017,24 +1017,24 @@
             <artigo id="95">
                 <caput>
                     <texto>A decisão absolverá o acusado mencionando a causa desde que reconheça:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>estar provada a inexistência do fato;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>não haver prova da existência do fato;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>não constituir o fato uma falta;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>não existir prova de ter o acusado concorrido para o fato;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>existir circunstância que exclua a responsabilidade do acusado.</texto>
+                        </alinea>
+                    </alineas>
                 </caput>
-                <alineas>
-                    <alinea id="a">
-                        <texto>estar provada a inexistência do fato;</texto>
-                    </alinea>
-                    <alinea id="b">
-                        <texto>não haver prova da existência do fato;</texto>
-                    </alinea>
-                    <alinea id="c">
-                        <texto>não constituir o fato uma falta;</texto>
-                    </alinea>
-                    <alinea id="d">
-                        <texto>não existir prova de ter o acusado concorrido para o fato;</texto>
-                    </alinea>
-                    <alinea id="e">
-                        <texto>existir circunstância que exclua a responsabilidade do acusado.</texto>
-                    </alinea>
-                </alineas>
             </artigo>
             <artigo id="96">
                 <caput>
@@ -1173,18 +1173,18 @@
             <artigo id="114">
                 <caput>
                     <texto>Os recursos admitidos são:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>apelação;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>revisão;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>recurso extraordinário.</texto>
+                        </alinea>
+                    </alineas>
                 </caput>
-                <alineas>
-                    <alinea id="a">
-                        <texto>apelação;</texto>
-                    </alinea>
-                    <alinea id="b">
-                        <texto>revisão;</texto>
-                    </alinea>
-                    <alinea id="c">
-                        <texto>recurso extraordinário.</texto>
-                    </alinea>
-                </alineas>
             </artigo>
         </secao>
         <secao id="2" titulo="Da Apelação">
@@ -1264,15 +1264,15 @@
             <artigo id="127">
                 <caput>
                     <texto>Recurso extraordinário é o pronunciamento do tribunal do Supremo Concílio sobre decisão dos tribunais nos seguintes casos:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>quando as decisões deixarem de cumprir no processo, leis ou resoluções tomadas pelo Supremo Concílio, ou as contrariarem;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>quando forem divergentes as resoluções do tribunal, ou questionável a jurisprudência.</texto>
+                        </alinea>
+                    </alineas>
                 </caput>
-                <alineas>
-                    <alinea id="a">
-                        <texto>quando as decisões deixarem de cumprir no processo, leis ou resoluções tomadas pelo Supremo Concílio, ou as contrariarem;</texto>
-                    </alinea>
-                    <alinea id="b">
-                        <texto>quando forem divergentes as resoluções do tribunal, ou questionável a jurisprudência.</texto>
-                    </alinea>
-                </alineas>
             </artigo>
             <artigo id="128">
                 <caput>
@@ -1295,18 +1295,18 @@
             <artigo id="131">
                 <caput>
                     <texto>Na audiência do julgamento, proceder-se-á do seguinte modo:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>abertos os trabalhos com oração, o Presidente dará a palavra ao relator para ler o seu parecer;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>a seguir dará a palavra ao requerente para fazer alegações que entender dentro de dez minutos;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>depois votarão o relator e os juízes, aplicando-se as demais disposições do julgamento da apelação.</texto>
+                        </alinea>
+                    </alineas>
                 </caput>
-                <alineas>
-                    <alinea id="a">
-                        <texto>abertos os trabalhos com oração, o Presidente dará a palavra ao relator para ler o seu parecer;</texto>
-                    </alinea>
-                    <alinea id="b">
-                        <texto>a seguir dará a palavra ao requerente para fazer alegações que entender dentro de dez minutos;</texto>
-                    </alinea>
-                    <alinea id="c">
-                        <texto>depois votarão o relator e os juízes, aplicando-se as demais disposições do julgamento da apelação.</texto>
-                    </alinea>
-                </alineas>
             </artigo>
             <artigo id="132">
                 <caput>
