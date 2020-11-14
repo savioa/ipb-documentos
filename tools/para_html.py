@@ -18,7 +18,7 @@ caminho_documento = os.path.join(os.getcwd(), 'constituicao.xml')
 
 constituicao = Documento(parse(caminho_documento).getroot())
 
-with open('html/constituicao.html', mode='w', encoding='utf-8') as f:
+with open('docs/constituicao.html', mode='w', encoding='utf-8') as f:
     f.write(indent(constituicao.gerar_html().getvalue(), indentation='    '))
 
 # Código de Disciplina
@@ -26,7 +26,7 @@ caminho_documento = os.path.join(os.getcwd(), 'codigo_de_disciplina.xml')
 
 codigo_de_disciplina = Documento(parse(caminho_documento).getroot())
 
-with open('html/codigo_de_disciplina.html', mode='w', encoding='utf-8') as f:
+with open('docs/codigo_de_disciplina.html', mode='w', encoding='utf-8') as f:
     f.write(indent(codigo_de_disciplina.gerar_html().getvalue(), indentation='    '))
 
 
