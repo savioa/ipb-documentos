@@ -20,4 +20,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         cd tools
-        pylint `ls -R|grep .py$|xargs`
+        pylint --max-args=6 `ls -R|grep .py$|xargs`
