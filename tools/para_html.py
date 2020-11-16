@@ -29,5 +29,12 @@ codigo_de_disciplina = Documento(parse(caminho_documento).getroot())
 with open('docs/codigo_de_disciplina.html', mode='w', encoding='utf-8') as f:
     f.write(indent(codigo_de_disciplina.gerar_html().getvalue(), indentation='    '))
 
+# Princípios de Liturgia
+caminho_documento = os.path.join(os.getcwd(), 'principios_de_liturgia.xml')
+
+principios_de_liturgia = Documento(parse(caminho_documento).getroot())
+
+with open('docs/principios_de_liturgia.html', mode='w', encoding='utf-8') as f:
+    f.write(indent(principios_de_liturgia.gerar_html().getvalue(), indentation='    '))
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)
