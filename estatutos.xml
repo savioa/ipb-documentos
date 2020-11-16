@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento titulo="Estatutos da Igreja Presbiteriana do Brasil" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://savioa.github.io/ipb-documentos" xsi:schemaLocation="https://savioa.github.io/ipb-documentos documento.xsd">
+    <capitulo id="1" titulo="Definição e Fins">
+        <secao id="1">
+            <artigo id="1">
+                <caput>
+                    <texto>A Igreja Presbiteriana do Brasil, anteriormente denominada Igreja Cristã Presbiteriana do Brasil, é uma comunidade religiosa, constituída de uma federação de igrejas locais, com sede civil na Capital da República, organizada de acordo com sua própria Constituição.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>As igrejas federadas, que se compõem de membros que adotam como única regra de fé e prática a Bíblia Sagrada e como sistema expositivo de doutrina e prática a sua Confissão de Fé e os Catecismos Maior e Breve, representam-se pelos deputados eleitos pelos concílios regionais, no Supremo Concílio, que é a assembleia geral da Igreja Presbiteriana do Brasil.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>A igreja tem por fim adorar a Deus conforme as Escrituras Sagradas do Velho e Novo Testamentos, propagar o Evangelho de nosso Senhor Jesus Cristo, promover educação cristã e obras de caridade e administrar o seu patrimônio, bem como supervisionar e orientar, através dos concílios competentes, a ação das igrejas federadas.</texto>
+                </paragrafo>
+                <paragrafo id="3">
+                    <texto instrumento="resolução SC - 2018 - DOC. CCX">Para consecução de seus fins a igreja poderá constituir filiais em qualquer parte do território nacional.</texto>
+                </paragrafo>
+            </artigo>
+        </secao>
+    </capitulo>
+    <capitulo id="2" titulo="Administração">
+        <secao id="1">
+            <artigo id="2">
+                <caput>
+                    <texto instrumento="resolução SC - 1954 - DOC. C">A Igreja Presbiteriana do Brasil é representada civilmente por sua Comissão Executiva, constituída de Presidente, Vice-Presidente, Secretário Executivo e Tesoureiro, eleitos pelo Supremo Concílio e dos presidentes dos sínodos eclesiásticos que deverão ser brasileiros.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>A igreja será representada ativa, passiva, judicial e extrajudicialmente pelo Presidente da Comissão Executiva ou por seu substituto legal em exercício.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto instrumento="resolução SC - 2018 - DOC. CCX">A igreja poderá outorgar procuração para emissão e utilização de certificado digital em seu nome, com poderes específicos para atuação perante a ICP - Brasil - Infraestrutura de Chaves Públicas Brasileira, ou entidade que a suceda.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="3">
+                <caput>
+                    <texto>A Comissão Executiva do Supremo Concílio rege-se pelo seu regimento interno e pelas demais leis e regulamentos da Igreja Presbiteriana do Brasil.</texto>
+                </caput>
+            </artigo>
+        </secao>
+    </capitulo>
+    <capitulo id="3" titulo="Atribuições dos Membros">
+        <secao id="1">
+            <artigo id="4">
+                <caput>
+                    <texto>Ao Presidente eleito quadrienalmente pelo Supremo Concílio, compete:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>presidir às reuniões do Supremo Concílio e da Comissão Executiva;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>representar a igreja internamente bem como em suas relações intereclesiásticas, civis e sociais.</texto>
+                        </alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="5">
+                <caput>
+                    <texto>Ao Vice-Presidente que é, normalmente, o Presidente da legislatura anterior, e que tem mandato de quatro anos, compete: substituir o Presidente na falta ou impedimento deste.</texto>
+                </caput>
+            </artigo>
+            <artigo id="6">
+                <caput>
+                    <texto>Ao Secretário Executivo, eleito por dois quadriênios pelo Supremo Concílio, compete:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>cumprir e fazer cumprir as deliberações do Supremo Concílio e de sua Comissão Executiva;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>secretariar as reuniões da Comissão Executiva e transcrever suas atas no livro competente;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto instrumento="resolução SC - 1954 - DOC. C">ser o Diretor Geral do escritório da Igreja e tratar da correspondência da Igreja;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto>substituir o Vice-Presidente.</texto>
+                        </alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="7">
+                <caput>
+                    <texto>Ao Tesoureiro, eleito quadrienalmente pelo Supremo Concílio, compete:</texto>
+                    <alineas>
+                        <alinea id="a">
+                            <texto>arrecadar as verbas destinadas ao Supremo Concílio;</texto>
+                        </alinea>
+                        <alinea id="b">
+                            <texto>fazer os pagamentos consignados no orçamento;</texto>
+                        </alinea>
+                        <alinea id="c">
+                            <texto>manter em dia a escrita respectiva;</texto>
+                        </alinea>
+                        <alinea id="d">
+                            <texto instrumento="resolução SC - 1954 - DOC. CIV">prestar contas anualmente, de todo o movimento financeiro do Supremo Concílio à Comissão Executiva;</texto>
+                        </alinea>
+                        <alinea id="e">
+                            <texto>informar o Supremo Concílio nas reuniões ordinárias da situação geral da Tesouraria.</texto>
+                        </alinea>
+                    </alineas>
+                </caput>
+            </artigo>
+            <artigo id="8">
+                <caput>
+                    <texto>Os presidentes dos sínodos Eclesiásticos serão substituídos na forma dos regimentos sinodais.</texto>
+                </caput>
+            </artigo>
+        </secao>
+    </capitulo>
+    <capitulo id="4" titulo="Reuniões">
+        <secao id="1">
+            <artigo id="9">
+                <caput>
+                    <texto>O Supremo Concílio, referido no § 1º do art. 1º, reunir-se-á ordinariamente de quatro em quatro anos, em qualquer parte do território nacional.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Extraordinariamente, poderá reunir-se em qualquer época, sempre que for convocado nos termos da Constituição da Igreja.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="10">
+                <caput>
+                    <texto instrumento="resolução SC - 1990 - DOC. IX">A CE-SC/IPB reunir-se-á ordinariamente 1 (uma) vez por ano.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Extraordinariamente reunir-se-á sempre que necessário e sob convocação do Presidente.</texto>
+                </paragrafo>
+            </artigo>
+        </secao>
+    </capitulo>
+    <capitulo id="5" titulo="Bens">
+        <secao id="1">
+            <artigo id="11">
+                <caput>
+                    <texto>São bens da Igreja Presbiteriana do Brasil as ofertas, dízimos das igrejas filiadas, legados, doações, propriedades, juros e quaisquer rendas permitidas por lei.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>Os rendimentos serão aplicados na manutenção dos serviços e causas gerais da igreja e em tudo o que se referir ao cumprimento dos fins do art. 1º, § 2º.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="12">
+                <caput>
+                    <texto>Os membros da Igreja Presbiteriana do Brasil respondem com os bens da mesma e não individual ou subsidiariamente, pelas obrigações sociais.</texto>
+                </caput>
+            </artigo>
+        </secao>
+    </capitulo>
+    <capitulo id="6" titulo="Disposições Finais">
+        <secao id="1">
+            <artigo id="13">
+                <caput>
+                    <texto>A Igreja Presbiteriana do Brasil poderá dissolver-se na forma da lei, por voto de quatro quintos do total dos membros do Supremo Concílio, reunidos em assembleia geral, especialmente convocada para esse fim.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto>No caso de cisma ou cisão, os bens da Igreja Presbiteriana do Brasil, ficam pertencendo à parte fiel a sua Constituição.</texto>
+                </paragrafo>
+                <paragrafo id="2">
+                    <texto>No caso de dissolução, os bens da igreja, liquidado o passivo, serão aplicados em obras de caridade cristã, segundo o critério da assembleia que deliberar a dissolução.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="14">
+                <caput>
+                    <texto>Estes estatutos são reformáveis no tocante à administração, por voto de dois terços dos membros presentes em assembleia do Supremo Concílio.</texto>
+                </caput>
+                <paragrafo id="1">
+                    <texto instrumento="resolução SC - 2018 - DOC. CCX">Em caso de urgência, para atender exigência legal, a alteração poderá ser aprovada por voto unânime dos membros presentes em reunião da Comissão Executiva.</texto>
+                </paragrafo>
+            </artigo>
+            <artigo id="15">
+                <caput>
+                    <texto>São nulas, de pleno direito, quaisquer disposições e resoluções, que, no todo ou em parte, implícita ou expressamente, contrariarem ou ferirem a Constituição da Igreja Presbiteriana do Brasil.</texto>
+                </caput>
+            </artigo>
+        </secao>
+    </capitulo>
+</documento>

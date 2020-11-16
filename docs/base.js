@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const alvo = el;
 
-            if (el.firstElementChild.tagName === 'DEL') {
+            if (el.firstElementChild !== null && el.firstElementChild.tagName === 'DEL') {
                 alvo = el.firstElementChild;
             }
 

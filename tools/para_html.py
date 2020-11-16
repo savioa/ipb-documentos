@@ -37,4 +37,12 @@ principios_de_liturgia = Documento(parse(caminho_documento).getroot())
 with open('docs/principios_de_liturgia.html', mode='w', encoding='utf-8') as f:
     f.write(indent(principios_de_liturgia.gerar_html().getvalue(), indentation='    '))
 
+# Estatutos
+caminho_documento = os.path.join(os.getcwd(), 'estatutos.xml')
+
+estatutos = Documento(parse(caminho_documento).getroot())
+
+with open('docs/estatutos.html', mode='w', encoding='utf-8') as f:
+    f.write(indent(estatutos.gerar_html().getvalue(), indentation='    '))
+
 print('Tempo de execução: ', perf_counter() - inicio_tempo)
