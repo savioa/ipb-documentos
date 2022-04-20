@@ -19,7 +19,7 @@ caminho_documento = os.path.join(os.getcwd(), 'constituicao.xml')
 constituicao = Documento(parse(caminho_documento).getroot())
 
 with open('docs/constituicao.html', mode='w', encoding='utf-8') as f:
-    f.write(indent(constituicao.gerar_html().getvalue(), indentation='    '))
+    f.write(indent(constituicao.gerar_html(), indentation='    '))
 
 # Código de Disciplina
 caminho_documento = os.path.join(os.getcwd(), 'codigo_de_disciplina.xml')
@@ -27,7 +27,7 @@ caminho_documento = os.path.join(os.getcwd(), 'codigo_de_disciplina.xml')
 codigo_de_disciplina = Documento(parse(caminho_documento).getroot())
 
 with open('docs/codigo_de_disciplina.html', mode='w', encoding='utf-8') as f:
-    f.write(indent(codigo_de_disciplina.gerar_html().getvalue(), indentation='    '))
+    f.write(indent(codigo_de_disciplina.gerar_html(), indentation='    '))
 
 # Princípios de Liturgia
 caminho_documento = os.path.join(os.getcwd(), 'principios_de_liturgia.xml')
@@ -35,7 +35,7 @@ caminho_documento = os.path.join(os.getcwd(), 'principios_de_liturgia.xml')
 principios_de_liturgia = Documento(parse(caminho_documento).getroot())
 
 with open('docs/principios_de_liturgia.html', mode='w', encoding='utf-8') as f:
-    f.write(indent(principios_de_liturgia.gerar_html().getvalue(), indentation='    '))
+    f.write(indent(principios_de_liturgia.gerar_html(), indentation='    '))
 
 # Estatutos
 caminho_documento = os.path.join(os.getcwd(), 'estatutos.xml')
@@ -43,6 +43,6 @@ caminho_documento = os.path.join(os.getcwd(), 'estatutos.xml')
 estatutos = Documento(parse(caminho_documento).getroot())
 
 with open('docs/estatutos.html', mode='w', encoding='utf-8') as f:
-    f.write(indent(estatutos.gerar_html().getvalue(), indentation='    '))
+    f.write(indent(estatutos.gerar_html(), indentation='    '))
 
 print('Tempo de execução: ', perf_counter() - inicio_tempo)

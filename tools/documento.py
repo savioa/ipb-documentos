@@ -125,7 +125,7 @@ class Documento:
                         for capitulo in self.capitulos:
                             capitulo.gerar_html(html)
 
-        return doc
+        return doc.getvalue()
 
     @staticmethod
     def gerar_navegacao(html, capitulos):
