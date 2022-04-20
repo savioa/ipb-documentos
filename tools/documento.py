@@ -28,6 +28,8 @@ ESCAPE_ENDC = '\033[0m'
 
 NS = '{https://savioa.github.io/ipb-documentos}'
 
+REGEX_DOCUMENTOS = r'(__(constituicao.html)__)?'
+
 
 class Documento:
     """Representa um documento, formado por um conjunto de capítulos.
@@ -347,7 +349,18 @@ class ItemComTextoVersionado:
         self.versoes_texto = []
 
         for versao in xml.findall(NS + 'texto'):
-            texto = versao.text
+            texto = ''
+
+            for fragmento in versao.iter():
+                if fragmento.tag.endswith('texto'):
+                    texto += fragmento.text
+
+                if fragmento.tag.endswith('ref'):
+                    documento = fragmento.attrib["doc"].replace(
+                        'ci', 'constituicao')
+
+                    texto += f'__{documento}.html__{fragmento.text}{fragmento.tail}'
+
             instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
             ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
 
@@ -699,15 +712,30 @@ class Utilitario:
             texto = re.sub(
                 'artigo anterior', f'<a href="#a{artigo.ide - 1}">artigo anterior</a>', texto)
 
-        regex_artigos = r'arts\. (?:\d{1,3}(?:º)?,)*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?'
-        ocorrencia_artigos = re.search(regex_artigos, texto)
+        regex_artigos = re.compile(
+            REGEX_DOCUMENTOS +
+            r'arts\. (?:\d{1,3}(?:º)?,)*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?')
+
+        ocorrencia_artigos = regex_artigos.search(texto)
 
         if ocorrencia_artigos is not None:
             texto_original = ocorrencia_artigos.group(0)
-            texto_final = re.sub(r'(\d{1,3})(º)?', r'<a href="#a\1">\1\2</a>', texto_original)
-            texto = texto.replace(texto_original, texto_final)
+            texto_original = texto_original[texto_original.index('arts.'):]
 
-        return re.sub(r'art\. (\d{1,3})(º)?', r'<a href="#a\1">art. \1\2</a>', texto)
+            documento = '' if ocorrencia_artigos.group(2) is None else ocorrencia_artigos.group(2)
+
+            texto_final = re.sub(
+                r'(\d{1,3})(º)?',
+                rf'<a href="{documento}#a\1">\1\2</a>',
+                texto_original)
+
+            texto = texto.replace(ocorrencia_artigos.group(0), texto_final)
+
+        return re.sub(
+            REGEX_DOCUMENTOS +
+            r'art\. (\d{1,3})(º)?',
+            r'<a href="\2#a\3">art. \3\4</a>',
+            texto)
 
     @staticmethod
     def marcar_termos_latinos(texto):
