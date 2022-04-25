@@ -28,7 +28,9 @@ ESCAPE_ENDC = '\033[0m'
 
 NS = '{https://savioa.github.io/ipb-documentos}'
 
-REGEX_DOCUMENTOS = r'(__(constituicao.html|estatutos.html|principios_de_liturgia.html|codigo_de_disciplina.html|modelo_de_estatuto_para_igreja_local.html|modelo_de_estatuto_para_o_presbiterio.html)__)?'
+REGEX_DOCUMENTOS = r'(__(' \
+    r'constituicao.html|estatutos.html|principios_de_liturgia.html|codigo_de_disciplina.html|' \
+    r'modelo_de_estatuto_para_igreja_local.html|modelo_de_estatuto_para_o_presbiterio.html)__)?'
 
 
 class Documento:
