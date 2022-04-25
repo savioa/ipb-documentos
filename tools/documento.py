@@ -28,7 +28,7 @@ ESCAPE_ENDC = '\033[0m'
 
 NS = '{https://savioa.github.io/ipb-documentos}'
 
-REGEX_DOCUMENTOS = r'(__(constituicao.html)__)?'
+REGEX_DOCUMENTOS = r'(__(constituicao.html|estatutos.html)__)?'
 
 
 class Documento:
@@ -38,6 +38,8 @@ class Documento:
         capitulos (list[Capitulo]): Conjunto de capítulos do documento.
         titulo (str): Título do documento.
         preambulo (str): Preâmbulo do documento.
+        blocos_anotacoes_preambulo (list[BlocoAnotacoes]): Conjunto de blocos de anotações do
+        preâmbulo do documento.
     """
 
     def __init__(self, xml):
@@ -50,11 +52,23 @@ class Documento:
         self.capitulos = []
         self.titulo = xml.attrib['titulo']
         self.preambulo = None
+        self.blocos_anotacoes_preambulo = []
 
         preambulo = xml.find(NS + 'preambulo')
 
         if preambulo is not None:
-            self.preambulo = preambulo.find(NS + 'texto').text
+            self.preambulo = ''
+
+            for fragmento in preambulo.find(NS + 'texto').iter():
+                if fragmento.tag.endswith('texto'):
+                    self.preambulo += fragmento.text
+
+                if fragmento.tag.endswith('pos'):
+                    if fragmento.text != '\n':
+                        self.preambulo += f'__{fragmento.attrib["id"]}__{fragmento.tail or ""}'
+
+            for bloco in preambulo.findall(NS + 'anotacoes'):
+                self.blocos_anotacoes_preambulo.append(BlocoAnotacoes(bloco))
 
         for capitulo in xml.findall(NS + 'capitulo'):
             self.capitulos.append(Capitulo(capitulo))
@@ -81,11 +95,13 @@ class Documento:
 
             capitulos.append((chave, valor))
 
-        url_css = 'https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'
+        url_css = 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
 
         css = """
             span[data-lang] { font-style: italic; }
             del { text-decoration: line-through }
+            .anotacao, .message-body { display: block; }
+            .posicao { cursor: help; }
             .paragrafo { margin-left: 1rem!important; }
             .capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }"""
 
@@ -113,8 +129,8 @@ class Documento:
                     with tag('div', klass='container'):
                         line('h1', self.titulo, klass=CLASSES_TITULO)
 
-                        line('h2', 'Índice', klass=f'{CLASSES_SUBTITULO} is-hidden-tablet')
-                        with tag('ul', klass='content is-hidden-tablet'):
+                        line('h2', 'Índice', klass=CLASSES_SUBTITULO)
+                        with tag('ul', klass='content'):
                             for capitulo in capitulos:
                                 with tag('li'):
                                     line('a', capitulo[1], href=f'#{capitulo[0]}')
@@ -122,10 +138,19 @@ class Documento:
                         if self.preambulo is not None:
                             with tag('section', id='preambulo', klass='capitulo'):
                                 line('h2', 'Preâmbulo', klass=CLASSES_SUBTITULO)
-                                line('p', self.preambulo)
+                                with tag('p'):
+                                    doc.asis(Utilitario.processar_texto(self.preambulo, None))
+
+                                for bloco in self.blocos_anotacoes_preambulo:
+                                    bloco.gerar_html(html)
 
                         for capitulo in self.capitulos:
                             capitulo.gerar_html(html)
+
+                with tag('div', id='modal', klass='modal'):
+                    line('div', '', klass='modal-background')
+                    line('div', '', klass='modal-content')
+                    line('button', '', ('aria-label', 'close'), klass='modal-close is-large')
 
         return doc.getvalue()
 
@@ -143,8 +168,15 @@ class Documento:
         text = html['text']
         line = html['line']
 
-        with tag('nav', ('aria-label', 'main navigation'),
-                 klass='navbar is-fixed-bottom is-light is-hidden-mobile'):
+        with tag('nav', ('aria-label', 'main navigation'), ('role', 'navigation'),
+                 klass='navbar is-fixed-bottom is-light'):
+            with tag('div', klass='navbar-brand'):
+                with tag('a', ('aria-label', 'menu'), ('role', 'button'),
+                         ('aria-expanded', 'false'), klass='navbar-burger'):
+                    line('span', '', ('aria-hidden', 'true'))
+                    line('span', '', ('aria-hidden', 'true'))
+                    line('span', '', ('aria-hidden', 'true'))
+
             with tag('div', klass='navbar-menu'):
                 with tag('div', klass='navbar-start'):
                     with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
@@ -156,17 +188,35 @@ class Documento:
                                 valor = capitulo[1]
                                 line('a', valor, klass='navbar-item', href=f'#{chave}')
 
+                    with tag('div', klass='navbar-item has-dropdown has-dropdown-up is-hoverable'):
+                        line('a', 'Opções', href='#', klass='navbar-link')
+
+                        with tag('div', klass='navbar-dropdown'):
+                            with tag('div', klass='navbar-item'):
+                                with tag('label', klass='checkbox'):
+                                    doc.stag(
+                                        'input',
+                                        type='checkbox',
+                                        autocomplete='off',
+                                        id='mostrar_versoes')
+                                    text('Apresentar versões obsoletas')
+
+                            with tag('div', klass='navbar-item'):
+                                with tag('label', klass='checkbox'):
+                                    doc.stag(
+                                        'input',
+                                        type='checkbox',
+                                        autocomplete='off',
+                                        id='mostrar_anotacoes',
+                                        checked='checked')
+                                    text('Apresentar anotações')
+
                 with tag('div', klass='navbar-end'):
                     with tag('div', klass='navbar-item'):
                         with tag('div', klass='field'):
                             with tag('div', klass='control'):
                                 doc.stag('input', klass='input', type='text',
-                                         placeholder='Vá para um artigo', id='ir')
-
-                    with tag('div', klass='navbar-item'):
-                        with tag('label', klass='checkbox'):
-                            doc.stag('input', type='checkbox', id='mostrar_versoes')
-                            text(' Apresentar versões obsoletas')
+                                        placeholder='Vá para um artigo', id='ir', title="Ctrl + I")
 
 
 class Capitulo:
@@ -355,11 +405,14 @@ class ItemComTextoVersionado:
                 if fragmento.tag.endswith('texto'):
                     texto += fragmento.text
 
-                if fragmento.tag.endswith('ref'):
-                    documento = fragmento.attrib["doc"].replace(
-                        'ci', 'constituicao')
+                if fragmento.tag.endswith('pos'):
+                    if fragmento.text != '\n':
+                        texto += f'__{fragmento.attrib["id"]}__{fragmento.tail or ""}'
 
-                    texto += f'__{documento}.html__{fragmento.text}{fragmento.tail}'
+                if fragmento.tag.endswith('ref'):
+                    documento = Utilitario.substituir_sigla_documento(fragmento.attrib["doc"])
+
+                    texto += f'__{documento}.html__{fragmento.text}{fragmento.tail or ""}'
 
             instrumento = versao.attrib['instrumento'] if 'instrumento' in versao.attrib else None
             ordem = int(versao.attrib['ordem']) if 'ordem' in versao.attrib else 1
@@ -458,6 +511,7 @@ class Paragrafo(ItemComTextoVersionado):
         ide (str): Identificador da seção.
         alineas (list[Alineas]): Conjunto de alíneas do parágrafo.
         incisos (list[Inciso]): Conjunto de incisos do parágrafo.
+        blocos_anotacoes (list[BlocoAnotacoes]): Conjunto de blocos de anotações do parágrafo.
         versoes_texto (list[VersaoTexto]): Conjunto de versões do texto do parágrafo.
         pai (Artigo): Artigo que contém o parágrafo.
     """
@@ -474,6 +528,7 @@ class Paragrafo(ItemComTextoVersionado):
         self.ide = 0 if caput else int(xml.attrib['id'])
         self.alineas = []
         self.incisos = []
+        self.blocos_anotacoes = []
         super().__init__(self.ide, pai, xml)
 
         alineas = xml.find(NS + 'alineas')
@@ -487,6 +542,9 @@ class Paragrafo(ItemComTextoVersionado):
         if incisos is not None:
             for inciso in incisos.findall(NS + 'inciso'):
                 self.incisos.append(Inciso(self, inciso))
+
+        for bloco in xml.findall(NS + 'anotacoes'):
+            self.blocos_anotacoes.append(BlocoAnotacoes(bloco))
 
     def gerar_html(self, html):
         """Adiciona a materialização do parágrafo ao objeto HTML.
@@ -507,6 +565,9 @@ class Paragrafo(ItemComTextoVersionado):
 
             for inciso in self.incisos:
                 inciso.gerar_html(html)
+
+            for bloco in self.blocos_anotacoes:
+                bloco.gerar_html(html)
 
     def obter_id_html(self):
         """Obtém o identificador do parágrafo para uso em link HTML.
@@ -617,6 +678,7 @@ class Alinea(ItemComTextoVersionado):
 
     Attrs:
         ide (str): Identificador da alínea.
+        blocos_anotacoes (list[BlocoAnotacoes]): Conjunto de blocos de anotações da alínea.
         versoes_texto (list[VersaoTexto]): Conjunto de versões do texto da alínea.
         pai (Paragrafo): Parágrafo que contém a alínea.
     """
@@ -630,7 +692,11 @@ class Alinea(ItemComTextoVersionado):
         """
 
         self.ide = xml.attrib['id']
+        self.blocos_anotacoes = []
         super().__init__(self.ide, pai, xml)
+
+        for bloco in xml.findall(NS + 'anotacoes'):
+            self.blocos_anotacoes.append(BlocoAnotacoes(bloco))
 
     def gerar_html(self, html):
         """Adiciona a materialização da alínea ao objeto HTML.
@@ -646,6 +712,9 @@ class Alinea(ItemComTextoVersionado):
 
         with tag('span', id=self.obter_id_html()):
             self.gerar_html_versoes(html, False)
+
+            for bloco in self.blocos_anotacoes:
+                bloco.gerar_html(html)
 
     def obter_id_html(self):
         """Obtém o identificador da alínea para uso em link HTML.
@@ -665,6 +734,88 @@ class Alinea(ItemComTextoVersionado):
         return f'{self.ide})'
 
 
+class BlocoAnotacoes:
+    """Representa um bloco de anotações.
+
+    Attrs:
+        posicao (str): Identificador da posição do bloco no texto.
+        anotacoes (list[Anotacao]): Conjunto de anotações do bloco.
+    """
+
+    def __init__(self, xml):
+        """Inicia uma instância da classe BlocoAnotacoes a partir de um fragmento de XML.
+
+        Args:
+            xml (Element): Fragmento de XML com o bloco de anotações.
+        """
+
+        self.posicao = xml.attrib['pos']
+        self.anotacoes = []
+
+        for anotacao in xml.findall(NS + 'anotacao'):
+            self.anotacoes.append(Anotacao(anotacao))
+
+    def gerar_html(self, html):
+        """Adiciona a materialização do bloco de anotações ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        tag = html['tag']
+
+        with tag('span', ('data-posicao', self.posicao), klass='bloco_anotacoes box is-hidden'):
+            for anotacao in self.anotacoes:
+                anotacao.gerar_html(html)
+
+
+class Anotacao:
+    """Representa uma anotação.
+
+    Attrs:
+        tipo (str): Tipo da anotação.
+        texto (str): Texto da anotação.
+    """
+
+    def __init__(self, xml):
+        """Inicia uma instância da classe Anotacao a partir de um fragmento de XML.
+
+        Args:
+            xml (Element): Fragmento de XML com o conteúdo da anotação.
+        """
+
+        self.tipo = xml.attrib['tipo']
+
+        texto = ''
+
+        for fragmento in xml.iter():
+            if fragmento.tag.endswith('anotacao') and fragmento.text is not None:
+                texto += fragmento.text
+
+            if fragmento.tag.endswith('ref'):
+                documento = Utilitario.substituir_sigla_documento(fragmento.attrib["doc"])
+
+                texto += f'__{documento}.html__{fragmento.text}{fragmento.tail or ""}'
+
+        Utilitario.verificar_pontuacao(texto)
+
+        self.texto = texto
+
+    def gerar_html(self, html):
+        """Adiciona a materialização da anotação ao objeto HTML.
+
+        Args:
+            html (dict): Acessórios para materialização.
+        """
+
+        doc = html['doc']
+        tag = html['tag']
+
+        with tag('span', ('data-tipo', self.tipo), klass='anotacao message'):
+            with tag('span', klass='message-body'):
+                doc.asis(Utilitario.processar_texto(self.texto, None))
+
+
 class Utilitario:
     """Define métodos e atributos utilitários para o tratamento de um documento."""
 
@@ -672,15 +823,19 @@ class Utilitario:
 
     @staticmethod
     def verificar_pontuacao(texto):
-        """Verifica a presença de pontuação ao fim de um texto.
+        """Verifica a presença de pontuação ao fim de um texto e de espaços duplos.
 
         Args:
-            texto (str): Texto que deve terminar com pontuação.
+            texto (str): Texto que deve terminar com pontuação e que não pode conter espaços duplos.
         """
 
-        if not texto.endswith(tuple([';', '.', ':'])):
+        if not re.match(r'.+(;|\.|:)(__\w__)?$', texto):
             print(f'{ESCAPE_ALERTA}Alerta{ESCAPE_ENDC}')
             print(f'* Texto sem terminal: {texto}')
+
+        if '  ' in texto:
+            print(f'{ESCAPE_ALERTA}Alerta{ESCAPE_ENDC}')
+            print(f'* Texto com espaços duplos: {texto.replace("  ", "__")}')
 
     @staticmethod
     def processar_texto(texto, artigo):
@@ -694,7 +849,27 @@ class Utilitario:
             str: Texto com referências e termos latinos marcados.
         """
 
-        return Utilitario.marcar_referencias(Utilitario.marcar_termos_latinos(texto), artigo)
+        return Utilitario.marcar_posicoes(
+            Utilitario.marcar_referencias(
+                Utilitario.marcar_termos_latinos(texto),
+                artigo)
+        )
+
+    @staticmethod
+    def marcar_posicoes(texto):
+        """Identifica posições de blocos de anotações e as marca como elementos HTML.
+
+        Args:
+            texto (str): Texto com âncoras.
+
+        Returns:
+            str: Texto com âncoras marcadas.
+        """
+
+        return re.sub(
+            r'__([^_]+)__',
+            r'<span class="tag posicao">\1</span>',
+            texto)
 
     @staticmethod
     def marcar_referencias(texto, artigo):
@@ -714,13 +889,14 @@ class Utilitario:
 
         regex_artigos = re.compile(
             REGEX_DOCUMENTOS +
-            r'arts\. (?:\d{1,3}(?:º)?,)*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?')
+            r'(a|A)rts\. (?:\d{1,3}(?:º)?, )*(?:\d{1,3})(?:º)? e (?:\d{1,3})(?:º)?')
 
         ocorrencia_artigos = regex_artigos.search(texto)
 
         if ocorrencia_artigos is not None:
             texto_original = ocorrencia_artigos.group(0)
-            texto_original = texto_original[texto_original.index('arts.'):]
+            texto_original = texto_original[texto_original.index(
+                f'{ocorrencia_artigos.group(3)}rts.'):]
 
             documento = '' if ocorrencia_artigos.group(2) is None else ocorrencia_artigos.group(2)
 
@@ -733,8 +909,8 @@ class Utilitario:
 
         return re.sub(
             REGEX_DOCUMENTOS +
-            r'art\. (\d{1,3})(º)?',
-            r'<a href="\2#a\3">art. \3\4</a>',
+            r'(a|A)rt\. (\d{1,3})(º)?',
+            r'<a href="\2#a\4">\3rt. \4\5</a>',
             texto)
 
     @staticmethod
@@ -750,3 +926,17 @@ class Utilitario:
 
         termos = ['ex officio', 'in fine', 'ad referendum', 'quorum', 'ad hoc']
         return re.sub(f"({'|'.join(termos)})", r'<span data-lang="latim">\1</span>', texto)
+
+
+    @staticmethod
+    def substituir_sigla_documento(sigla):
+        """Substitui a sigla de um documento pelo seu identificador completo.
+
+        Args:
+            sigla (str): Sigla de um documento.
+
+        Returns:
+            str: Identificador completo do documento.
+        """
+
+        return sigla.replace('ci', 'constituicao').replace('es', 'estatutos')

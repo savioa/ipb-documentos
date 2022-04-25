@@ -5,18 +5,27 @@
         <title>Constituição da Igreja Presbiteriana do Brasil</title>
         <meta name="author" content="Igreja Presbiteriana do Brasil" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <style>
             span[data-lang] { font-style: italic; }
             del { text-decoration: line-through }
+            .anotacao, .message-body { display: block; }
+            .posicao { cursor: help; }
             .paragrafo { margin-left: 1rem!important; }
             .capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }</style>
         <script src="base.js"></script>
     </head>
     <body>
-        <nav aria-label="main navigation" class="navbar is-fixed-bottom is-light is-hidden-mobile">
+        <nav aria-label="main navigation" role="navigation" class="navbar is-fixed-bottom is-light">
+            <div class="navbar-brand">
+                <a aria-label="menu" role="button" aria-expanded="false" class="navbar-burger">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
@@ -34,17 +43,25 @@
                             <a class="navbar-item" href="#cdt">Disposições Transitórias</a>
                         </div>
                     </div>
+                    <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
+                        <a href="#" class="navbar-link">Opções</a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-item">
+                                <label class="checkbox"><input type="checkbox" autocomplete="off" id="mostrar_versoes" />Apresentar versões obsoletas</label>
+                            </div>
+                            <div class="navbar-item">
+                                <label class="checkbox"><input type="checkbox" autocomplete="off" id="mostrar_anotacoes" checked="checked" />Apresentar anotações</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="text" placeholder="Vá para um artigo" id="ir" />
+                                <input class="input" type="text" placeholder="Vá para um artigo" id="ir" title="Ctrl + I" />
                             </div>
                         </div>
-                    </div>
-                    <div class="navbar-item">
-                        <label class="checkbox"><input type="checkbox" id="mostrar_versoes" /> Apresentar versões obsoletas</label>
                     </div>
                 </div>
             </div>
@@ -52,8 +69,8 @@
         <section class="section">
             <div class="container">
                 <h1 class="title is-1 has-text-centered">Constituição da Igreja Presbiteriana do Brasil</h1>
-                <h2 class="title is-3 has-text-centered is-hidden-tablet">Índice</h2>
-                <ul class="content is-hidden-tablet">
+                <h2 class="title is-3 has-text-centered">Índice</h2>
+                <ul class="content">
                     <li>
                         <a href="#preambulo">Preâmbulo</a>
                     </li>
@@ -87,7 +104,15 @@
                 </ul>
                 <section id="preambulo" class="capitulo">
                     <h2 class="title is-3 has-text-centered">Preâmbulo</h2>
-                    <p>Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, no ano de 1950, com poderes para reforma da Constituição, investidos de toda autoridade para cumprir as resoluções da legislatura de 1946, depositando toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, decretamos e promulgamos, para glória de Deus, a seguinte Constituição da Igreja Presbiteriana do Brasil.</p>
+                    <p>Em nome do Pai, e do Filho e do Espírito Santo, nós, legítimos representantes da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, no ano de 1950, com poderes para reforma da Constituição, investidos de toda autoridade para cumprir as resoluções da legislatura de 1946, depositando toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, decretamos e promulgamos, para glória de Deus, a seguinte Constituição da Igreja Presbiteriana do Brasil.<span class="tag posicao">1</span></p>
+                    <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                        <span data-tipo="nota" class="anotacao message">
+                            <span class="message-body">A Constituição da Igreja Presbiteriana do Brasil foi promulgada em 20 de julho de 1950, para vigorar a partir de 31 de outubro do mesmo ano.</span>
+                        </span>
+                        <span data-tipo="nota" class="anotacao message">
+                            <span class="message-body">De acordo com a resolução CE – 1952 – DOC. LVI – “Códigos e Siglas das Organizações da IPB” – os diplomas legais eclesiásticos tiveram suas abreviaturas expressamente definidas. A Constituição da Igreja Presbiteriana do Brasil ficou com a sigla CI/IPB.</span>
+                        </span>
+                    </span>
                 </section>
                 <section id="c1" class="capitulo">
                     <h2 class="title is-3 has-text-centered">Capítulo I</h2>
@@ -96,12 +121,37 @@
                         <h3 class="title is-5 has-text-centered is-sr-only">Seção Única</h3>
                         <div id="a1" class="artigo">
                             <p id="a1_p0" class="caput content">
-                                <span class="versao"><strong>Art. 1º</strong> A Igreja Presbiteriana do Brasil é uma federação de igrejas locais, que adota como única regra de fé e prática as Escrituras Sagradas do Velho e Novo Testamentos e como sistema expositivo de doutrina e prática a sua Confissão de Fé e os Catecismos Maior e Breve; rege-se pela presente Constituição; é pessoa jurídica, de acordo com as leis do Brasil, sempre representada civilmente pela sua Comissão Executiva e exerce o seu governo por meio de concílios e indivíduos, regularmente instalados.</span>
+                                <span class="versao"><strong>Art. 1º</strong> A Igreja Presbiteriana do Brasil<span class="tag posicao">1</span> é uma federação de igrejas locais,<span class="tag posicao">2</span> que adota como única regra de fé e prática as Escrituras Sagradas do Velho e Novo Testamentos e como sistema expositivo de doutrina e prática a sua Confissão de Fé e os Catecismos Maior e Breve; rege-se pela presente Constituição; é pessoa jurídica, de acordo com as leis do Brasil, sempre representada civilmente pela sua Comissão Executiva<span class="tag posicao">3</span> e exerce o seu governo por meio de concílios e indivíduos, regularmente instalados.<span class="tag posicao">4</span></span>
+                                <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="estatutos.html#a1">Art. 1º</a> do estatuto: a IPB tem sua “sede civil na Capital da República”.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="2" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a95">Art. 95</a>.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="3" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a102">Art. 102</a>, § 2º.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="4" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a3">Art. 3º</a>, § 2º, e arts. <a href="#a59">59</a>, <a href="#a60">60</a>, <a href="#a75">75</a>, <a href="#a85">85</a>, <a href="#a89">89</a>, <a href="#a90">90</a>, <a href="#a91">91</a> e <a href="#a96">96</a>.</span>
+                                    </span>
+                                </span>
                             </p>
                         </div>
                         <div id="a2" class="artigo">
                             <p id="a2_p0" class="caput content">
-                                <span class="versao"><strong>Art. 2º</strong> A Igreja Presbiteriana do Brasil tem por fim prestar culto a Deus, em espírito e verdade, pregar o Evangelho, batizar os conversos, seus filhos e menores sob sua guarda e “ensinar os fiéis a guardar a doutrina e prática das Escrituras do Antigo e Novo Testamentos, na sua pureza e integridade, bem como promover a aplicação dos princípios de fraternidade cristã e o crescimento de seus membros na graça e no conhecimento de Nosso Senhor Jesus Cristo”.</span>
+                                <span class="versao"><strong>Art. 2º</strong> A Igreja Presbiteriana do Brasil tem por fim prestar culto a Deus, em espírito e verdade, pregar o Evangelho, batizar os conversos, seus filhos e menores sob sua guarda e “ensinar os fiéis a guardar a doutrina e prática das Escrituras do Antigo e Novo Testamentos, na sua pureza e integridade, bem como promover a aplicação dos princípios de fraternidade cristã e o crescimento de seus membros na graça e no conhecimento de Nosso Senhor Jesus Cristo”.<span class="tag posicao">1</span></span>
+                                <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a14">Art. 14</a>, alíneas “a” e “b”, <a href="#a83">art. 83</a>, alínea “u”.</span>
+                                    </span>
+                                </span>
                             </p>
                         </div>
                         <div id="a3" class="artigo">
@@ -109,22 +159,62 @@
                                 <span class="versao"><strong>Art. 3º</strong> O poder da igreja é espiritual e administrativo, residindo na corporação, isto é, nos que governam e nos que são governados.</span>
                             </p>
                             <p id="a3_p1" class="paragrafo content">
-                                <span class="versao"><strong>§ 1º.</strong> A autoridade dos que são governados é exercida pelo povo reunido em assembleia, para:</span>
+                                <span class="versao"><strong>§ 1º.</strong> A autoridade dos que são governados é exercida pelo povo reunido em assembleia,<span class="tag posicao">1</span> para:</span>
                                 <br />
                                 <span id="a3_p1_a">
-                                    <span class="versao">a) eleger pastores e oficiais da igreja ou pedir a sua exoneração;</span>
+                                    <span class="versao">a) eleger pastores e oficiais da igreja ou pedir a sua exoneração;<span class="tag posicao">1</span></span>
+                                    <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                        <span data-tipo="referencia" class="anotacao message">
+                                            <span class="message-body"><a href="#a9">Art. 9º</a>, § 1º alíneas “a” e “b”; <a href="#a56">art. 56</a>, alínea “e”; <a href="#a110">art. 110</a>; <a href="#a138">art. 138</a>, alíneas “a”, “b”, e “c”.</span>
+                                        </span>
+                                    </span>
                                 </span>
                                 <br />
                                 <span id="a3_p1_b">
-                                    <span class="versao">b) pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;</span>
+                                    <span class="versao">b) pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;<span class="tag posicao">1</span></span>
+                                    <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                        <span data-tipo="referencia" class="anotacao message">
+                                            <span class="message-body"><a href="#a9">Art. 9º</a>, § 1º, alínea “e”, e § 2º.</span>
+                                        </span>
+                                    </span>
                                 </span>
                                 <br />
                                 <span id="a3_p1_c">
-                                    <span class="versao">c) deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.</span>
+                                    <span class="versao">c) deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.<span class="tag posicao">1</span></span>
+                                    <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                        <span data-tipo="referencia" class="anotacao message">
+                                            <span class="message-body"><a href="#a9">Art. 9º</a>, § 1º alínea “f”.</span>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a9">Art. 9º</a>, §§ 1º e 2º.</span>
+                                    </span>
                                 </span>
                             </p>
                             <p id="a3_p2" class="paragrafo content">
-                                <span class="versao"><strong>§ 2º.</strong> A autoridade dos que governam é de ordem e de jurisdição. É de ordem, quando exercida por oficiais, individualmente, na administração de sacramentos e na impetração da bênção pelos ministros e na integração de concílios por ministros e presbíteros. É de jurisdição, quando exercida coletivamente por oficiais, em concílios, para legislar, julgar, admitir, excluir ou transferir membros e administrar as comunidades.</span>
+                                <span class="versao"><strong>§ 2º.</strong> A autoridade dos que governam é de ordem e de jurisdição. É de ordem, quando exercida por oficiais,<span class="tag posicao">1</span> individualmente, na administração de sacramentos e na impetração da bênção pelos ministros,<span class="tag posicao">2</span> e na integração de concílios por ministros e presbíteros.<span class="tag posicao">3</span> É de jurisdição, quando exercida coletivamente por oficiais, em concílios,<span class="tag posicao">4</span> para legislar, julgar, admitir, excluir ou transferir membros e administrar as comunidades.</span>
+                                <span data-posicao="1" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a25">Art. 25</a>, alíneas “a”, “b” e “c”.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="2" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="nota" class="anotacao message">
+                                        <span class="message-body">SC – 2018 – DOC. CV: “Batismo, Santa Ceia e Impetração da Bênção Apostólica. O SC/IPB – 2018 resolve: 1. Esclarecer que há uma clara distinção entre ministrar a Palavra e ministrar os sacramentos e a bênção apostólica; 2. Esclarecer que os presbíteros regentes, eleitos pela vontade de Deus e revelados pela assembleia dos santos através do sufrágio livre e direto, são reconhecidos como líderes com funções específicas, sendo-lhes vedado pela constituição da IPB e pelos símbolos de fé a ministração da Ceia, batismo e impetração da bênção; 3. Esclarecer que a tarefa da ministração da Santa Ceia, batismo e impetração da bênção apostólica cabe aos presbíteros docentes, cujo chamado específico deve ser acompanhado do testemunho da Igreja, ainda que haja falta de textos explícitos sobre este assunto”.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="3" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a14">Art. 14</a>, alínea “d”; <a href="#a36">art. 36</a>, alínea “g”; arts. <a href="#a52">52</a> e <a href="#a69">69</a>.</span>
+                                    </span>
+                                </span>
+                                <span data-posicao="4" class="bloco_anotacoes box is-hidden">
+                                    <span data-tipo="referencia" class="anotacao message">
+                                        <span class="message-body"><a href="#a59">Art. 59</a>; <a href="#a62">art. 62</a>, alíneas “a”, “b”, “c” e “d”; arts. <a href="#a69">69</a>, <a href="#a75">75</a>, <a href="#a85">85</a>, <a href="#a91">91</a> e <a href="#a95">95</a>.</span>
+                                    </span>
+                                </span>
                             </p>
                         </div>
                     </section>
@@ -2118,5 +2208,10 @@
                 </section>
             </div>
         </section>
+        <div id="modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content"></div>
+            <button aria-label="close" class="modal-close is-large"></button>
+        </div>
     </body>
 </html>

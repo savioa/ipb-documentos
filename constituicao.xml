@@ -4,18 +4,37 @@
     xmlns="https://savioa.github.io/ipb-documentos"
     xsi:schemaLocation="https://savioa.github.io/ipb-documentos documento.xsd">
     <preambulo>
-        <texto>Em nome do Pai, do Filho e do Espírito Santo, nós, legítimos representantes da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, no ano de 1950, com poderes para reforma da Constituição, investidos de toda autoridade para cumprir as resoluções da legislatura de 1946, depositando toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, decretamos e promulgamos, para glória de Deus, a seguinte Constituição da Igreja Presbiteriana do Brasil.</texto>
+        <texto>Em nome do Pai, e do Filho e do Espírito Santo, nós, legítimos representantes da Igreja Cristã Presbiteriana do Brasil, reunidos em Supremo Concílio, no ano de 1950, com poderes para reforma da Constituição, investidos de toda autoridade para cumprir as resoluções da legislatura de 1946, depositando toda nossa confiança na bênção do Deus Altíssimo e tendo em vista a promoção da paz, disciplina, unidade e edificação do povo de Cristo, elaboramos, decretamos e promulgamos, para glória de Deus, a seguinte Constituição da Igreja Presbiteriana do Brasil.<pos id="1" /></texto>
+        <anotacoes pos="1">
+            <anotacao tipo="nota">A Constituição da Igreja Presbiteriana do Brasil foi promulgada em 20 de julho de 1950, para vigorar a partir de 31 de outubro do mesmo ano.</anotacao>
+            <anotacao tipo="nota">De acordo com a resolução CE – 1952 – DOC. LVI – “Códigos e Siglas das Organizações da IPB” – os diplomas legais eclesiásticos tiveram suas abreviaturas expressamente definidas. A Constituição da Igreja Presbiteriana do Brasil ficou com a sigla CI/IPB.</anotacao>
+        </anotacoes>
     </preambulo>
     <capitulo id="1" titulo="Natureza, Governo e Fins da Igreja">
         <secao id="1">
             <artigo id="1">
                 <caput>
-                    <texto>A Igreja Presbiteriana do Brasil é uma federação de igrejas locais, que adota como única regra de fé e prática as Escrituras Sagradas do Velho e Novo Testamentos e como sistema expositivo de doutrina e prática a sua Confissão de Fé e os Catecismos Maior e Breve; rege-se pela presente Constituição; é pessoa jurídica, de acordo com as leis do Brasil, sempre representada civilmente pela sua Comissão Executiva e exerce o seu governo por meio de concílios e indivíduos, regularmente instalados.</texto>
+                    <texto>A Igreja Presbiteriana do Brasil<pos id="1" /> é uma federação de igrejas locais,<pos id="2" /> que adota como única regra de fé e prática as Escrituras Sagradas do Velho e Novo Testamentos e como sistema expositivo de doutrina e prática a sua Confissão de Fé e os Catecismos Maior e Breve; rege-se pela presente Constituição; é pessoa jurídica, de acordo com as leis do Brasil, sempre representada civilmente pela sua Comissão Executiva<pos id="3" /> e exerce o seu governo por meio de concílios e indivíduos, regularmente instalados.<pos id="4" /></texto>
+                    <anotacoes pos="1">
+                        <anotacao tipo="referencia"><ref doc="es">Art. 1º</ref> do estatuto: a IPB tem sua “sede civil na Capital da República”.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="2">
+                        <anotacao tipo="referencia">Art. 95.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="3">
+                        <anotacao tipo="referencia">Art. 102, § 2º.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="4">
+                        <anotacao tipo="referencia">Art. 3º, § 2º, e arts. 59, 60, 75, 85, 89, 90, 91 e 96.</anotacao>
+                    </anotacoes>
                 </caput>
             </artigo>
             <artigo id="2">
                 <caput>
-                    <texto>A Igreja Presbiteriana do Brasil tem por fim prestar culto a Deus, em espírito e verdade, pregar o Evangelho, batizar os conversos, seus filhos e menores sob sua guarda e “ensinar os fiéis a guardar a doutrina e prática das Escrituras do Antigo e Novo Testamentos, na sua pureza e integridade, bem como promover a aplicação dos princípios de fraternidade cristã e o crescimento de seus membros na graça e no conhecimento de Nosso Senhor Jesus Cristo”.</texto>
+                    <texto>A Igreja Presbiteriana do Brasil tem por fim prestar culto a Deus, em espírito e verdade, pregar o Evangelho, batizar os conversos, seus filhos e menores sob sua guarda e “ensinar os fiéis a guardar a doutrina e prática das Escrituras do Antigo e Novo Testamentos, na sua pureza e integridade, bem como promover a aplicação dos princípios de fraternidade cristã e o crescimento de seus membros na graça e no conhecimento de Nosso Senhor Jesus Cristo”.<pos id="1" /></texto>
+                    <anotacoes pos="1">
+                        <anotacao tipo="referencia">Art. 14, alíneas “a” e “b”, art. 83, alínea “u”.</anotacao>
+                    </anotacoes>
                 </caput>
             </artigo>
             <artigo id="3">
@@ -23,21 +42,45 @@
                     <texto>O poder da igreja é espiritual e administrativo, residindo na corporação, isto é, nos que governam e nos que são governados.</texto>
                 </caput>
                 <paragrafo id="1">
-                    <texto>A autoridade dos que são governados é exercida pelo povo reunido em assembleia, para:</texto>
+                    <texto>A autoridade dos que são governados é exercida pelo povo reunido em assembleia,<pos id="1" /> para:</texto>
+                    <anotacoes pos="1">
+                        <anotacao tipo="referencia">Art. 9º, §§ 1º e 2º.</anotacao>
+                    </anotacoes>
                     <alineas>
                         <alinea id="a">
-                            <texto>eleger pastores e oficiais da igreja ou pedir a sua exoneração;</texto>
+                            <texto>eleger pastores e oficiais da igreja ou pedir a sua exoneração;<pos id="1" /></texto>
+                            <anotacoes pos="1">
+                                <anotacao tipo="referencia">Art. 9º, § 1º alíneas “a” e “b”; art. 56, alínea “e”; art. 110; art. 138, alíneas “a”, “b”, e “c”.</anotacao>
+                            </anotacoes>
                         </alinea>
                         <alinea id="b">
-                            <texto>pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;</texto>
+                            <texto>pronunciar-se a respeito dos mesmos, bem como sobre questões orçamentárias e administrativas, quando o Conselho o solicitar;<pos id="1" /></texto>
+                            <anotacoes pos="1">
+                                <anotacao tipo="referencia">Art. 9º, § 1º, alínea “e”, e § 2º.</anotacao>
+                            </anotacoes>
                         </alinea>
                         <alinea id="c">
-                            <texto>deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.</texto>
+                            <texto>deliberar sobre a aquisição ou alienação de imóveis e propriedades, tudo de acordo com a presente Constituição e as regras estabelecidas pelos concílios competentes.<pos id="1" /></texto>
+                            <anotacoes pos="1">
+                                <anotacao tipo="referencia">Art. 9º, § 1º alínea “f”.</anotacao>
+                            </anotacoes>
                         </alinea>
                     </alineas>
                 </paragrafo>
                 <paragrafo id="2">
-                    <texto>A autoridade dos que governam é de ordem e de jurisdição. É de ordem, quando exercida por oficiais, individualmente, na administração de sacramentos e na impetração da bênção pelos ministros e na integração de concílios por ministros e presbíteros. É de jurisdição, quando exercida coletivamente por oficiais, em concílios, para legislar, julgar, admitir, excluir ou transferir membros e administrar as comunidades.</texto>
+                    <texto>A autoridade dos que governam é de ordem e de jurisdição. É de ordem, quando exercida por oficiais,<pos id="1" /> individualmente, na administração de sacramentos e na impetração da bênção pelos ministros,<pos id="2" /> e na integração de concílios por ministros e presbíteros.<pos id="3" /> É de jurisdição, quando exercida coletivamente por oficiais, em concílios,<pos id="4" /> para legislar, julgar, admitir, excluir ou transferir membros e administrar as comunidades.</texto>
+                    <anotacoes pos="1">
+                        <anotacao tipo="referencia">Art. 25, alíneas “a”, “b” e “c”.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="2">
+                        <anotacao tipo="nota">SC – 2018 – DOC. CV: “Batismo, Santa Ceia e Impetração da Bênção Apostólica. O SC/IPB – 2018 resolve: 1. Esclarecer que há uma clara distinção entre ministrar a Palavra e ministrar os sacramentos e a bênção apostólica; 2. Esclarecer que os presbíteros regentes, eleitos pela vontade de Deus e revelados pela assembleia dos santos através do sufrágio livre e direto, são reconhecidos como líderes com funções específicas, sendo-lhes vedado pela constituição da IPB e pelos símbolos de fé a ministração da Ceia, batismo e impetração da bênção; 3. Esclarecer que a tarefa da ministração da Santa Ceia, batismo e impetração da bênção apostólica cabe aos presbíteros docentes, cujo chamado específico deve ser acompanhado do testemunho da Igreja, ainda que haja falta de textos explícitos sobre este assunto”.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="3">
+                        <anotacao tipo="referencia">Art. 14, alínea “d”; art. 36, alínea “g”; arts. 52 e 69.</anotacao>
+                    </anotacoes>
+                    <anotacoes pos="4">
+                        <anotacao tipo="referencia">Art. 59; art. 62, alíneas “a”, “b”, “c” e “d”; arts. 69, 75, 85, 91 e 95.</anotacao>
+                    </anotacoes>
                 </paragrafo>
             </artigo>
         </secao>

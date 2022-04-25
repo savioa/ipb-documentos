@@ -5,18 +5,27 @@
         <title>Estatutos da Igreja Presbiteriana do Brasil</title>
         <meta name="author" content="Igreja Presbiteriana do Brasil" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <style>
             span[data-lang] { font-style: italic; }
             del { text-decoration: line-through }
+            .anotacao, .message-body { display: block; }
+            .posicao { cursor: help; }
             .paragrafo { margin-left: 1rem!important; }
             .capitulo, .secao, .artigo, .caput, .paragrafo { margin-bottom: 1.5rem; }</style>
         <script src="base.js"></script>
     </head>
     <body>
-        <nav aria-label="main navigation" class="navbar is-fixed-bottom is-light is-hidden-mobile">
+        <nav aria-label="main navigation" role="navigation" class="navbar is-fixed-bottom is-light">
+            <div class="navbar-brand">
+                <a aria-label="menu" role="button" aria-expanded="false" class="navbar-burger">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
@@ -30,17 +39,25 @@
                             <a class="navbar-item" href="#c6">VI - Disposições Finais</a>
                         </div>
                     </div>
+                    <div class="navbar-item has-dropdown has-dropdown-up is-hoverable">
+                        <a href="#" class="navbar-link">Opções</a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-item">
+                                <label class="checkbox"><input type="checkbox" autocomplete="off" id="mostrar_versoes" />Apresentar versões obsoletas</label>
+                            </div>
+                            <div class="navbar-item">
+                                <label class="checkbox"><input type="checkbox" autocomplete="off" id="mostrar_anotacoes" checked="checked" />Apresentar anotações</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="text" placeholder="Vá para um artigo" id="ir" />
+                                <input class="input" type="text" placeholder="Vá para um artigo" id="ir" title="Ctrl + I" />
                             </div>
                         </div>
-                    </div>
-                    <div class="navbar-item">
-                        <label class="checkbox"><input type="checkbox" id="mostrar_versoes" /> Apresentar versões obsoletas</label>
                     </div>
                 </div>
             </div>
@@ -48,8 +65,8 @@
         <section class="section">
             <div class="container">
                 <h1 class="title is-1 has-text-centered">Estatutos da Igreja Presbiteriana do Brasil</h1>
-                <h2 class="title is-3 has-text-centered is-hidden-tablet">Índice</h2>
-                <ul class="content is-hidden-tablet">
+                <h2 class="title is-3 has-text-centered">Índice</h2>
+                <ul class="content">
                     <li>
                         <a href="#c1">I - Definição e Fins</a>
                     </li>
@@ -265,5 +282,10 @@
                 </section>
             </div>
         </section>
+        <div id="modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content"></div>
+            <button aria-label="close" class="modal-close is-large"></button>
+        </div>
     </body>
 </html>
