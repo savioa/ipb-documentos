@@ -88,6 +88,26 @@
                                         <xsd:documentation>Estatutos</xsd:documentation>
                                     </xsd:annotation>
                                 </xsd:enumeration>
+                                <xsd:enumeration value="pl">
+                                    <xsd:annotation>
+                                        <xsd:documentation>Princípios de Liturgia</xsd:documentation>
+                                    </xsd:annotation>
+                                </xsd:enumeration>
+                                <xsd:enumeration value="cd">
+                                    <xsd:annotation>
+                                        <xsd:documentation>Código de Disciplina</xsd:documentation>
+                                    </xsd:annotation>
+                                </xsd:enumeration>
+                                <xsd:enumeration value="meil">
+                                    <xsd:annotation>
+                                        <xsd:documentation>Modelo de Estatuto para Igreja Local</xsd:documentation>
+                                    </xsd:annotation>
+                                </xsd:enumeration>
+                                <xsd:enumeration value="mep">
+                                    <xsd:annotation>
+                                        <xsd:documentation>Modelo de Estatuto para o Presbitério</xsd:documentation>
+                                    </xsd:annotation>
+                                </xsd:enumeration>
                             </xsd:restriction>
                         </xsd:simpleType>
                     </xsd:attribute>

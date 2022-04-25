@@ -28,7 +28,7 @@ ESCAPE_ENDC = '\033[0m'
 
 NS = '{https://savioa.github.io/ipb-documentos}'
 
-REGEX_DOCUMENTOS = r'(__(constituicao.html|estatutos.html)__)?'
+REGEX_DOCUMENTOS = r'(__(constituicao.html|estatutos.html|principios_de_liturgia.html|codigo_de_disciplina.html|modelo_de_estatuto_para_igreja_local.html|modelo_de_estatuto_para_o_presbiterio.html)__)?'
 
 
 class Documento:
@@ -764,7 +764,7 @@ class BlocoAnotacoes:
 
         tag = html['tag']
 
-        with tag('span', ('data-posicao', self.posicao), klass='bloco_anotacoes box is-hidden'):
+        with tag('span', ('data-posicao', self.posicao), klass='bloco_anotacoes box'):
             for anotacao in self.anotacoes:
                 anotacao.gerar_html(html)
 
@@ -907,6 +907,29 @@ class Utilitario:
 
             texto = texto.replace(ocorrencia_artigos.group(0), texto_final)
 
+        texto = re.sub(
+            r'((SC|SC\/IPB|SC-E|CE|CE-SC\/IPB) – \d{4} – DOC. [IVXLCDM]+)',
+            r'<strong>\1</strong>',
+            texto)
+
+        texto = re.sub(
+            REGEX_DOCUMENTOS +
+            r'artigos (\d+) a (\d+)',
+            r'artigos <a href="\2#a\3">\3</a> a <a href="\2#a\4">\4</a>',
+            texto)
+
+        texto = re.sub(
+            REGEX_DOCUMENTOS +
+            r'(A|a)rts\. (\d+) a (\d+)',
+            r'\3rts. <a href="\2#a\4">\4</a> a <a href="\2#a\5">\5</a>',
+            texto)
+
+        texto = re.sub(
+            REGEX_DOCUMENTOS +
+            r'artigo (\d{1,3})(º)?',
+            r'<a href="\2#a\3">artigo \3\4</a>',
+            texto)
+
         return re.sub(
             REGEX_DOCUMENTOS +
             r'(a|A)rt\. (\d{1,3})(º)?',
@@ -939,4 +962,10 @@ class Utilitario:
             str: Identificador completo do documento.
         """
 
-        return sigla.replace('ci', 'constituicao').replace('es', 'estatutos')
+        return sigla.replace(
+            'ci', 'constituicao').replace(
+                'es', 'estatutos').replace(
+                    'pl', 'principios_de_liturgia').replace(
+                        'cd', 'codigo_de_disciplina').replace(
+                            'meil', 'modelo_de_estatuto_para_igreja_local').replace(
+                                'mep', 'modelo_de_estatuto_para_o_presbiterio')
